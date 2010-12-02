@@ -1,0 +1,47 @@
+.ui-dateplustimepicker-div .ui-widget-header { margin-bottom: 0.8em; }
+
+.ui-dateplustimepicker-div {
+	text-align: left;
+	margin: 0.6em;
+}
+
+.ui-dateplustimepicker-time {
+	height: 2em;
+	clear: both;
+}
+
+.ui-dateplustimepicker-hour,
+.ui-dateplustimepicker-minute,
+.ui-dateplustimepicker-second {
+	height: 3em;
+	clear: both;
+}
+
+.ui-dateplustimepicker-label {
+	font-weight: bold;
+	font-size: 0.8em;
+	overflow: hidden;
+}
+
+.ui-dateplustimepicker-time-label {
+	float: left;
+	margin-right: 0.8em;
+}
+
+.ui-dateplustimepicker-value {
+	font-style: italic;
+}
+
+.ui-dateplustimepicker-grid table {
+	width: 100%;
+}
+
+.ui-dateplustimepicker-grid td {
+	overflow: hidden;
+}
+
+.ui-dateplustimepicker-grid td span {
+	width: 0.5em;
+	font-size: 0.6em;
+	cursor: pointer;
+}

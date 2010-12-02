@@ -1,0 +1,22 @@
+jQuery DateplusTimePicker
+Version 0.1
+By Fernando San Julián
+Copyright 2010 Fernando San Julián
+Dual Licensed under the MIT and GPL licenses.
+http://www.opensource.org/licenses/mit-license.php
+http://www.gnu.org/licenses/gpl.html
+
+== Description ==
+
+The jQuery Dateplustimepicker is a highly configurable plugin that extends datepicker
+adding time functionality.
+
+== Requirements ==
+
+jQuery
+jQuery UI Core
+jQuery UI Datepicker
+
+== Usage ==
+
+In demo folder you can find an html file with several demos and a complete documention.

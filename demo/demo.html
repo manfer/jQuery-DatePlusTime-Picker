@@ -1,0 +1,2568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Dateplustime Picker Demos and Documentation</title>
+	<meta name="author" content="Fernando San Julián Sánchez">
+	
+	<link rel="stylesheet" href="css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="prettify/prettify.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="../css/jquery-dateplustimepicker.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/jquery-dateplustimepicker.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/demo.js"></script>
+	<script type="text/javascript" charset="utf-8" src="prettify/prettify.js"></script>
+	<script type="text/javascript"
+	  src="http://jqueryui.com/themeroller/themeswitchertool/">
+	</script>
+	<script>
+		$(document).ready(function() {
+			var demosShowing = true;
+			$("#dateplustimepicker-documentation").hide();
+			$("#showdem").click(function() {
+				if (demosShowing) return;
+				$("#showdoc").removeClass("inview").addClass("outofview");
+				$("#showdem").addClass("inview").removeClass("outofview");
+				$("#dateplustimepicker-demos").show();
+				$("#dateplustimepicker-documentation").hide();
+				demosShowing = true;
+			});
+			$("#showdoc").click(function() {
+				if (!demosShowing) return;
+				$("#showdem").removeClass("inview").addClass("outofview");
+				$("#showdoc").addClass("inview").removeClass("outofview");
+				$("#dateplustimepicker-documentation").show();
+				$("#dateplustimepicker-demos").hide();
+				demosShowing = false;
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+	<div id="header">
+		<div id="theme-switcher"></div>
+		<div id="title"><span>jQuery</span> Date<span>plus</span>TimePicker</div>
+	</div>
+	
+	<div id="toggledemdoc">
+	<a href="#" id="showdem" class="inview">Demos</a> / <a href="#" id="showdoc" class="outofview">Documentation</a>
+	</div>
+
+	<div id="dateplustimepicker-demos">
+		<div id="demos-accordion">
+			<h3><a href="#">Display in Dialog</a></h3>
+			<div>
+				<p>A Date Plus Time picker inside a dialog. Click the open dialog button to open the modal dialog. Use the get buttons to retrieve what is selected in the picker.</p>
+				<button type="button" id="displayDialog-button">Open Dialog</button>
+				<button type="button" id="getDate-button">Get Date</button>
+				<button type="button" id="getTime-button">Get Time</button>
+				<button type="button" id="getDatetime-button">Get Date and Time</button>
+				<br /><br /><label id="datetime-display"></label>
+			</div>
+			<h3><a href="#">Display inline</a></h3>
+			<div>
+				<div id="inline-dateplustimepicker"></div>
+			</div>
+			<h3><a href="#">Time limits</a></h3>
+			<div>
+				<p>A Date Plus Time picker can be configured with time limits. In this demo the min time is 8:30am and max time is 8:00pm so you can't select times outside that range.</p>
+				<input type="text" id="limit-dateplustimepicker" name="limit-dateplustimepicker" />
+			</div>
+			<h3><a href="#">Step</a></h3>
+			<div>
+				<p>A Date Plus Time picker can be configured with a step. When step is configured you can select times only in steps from min time to max time. In this demo the step is 1hour 5minutes and 30seconds, min time is 9:00:00 and max time is 15:00:00 so the allowed values are 9:00:00, 10:05:30, 11:11:00, 12:16:30, 13:22:00, 14:27:30.</p>
+				<p>I have chosen for the demo such a step so you can see how it works. Normally the step would be something more intuitive like 15min.</p>
+				<input type="text" id="step-dateplustimepicker" name="step-dateplustimepicker" />
+			</div>
+			<h3><a href="#">Display in multiple months</a></h3>
+			<div>
+				<p>When the picker show multiple months, the time is shown once behind all months.</p>
+				<input type="text" id="multimonth-dateplustimepicker" name="multimonth-dateplustimepicker" />
+			</div>
+			<h3><a href="#">Show grids</a></h3>
+			<div>
+				<p>Show a grid under the hours, minutes or seconds sliders.</p>
+				<input type="text" id="grid-dateplustimepicker" name="grid-dateplustimepicker" />
+			</div>
+			<h3><a href="#">Format Time</a></h3>
+			<div>
+				<p>Configure the format in which you want to display the time.</p>
+				<input type="text" id="format-dateplustimepicker" name="format-dateplustimepicker" />
+				<select id="format-switcher">
+					<option value="hh:mm tt">Default format (12hours) - hh:mm tt</option>
+					<option value="Thh:mm">Prev 12hours - Thh:mm</option>
+					<option value="hh:mm:ss">24hours format - hh:mm:ss</option>
+					<option value="h:m">No leading 0 - h:m</option>
+					<option value="mm:ss">No hours - mm:ss</option>
+				</select>
+			</div>
+			<h3><a href="#">Only time</a></h3>
+			<div>
+				<p>A picker with time selection only.</p>
+				<input type="text" id="timeonly-dateplustimepicker" name="timeonly-dateplustimepicker" />
+			</div>
+			<h3><a href="#">Populate Alternative Field</a></h3>
+			<div>
+				<p>As date picker you can use an alternative field to display the datetime in a different format. Use altTimeFormat to define the alternative time format.</p>
+				<label for="withalt-dateplustimepicker">Datetime:</label>
+				<input type="text" size="25" id="withalt-dateplustimepicker" name="withalt-dateplustimepicker" />
+				<label for="withalt-dateplustimepicker-altField">In alt format:</label>
+				<input type="text" size="25" id="withalt-dateplustimepicker-altField" name="withalt-dateplustimepicker-altField" />
+			</div>
+			<h3><a href="#">Alternative Time Field</a></h3>
+			<div>
+				<p>You can configure an alternative field to show the time with the altTimeField option.</p>
+				<label for="withAltTime-dateplustimepicker">Date:</label>
+				<input type="text" id="withAltTime-dateplustimepicker" name="withAltTime-dateplustimepicker" />
+				<label for="withAltTime-dateplustimepicker-alt">Time:</label>
+				<input type="text" id="withAltTime-dateplustimepicker-alt" name="withAltTime-dateplustimepicker-alt" />
+			</div>
+		</div>
+	</div>
+
+	<div id="dialog">
+		<label for="indialog-dateplustimepicker"><strong>Datetime:</strong></label><br /><input id="indialog-dateplustimepicker" name="indialog-dateplustimepicker" />
+	</div>
+
+
+	<div id="dateplustimepicker-documentation">
+
+	<div class="UIAPIPlugin" id="widget-docs">
+		<ul>
+			<li><a href="#overview">Overview</a></li>
+			<li><a href="#options">Options</a></li>
+			<li><a href="#events">Events</a></li>
+			<li><a href="#methods">Methods</a></li>
+			<li><a href="#theming">Theming</a></li>
+		</ul>
+
+		<div id="overview">
+
+			<div id="overview-main">
+				<p>The jQuery Dateplustimepicker is a highly configurable plugin that extends datepicker adding date and time picker functionality to your pages. You can customize the date/time format and language, restrict the selectable date/time ranges and add in buttons and other navigation options easily.</p>
+				<p>By default, the dateplustimepicker calendar opens in a small overlay onFocus and closes automatically onBlur. For an inline calendar, simply attach the dateplustimepicker to a div or span.</p>
+				<p>You can use keyboard shortcuts provided by datepicker to drive the date:</p>
+				<ul>
+					<li>page up/down - previous/next month</li>
+					<li>ctrl+page up/down - previous/next year</li>
+					<li>ctrl+home - current month or open when closed</li>
+					<li>ctrl+left/right - previous/next day</li>
+					<li>ctrl+up/down - previous/next week</li>
+					<li>enter - accept the selected date</li>
+					<li>ctrl+end - close and erase the date</li>
+					<li>escape - close the datepicker without selection</li>
+				</ul>
+
+				<a name="Utility_functions"></a>
+				<h3 id="utility-functions">Utility functions</h3>
+
+				<ul>
+					<li>$.dateplustimepicker.setDefaults( settings ) - Set settings for all dateplustimepicker instances.</li>
+				</ul>
+				<p>If you need date functions you can use those ones provided by datepicker</p>
+				<ul>
+					<li><a href="http://docs.jquery.com/UI/Datepicker/formatDate" title="UI/Datepicker/formatDate">$.datepicker.formatDate( format, date, settings )</a> - Format a date into a string value with a specified format.</li>
+					 <li><a href="http://docs.jquery.com/UI/Datepicker/parseDate" title="UI/Datepicker/parseDate">$.datepicker.parseDate( format, value, settings ) </a> - Extract a date from a string value with a specified format.</li>
+					 <li><a href="http://docs.jquery.com/UI/Datepicker/iso8601Week" title="UI/Datepicker/iso8601Week">$.datepicker.iso8601Week( date )</a> - Determine the week of the year for a given date: 1 to 53.</li>
+					 <li><a href="http://docs.jquery.com/UI/Datepicker/noWeekends" title="UI/Datepicker/noWeekends">$.datepicker.noWeekends</a> - Set as beforeShowDay function to prevent selection of weekends.</li>
+				</ul>
+
+				<a name="Localization"></a>
+				<h3>Localization</h3>
+
+				<p>Dateplustimepicker provides support for localizing its content to cater for different languages and time formats. Each localization is contained within its own file with the	language code appended to the name, e.g. <i>jquery.dateplustimepicker-es.js</i> for Spanish. The desired localization file should be include after the main dateplustimepicker code. They add their settings to the set of available localizations and automatically apply them as defaults for all instances.</p>
+				<p>The <i>$.dateplustimepicker.regional</i> attribute holds an array of localizations, indexed by language code, with '' referring to the default (English). Each entry is an object with the following attributes: <i>currentText, hourText, minuteText, secondText, timeFormat, timeOnlyTitle and timeText</i>.</p>
+				<p>You can restore the default localizations with:</p>
+				<p><i>$.dateplustimepicker.setDefaults($.dateplustimepicker.regional['']);</i></p>
+				<p>And can then override an individual dateplustimepicker for a specific locale:</p>
+				<p><i>$(selector).dateplustimepicker($.dateplustimepicker.regional['es']);</i></p>
+
+				<p>To localize the date use datetimepicker localization files.</p>
+				<p>Datepicker provides support for localizing its content to cater for different languages and date formats. Each localization is contained within its own file with the	language code appended to the name, e.g. <i>jquery.ui.datepicker-fr.js</i> for French.	The desired localization file should be include after the main datepicker code. They add their settings to the set of available localizations and automatically apply them as defaults for all instances.</p>
+				<p>The <i>$.datepicker.regional</i> attribute holds an array of localizations, indexed by language code, with '' referring to the default (English). Each entry is an object with the following attributes: <i>closeText, prevText, nextText, currentText, monthNames, monthNamesShort, dayNames, dayNamesShort, dayNamesMin, weekHeader, dateFormat, firstDay, isRTL, showMonthAfterYear and yearSuffix</i>.</p>
+				<p>You can restore the default localizations with:</p>
+				<p><i>$.datepicker.setDefaults($.datepicker.regional['']);</i></p>
+				<p>And can then override an individual dateplustimepicker for a specific locale:</p>
+				<p><i>$(selector).datepicker($.datepicker.regional['fr']);</i></p>
+				The localization files are also available in the UI svn: <a href="http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/" class="external free" title="http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/">http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/</a>
+			</div>
+
+			<div id="overview-dependencies">
+
+				<h3>Dependencies</h3>
+				<ul>
+					<li>UI Core</li>
+					<li>UI Datepicker</li>
+				</ul>
+			</div>
+
+			<div id="overview-example">
+				<h3>Example</h3>
+				<div id="overview-example-tabs" class="example">
+
+					<ul>
+						<li><a href="#demo"><span>Demo</span></a></li>
+						<li><a href="#source"><span>View Source</span></a></li>
+					</ul>
+					<div id="demo" class="tabs-container">
+						<p>
+							A simple jQuery Date Plus Time picker.<br />
+						</p>
+						<pre class="prettyprint lang-js"><code>$(&quot;#dateplustimepicker&quot;).dateplustimepicker();</code></pre>
+						<div id="simple-dateplustimepicker"></div>
+					</div>
+					<div id="source" class="tabs-container">
+						<p></p>
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+ &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+ &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+ &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+
+ &lt;script&gt;
+ $(document).ready(function() {
+   $(&quot;#dateplustimepicker&quot;).dateplustimepicker();
+ });
+ &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;div type=&quot;text&quot; id=&quot;dateplustimepicker&quot;&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+					
+	<div id="options">
+
+		<h2 class="top-header">Options</h2>
+		<p><i>* Some options are inherited from datepicker.</i></p>
+
+		<ul class="options-list">
+
+			<li class="option" id="option-altTimeField">
+				<div class="option-header">
+					<h3 id="option-prueba" class="option-name"><a href="#option-altTimeField">altTimeField</a></h3>
+						<dl>
+							<dt class="option-type-label">Type:</dt>
+							<dd class="option-type">Selector, jQuery, Element</dd>
+							<dt class="option-default-label">Default:</dt>
+							<dd class="option-default">''</dd>
+						</dl>
+					</div>
+
+					<div class="option-description">
+						<p>The jQuery selector for another field that is to be updated with the selected time from the dateplustimepicker. Use the <a href="#option-timeFormat" title="UI/Datepicker">timeFormat</a> setting to change the format of the time within this field. Leave as blank for no alternate time field.</p>
+					</div>
+
+					<div class="option-examples">
+						<h4>Code examples</h4>
+						<dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the altTimeField option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ altTimeField: '#actualTime' });</code></pre></dd>
+							<dt>Get or set the altTimeField option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var altTimeField = $(".selector").dateplustimepicker( "option", "altTimeField" );
+//setter
+$(".selector").dateplustimepicker( "option", "altTimeField", "#actualTime" );</code></pre></dd>
+						</dl>
+					</div>
+				</li>
+
+					<li class="option" id="option-altTimeFormat">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-altTimeFormat">altTimeFormat</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">String</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">''</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>The <a href="#option-timeFormat" title="UI/Datepicker">timeFormat</a> to be used for the <a href="#option-altField" title="UI/Datepicker">altField</a> option. This allows one time format to be shown to the user for selection purposes, while a different format is actually sent behind the scenes. For a full list of the possible formats see the <a href="#option-timeFormat">timeFormat</a> attribute.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the altTimeFormat option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ altTimeFormat: 'hh:mm TT' });</code></pre></dd>
+								<dt>Get or set the altTimeFormat option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var altTimeFormat = $(".selector").dateplustimepicker( "option", "altTimeFormat" );
+//setter
+$(".selector").dateplustimepicker( "option", "altTimeFormat", 'hh:mm TT' );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-defaultTime">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-defaultTime">defaultTime</a></h3>
+	    					<dl>
+								<dt class="option-type-label">Type:</dt>
+			  					<dd class="option-type">Time, Number</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">{ hours: 0, minutes: 0, seconds: 0 }</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+			    			<p>Set the time to set on first opening if the field is blank. Specify either an actual time via a Time object or as a number of seconds.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the defaultTime option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ defaultTime: { hours: 15 }  });</code></pre></dd>
+								<dt>Get or set the defaultTime option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var defaultTime = $(".selector").dateplustimepicker( "option", "defaultTime" );
+//setter
+$(".selector").dateplustimepicker( "option", "defaultTime", {
+	hours: 10,
+	minutes: 15,
+	seconds: 30 } );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-hourGrid">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-hourGrid">hourGrid</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">Number</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">0</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>You can enable a grid behind the hours slider. This value sets the step for the grid. If its value is 0, no grid would be displayed.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the hourGrid option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ hourGrid: 4 });</code></pre></dd>
+								<dt>Get or set the hourGrid option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var hourGrid = $(".selector").dateplustimepicker( "option", "hourGrid" );
+//setter
+$(".selector").dateplustimepicker( "option", "hourGrid", 4 );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-hourText">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-hourText">hourText</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">String</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">'Hours'</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>The text to display as label for the hours slider. This attribute is one of the regionalisation attributes.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the hourText option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ hourText: 'horas' });</code></pre></dd>
+								<dt>Get or set the hourText option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var hourText = $(".selector").dateplustimepicker( "option", "hourText" );
+//setter
+$(".selector").dateplustimepicker( "option", "hourText", 'horas' );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-maxTime">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-maxTime">maxTime</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+			        			<dd class="option-type">Time, Number</dd>
+	      						<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">{ hours: 23, minutes: 59, seconds: 59 }</dd>
+	    					</dl>
+		  				</div>
+
+	  					<div class="option-description">
+							<p>Set a maximum selectable time via a Time object or as a number of seconds. The Time object can be specified with hours and/or minutes and/seconds.</p>
+	  					</div>
+
+			 		<div class="option-examples">
+						<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the maxTime option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ maxTime: { hours: 18, minutes: 30 }  });</code></pre></dd>
+								<dt>Get or set the maxTime option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var maxTime = $(".selector").dateplustimepicker( "option", "maxTime" );
+//setter
+$(".selector").dateplustimepicker( "option", "maxTime", { hours: 20 } );</code></pre></dd>
+		   					</dl>
+		 				</div>
+					</li>
+
+					<li class="option" id="option-minTime">
+						<div class="option-header">
+		   					<h3 class="option-name"><a href="#option-minTime">minTime</a></h3>
+			   				<dl>
+								<dt class="option-type-label">Type:</dt>
+		  						<dd class="option-type">Time, Number</dd>
+		      					<dt class="option-default-label">Default:</dt>
+		      					<dd class="option-default">{ hours: 0, minutes: 0, seconds: 0 }</dd>
+		   					</dl>
+						</div>
+
+						<div class="option-description">
+							<p>Set a minimum selectable time via a Time object or as a number of seconds. The Time object can be specified with hours and/or minutes and/seconds.</p>
+						</div>
+
+						<div class="option-examples">
+	  						<h4>Code examples</h4>
+		  					<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the minTime option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ minTime: { hours: 9 } });</code></pre></dd>
+								<dt>Get or set the minTime option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var minTime = $(".selector").dateplustimepicker( "option", "minTime" );
+//setter
+$(".selector").dateplustimepicker( "option", "minTime", 0 );</code></pre></dd>
+  							</dl>
+		  				</div>
+					</li>
+
+					<li class="option" id="option-minuteGrid">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-minuteGrid">minuteGrid</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">Number</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">0</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>You can enable a grid behind the minutes slider. This value sets the step for the grid. If its value is 0, no grid would be displayed.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the minuteGrid option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ minuteGrid: 10 });</code></pre></dd>
+								<dt>Get or set the minuteGrid option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var minuteGrid = $(".selector").dateplustimepicker( "option", "minuteGrid" );
+//setter
+$(".selector").dateplustimepicker( "option", "minuteGrid", 10 );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+										
+					<li class="option" id="option-minuteText">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-minuteText">minuteText</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">String</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">'Minutes'</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>The text to display as label for the minutes slider. This attribute is one of the regionalisation attributes.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the minuteText option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ minuteText: 'minutos' });</code></pre></dd>
+								<dt>Get or set the minuteText option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var minuteText = $(".selector").dateplustimepicker( "option", "minuteText" );
+//setter
+$(".selector").dateplustimepicker( "option", "minuteText", 'minutos' );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-secondGrid">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-secondGrid">secondGrid</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">Number</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">0</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>You can enable a grid behind the seconds slider. This value sets the step for the grid. If its value is 0, no grid would be displayed.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the secondGrid option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ secondGrid: 15 });</code></pre></dd>
+								<dt>Get or set the secondGrid option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var secondGrid = $(".selector").dateplustimepicker( "option", "secondGrid" );
+//setter
+$(".selector").dateplustimepicker( "option", "secondGrid", 15 );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-secondText">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-secondText">secondText</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">String</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">'Seconds'</dd>
+							</dl>
+						</div>
+
+						<div class="option-description">
+							<p>The text to display as label for the seconds slider. This attribute is one of the regionalisation attributes.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the secondText option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ secondText: 'segundos' });</code></pre></dd>
+								<dt>Get or set the secondText option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var secondText = $(".selector").dateplustimepicker( "option", "secondText" );
+//setter
+$(".selector").dateplustimepicker( "option", "secondText", 'segundos' );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+					<li class="option" id="option-showTime">
+						<div class="option-header">
+							<h3 class="option-name"><a href="#option-showTime">showTime</a></h3>
+							<dl>
+								<dt class="option-type-label">Type:</dt>
+								<dd class="option-type">Boolean</dd>
+								<dt class="option-default-label">Default:</dt>
+								<dd class="option-default">false</dd>
+							</dl>
+						</div>
+							
+						<div class="option-description">
+							<p>Enables (true) or disables (false) the time display above the sliders.</p>
+						</div>
+
+						<div class="option-examples">
+							<h4>Code examples</h4>
+							<dl class="option-examples-list">
+								<dt>Initialize a dateplustimepicker with the showTime option specified.</dt>
+								<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showTime: true });</code></pre></dd>
+								<dt>Get or set the showTime option, after init.</dt>
+								<dd><pre class="prettyprint lang-js"><code>//getter
+var showTime = $(".selector").dateplustimepicker( "option", "showTime" );
+//setter
+$(".selector").dateplustimepicker( "option", "showTime", true );</code></pre></dd>
+							</dl>
+						</div>
+					</li>
+
+						<li class="option" id="option-step">
+							<div class="option-header">
+								<h3 class="option-name"><a href="#option-step">step</a></h3>
+								<dl>
+									<dt class="option-type-label">Type:</dt>
+				   					<dd class="option-type">Time, Number</dd>
+									<dt class="option-default-label">Default:</dt>
+									<dd class="option-default">{ hours: 0, minutes: 0, seconds: 1 }</dd>
+								</dl>
+							</div>
+
+							<div class="option-description">
+								<p>Set a step to configure the allowed selectable time via a Time object or as a number of seconds. The Time object can be specified with hours and/or minutes and/seconds. When step is configured you can select times only in steps from min time to max time.</p>
+							</div>
+
+							<div class="option-examples">
+								<h4>Code examples</h4>
+								<dl class="option-examples-list">
+									<dt>Initialize a dateplustimepicker with the step option specified.</dt>
+									<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ step: { minute: 30 }  });</code></pre></dd>
+									<dt>Get or set the step option, after init.</dt>
+									<dd><pre class="prettyprint lang-js"><code>//getter
+var step = $(".selector").dateplustimepicker( "option", "step" );
+//setter
+$(".selector").dateplustimepicker( "option", "step", { hours: 2 } );</code></pre></dd>
+		   						</dl>
+							</div>
+						</li>
+
+						<li class="option" id="option-timeFormat">
+							<div class="option-header">
+								<h3 class="option-name"><a href="#option-timeFormat">timeFormat</a></h3>
+								<dl>
+									<dt class="option-type-label">Type:</dt>
+									<dd class="option-type">String</dd>
+									<dt class="option-default-label">Default:</dt>
+									<dd class="option-default">'hh:mm tt'</dd>
+								</dl>
+							</div>
+
+							<div class="option-description">
+								<p>The <a href="#option-timeFormat">timeFormat</a> to be used for the dateplustimepicker. This attribute is one of the regionalisation attributes. The format can be combinations of the following:</p>
+								<ul>
+									<li>h  - hour (no leading zero)</li>
+									<li>hh - hour (two digit)</li>
+									<li>m  - minutes (no leading zero)</li>
+									<li>mm - minutes (two digit)</li>
+									<li>s  - seconds (no leading zero)</li>
+									<li>ss - seconds (two digit)</li>
+									<li>t  - a for AM, p for PM</li>
+									<li>tt - am for AM, pm for PM</li>
+									<li>T  - A for AM, P for PM</li>
+									<li>TT - AM for AM, PM for PM</li>
+								</ul>
+								<p>Allowed separator characters ':' or '.' Optional t|tt|T|TT separator ' '</p>
+
+							</div>
+
+							<div class="option-examples">
+								<h4>Code examples</h4>
+								<dl class="option-examples-list">
+									<dt>Initialize a dateplustimepicker with the timeFormat option specified.</dt>
+									<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ 'hh:mm tt' });</code></pre></dd>
+									<dt>Get or set the timeFormat option, after init.</dt>
+									<dd><pre class="prettyprint lang-js"><code>//getter
+var timeFormat = $(".selector").dateplustimepicker( "option", "timeFormat" );
+//setter
+$(".selector").dateplustimepicker( "option", "timeFormat", 'hh:mm:ss' );</code></pre></dd>
+		   						</dl>
+							</div>
+						</li>
+
+						<li class="option" id="option-timeOnly">
+							<div class="option-header">
+								<h3 class="option-name"><a href="#option-timeOnly">timeOnly</a></h3>
+								<dl>
+									<dt class="option-type-label">Type:</dt>
+									<dd class="option-type">Boolean</dd>
+									<dt class="option-default-label">Default:</dt>
+									<dd class="option-default">false</dd>
+								</dl>
+							</div>
+
+							<div class="option-description">
+								<p>Configure an only time picker (true) or a date and time picker (false).</p>
+							</div>
+
+							<div class="option-examples">
+								<h4>Code examples</h4>
+								<dl class="option-examples-list">
+									<dt>Initialize a dateplustimepicker with the timeOnly option specified.</dt>
+									<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ timeOnly: true  });</code></pre></dd>
+									<dt>Get or set the timeOnly option, after init.</dt>
+									<dd><pre class="prettyprint lang-js"><code>//getter
+var timeOnly = $(".selector").dateplustimepicker( "option", "timeOnly" );
+//setter
+$(".selector").dateplustimepicker( "option", "timeOnly", true );</code></pre></dd>
+								</dl>
+							</div>
+						</li>
+
+						<li class="option" id="option-timeOnlyTitle">
+							<div class="option-header">
+								<h3 class="option-name"><a href="#option-timeOnlyTitle">timeOnlyTitle</a></h3>
+								<dl>
+									<dt class="option-type-label">Type:</dt>
+									<dd class="option-type">String</dd>
+									<dt class="option-default-label">Default:</dt>
+									<dd class="option-default">'Choose Time'</dd>
+								</dl>
+							</div>
+
+							<div class="option-description">
+								<p>Text to display as the title for an only time picker. This attribute is one of the regionalisation attributes.</p>
+							</div>
+
+							<div class="option-examples">
+								<h4>Code examples</h4>
+								<dl class="option-examples-list">
+									<dt>Initialize a dateplustimepicker with the timeOnlyTitle option specified.</dt>
+									<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ timeOnlyTitle: 'Selecciona la Hora'  });</code></pre></dd>
+									<dt>Get or set the timeOnlyTitle option, after init.</dt>
+									<dd><pre class="prettyprint lang-js"><code>//getter
+var timeOnlyTitle = $(".selector").dateplustimepicker( "option", "timeOnlyTitle" );
+//setter
+$(".selector").dateplustimepicker( "option", "timeOnlyTitle", 'Selecciona la Hora' );</code></pre></dd>
+								</dl>
+							</div>
+						</li>
+
+						<li class="option" id="option-timeText">
+							<div class="option-header">
+								<h3 class="option-name"><a href="#option-timeText">timeText</a></h3>
+								<dl>
+									<dt class="option-type-label">Type:</dt>
+									<dd class="option-type">String</dd>
+									<dt class="option-default-label">Default:</dt>
+									<dd class="option-default">'Time'</dd>
+								</dl>
+							</div>
+
+							<div class="option-description">
+								<p>The text to display as label for the time display. This attribute is one of the regionalisation attributes.</p>
+							</div>
+
+							<div class="option-examples">
+								<h4>Code examples</h4>
+								<dl class="option-examples-list">
+									<dt>Initialize a dateplustimepicker with the timeText option specified.</dt>
+									<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ timeText: 'Hora' });</code></pre></dd>
+									<dt>Get or set the timeText option, after init.</dt>
+									<dd><pre class="prettyprint lang-js"><code>//getter
+var timeText = $(".selector").dateplustimepicker( "option", "timeText" );
+//setter
+$(".selector").dateplustimepicker( "option", "timeText", 'Hora' );</code></pre></dd>
+								</dl>
+							</div>
+						</li>
+		</ul>
+
+		<div class="ui-helper-clearfix"></div>
+		<h2 class="inherited-header">Inherited from datepicker</h2>
+
+		<ul class="options-list">
+
+			<li class="option" id="option-disabled">
+
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-disabled">disabled</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">Boolean</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">false</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+					<p>Disables (true) or enables (false) the dateplustimepicker. Can be set when initialising (first creating) the dateplustimepicker.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the disabled option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ disabled: true });</code></pre></dd>
+						<dt>Get or set the disabled option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var disabled = $(".selector").dateplustimepicker( "option", "disabled" );
+//setter
+$(".selector").dateplustimepicker( "option", "disabled", true );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-altField">
+
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-altField">altField</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">Selector, jQuery, Element</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">''</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+					<p>The jQuery selector for another field that is to be updated with the selected date from the dateplustimepicker. Use the <a href="#option-altFormat" title="UI/Datepicker">altFormat</a> setting to change the format of the date within this field. Leave as blank for no alternate field.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the altField option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ altField: '#actualDate' });</code></pre></dd>
+						<dt>Get or set the altField option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var altField = $(".selector").dateplustimepicker( "option", "altField" );
+//setter
+$(".selector").dateplustimepicker( "option", "altField", '#actualDate' );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-altFormat">
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-altFormat">altFormat</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">String</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">''</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+					<p>The <a href="#option-dateFormat" title="UI/Datepicker">dateFormat</a> to be used for the <a href="#option-altField" title="UI/Datepicker">altField</a> option. This allows one date format to be shown to the user for selection purposes, while a different format is actually sent behind the scenes. For a full list of the possible formats see the <a href="http://docs.jquery.com/UI/Datepicker/formatDate" title="UI/Datepicker/formatDate">formatDate</a> function</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the altFormat option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ altFormat: 'yy-mm-dd' });</code></pre></dd>
+						<dt>Get or set the altFormat option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var altFormat = $(".selector").dateplustimepicker( "option", "altFormat" );
+//setter
+$(".selector").dateplustimepicker( "option", "altFormat", 'yy-mm-dd' );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-appendText">
+
+				<div class="option-header">
+				    <h3 class="option-name"><a href="#option-appendText">appendText</a></h3>
+				    <dl>
+						<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+						<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">''</dd>
+				    </dl>
+				</div>
+
+				<div class="option-description">
+					<p>The text to display after each date field, e.g. to show the required format.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the appendText option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ appendText: '(yyyy-mm-dd)' });</code></pre></dd>
+						<dt>Get or set the appendText option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var appendText = $(".selector").dateplustimepicker( "option", "appendText" );
+//setter
+$(".selector").dateplustimepicker( "option", "appendText", '(yyyy-mm-dd)' );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-autoSize">
+
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-autoSize">autoSize</a></h3>
+				    <dl>
+						<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+						<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">false</dd>
+				    </dl>
+				</div>
+
+				<div class="option-description">
+					<p>Set to true to automatically resize the input field to accomodate dates in the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a>.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the autoSize option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ autoSize: true });</code></pre></dd>
+						<dt>Get or set the autoSize option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var autoSize = $(".selector").dateplustimepicker( "option", "autoSize" );
+//setter
+$(".selector").dateplustimepicker( "option", "autoSize", true );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-buttonImage">
+				<div class="option-header">
+				    <h3 class="option-name"><a href="#option-buttonImage">buttonImage</a></h3>
+				    <dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">String</dd>
+						<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">''</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+					<p>The URL for the popup button image. If set, <a href="http://docs.jquery.com/UI/Datepicker#option-buttonText" title="UI/Datepicker">buttonText</a> becomes the <i>alt</i> value and is not directly displayed.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the buttonImage option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ buttonImage: '/images/dateplustimepicker.gif' });</code></pre></dd>
+						<dt>Get or set the buttonImage option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var buttonImage = $(".selector").dateplustimepicker( "option", "buttonImage" );
+//setter
+$(".selector").dateplustimepicker( "option", "buttonImage", '/images/dateplustimepicker.gif' );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-buttonImageOnly">
+
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-buttonImageOnly">buttonImageOnly</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">Boolean</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">false</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+					    <p>Set to true to place an image after the field to use as the trigger without it appearing on a button.</p>
+					</div>
+
+					<div class="option-examples">
+					    <h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the buttonImageOnly option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ buttonImageOnly: true });</code></pre></dd>
+							<dt>Get or set the buttonImageOnly option, after init.</dt>	
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var buttonImageOnly = $(".selector").dateplustimepicker( "option", "buttonImageOnly" );
+//setter
+$(".selector").dateplustimepicker( "option", "buttonImageOnly", true );</code></pre></dd>
+						</dl>
+	 				</div>
+				</li>
+
+				<li class="option" id="option-buttonText">
+
+					<div class="option-header">
+			    		<h3 class="option-name"><a href="#option-buttonText">buttonText</a></h3>
+			    		<dl>
+					      	<dt class="option-type-label">Type:</dt>
+					        <dd class="option-type">String</dd>
+					      	<dt class="option-default-label">Default:</dt>
+					        <dd class="option-default">'...'</dd>
+					    </dl>
+				  	</div>
+
+		  			<div class="option-description">
+			    		<p>The text to display on the trigger button. Use in conjunction with <a href="http://docs.jquery.com/UI/Datepicker#option-showOn" title="UI/Datepicker">showOn</a> equal to 'button' or 'both'.</p>
+			  		</div>
+
+			  		<div class="option-examples">
+				    	<h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the buttonText option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ buttonText: 'Choose' });</code></pre></dd>
+							<dt>Get or set the buttonText option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var buttonText = $(".selector").dateplustimepicker( "option", "buttonText" );
+//setter
+$(".selector").dateplustimepicker( "option", "buttonText", 'Choose' );</code></pre></dd>
+			    		</dl>
+			  		</div>
+				</li>
+
+				<li class="option" id="option-calculateWeek">
+		  			<div class="option-header">
+	  					<h3 class="option-name"><a href="#option-calculateWeek">calculateWeek</a></h3>
+				    	<dl>
+				      		<dt class="option-type-label">Type:</dt>
+					        <dd class="option-type">Function</dd>
+					      	<dt class="option-default-label">Default:</dt>
+					        <dd class="option-default">$.datepicker.iso8601Week</dd>
+					    </dl>
+		  			</div>
+
+		  			<div class="option-description">
+			    		<p>A function to calculate the week of the year for a given date. The default implementation uses the ISO 8601 definition: weeks start on a Monday; the first week of the year contains the first Thursday of the year.</p>
+				  	</div>
+	
+		  			<div class="option-examples">
+		    			<h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the calculateWeek option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ calculateWeek: myWeekCalc });</code></pre></dd>
+							<dt>Get or set the calculateWeek option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var calculateWeek = $(".selector").dateplustimepicker( "option", "calculateWeek" );
+//setter
+$(".selector").dateplustimepicker( "option", "calculateWeek", myWeekCalc );</code></pre></dd>
+				    	</dl>
+			  		</div>
+				</li>
+
+				<li class="option" id="option-changeMonth">
+
+			  		<div class="option-header">
+			    		<h3 class="option-name"><a href="#option-changeMonth">changeMonth</a></h3>
+					    <dl>
+					 		<dt class="option-type-label">Type:</dt>
+					        <dd class="option-type">Boolean</dd>
+					      	<dt class="option-default-label">Default:</dt>
+					        <dd class="option-default">false</dd>
+					    </dl>
+		  			</div>
+		
+		  			<div class="option-description">
+						<p>Allows you to change the month by selecting from a drop-down list. You can enable this feature by setting the attribute to true.</p>
+		  			</div>
+		
+		 			<div class="option-examples">
+			    		<h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the changeMonth option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ changeMonth: true });</code></pre></dd>
+							<dt>Get or set the changeMonth option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var changeMonth = $(".selector").dateplustimepicker( "option", "changeMonth" );
+//setter
+$(".selector").dateplustimepicker( "option", "changeMonth", true );</code></pre></dd>
+			    		</dl>
+			  		</div>
+				</li>
+
+				<li class="option" id="option-changeYear">
+
+					<div class="option-header">
+				    	<h3 class="option-name"><a href="#option-changeYear">changeYear</a></h3>
+				    	<dl>
+	      					<dt class="option-type-label">Type:</dt>
+				        	<dd class="option-type">Boolean</dd>
+				      		<dt class="option-default-label">Default:</dt>
+				    		<dd class="option-default">false</dd>
+			    		</dl>
+					</div>
+
+			  		<div class="option-description">
+			   			<p>Allows you to change the year by selecting from a drop-down list. You can enable this feature by setting the attribute to true. Use the <a href="http://docs.jquery.com/UI/Datepicker#option-yearRange" title="UI/Datepicker">yearRange</a> option to control which years are made available for selection.</p>
+	  				</div>
+
+					<div class="option-examples">
+    					<h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the changeYear option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ changeYear: true });</code></pre></dd>
+							<dt>Get or set the changeYear option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var changeYear = $(".selector").dateplustimepicker( "option", "changeYear" );
+//setter
+$(".selector").dateplustimepicker( "option", "changeYear", true );</code></pre></dd>
+				    	</dl>
+			  		</div>
+				</li>
+
+
+				<li class="option" id="option-closeText">
+		
+			  		<div class="option-header">
+					    <h3 class="option-name"><a href="#option-closeText">closeText</a></h3>
+					    <dl>
+					      	<dt class="option-type-label">Type:</dt>
+					        <dd class="option-type">String</dd>
+				      		<dt class="option-default-label">Default:</dt>
+					        <dd class="option-default">'Done'</dd>
+			    		</dl>
+	  				</div>
+			
+			  		<div class="option-description">
+					    <p>The text to display for the close link. This attribute is one of the regionalisation attributes. Use the <a href="http://docs.jquery.com/UI/Datepicker#option-showButtonPanel" title="UI/Datepicker">showButtonPanel</a> to display this button.</p>
+  					</div>
+
+					<div class="option-examples">
+					    <h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the closeText option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ closeText: 'X' });</code></pre></dd>
+							<dt>Get or set the closeText option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var closeText = $(".selector").dateplustimepicker( "option", "closeText" );
+//setter
+$(".selector").dateplustimepicker( "option", "closeText", 'X' );</code></pre></dd>
+						</dl>
+					</div>
+				</li>
+
+				<li class="option" id="option-constrainInput">
+
+					<div class="option-header">
+						<h3 class="option-name"><a href="#option-constrainInput">constrainInput</a></h3>
+					    <dl>
+							<dt class="option-type-label">Type:</dt>
+							<dd class="option-type">Boolean</dd>
+							<dt class="option-default-label">Default:</dt>
+					        <dd class="option-default">true</dd>
+						</dl>
+					</div>
+
+					<div class="option-description">
+					    <p>When true entry in the input field is constrained to those characters allowed by the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a>.</p>
+					</div>
+
+					<div class="option-examples">
+					    <h4>Code examples</h4>
+					    <dl class="option-examples-list">
+							<dt>Initialize a dateplustimepicker with the constrainInput option specified.</dt>
+							<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ constrainInput: false });</code></pre></dd>
+							<dt>Get or set the constrainInput option, after init.</dt>
+							<dd><pre class="prettyprint lang-js"><code>//getter
+var constrainInput = $(".selector").dateplustimepicker( "option", "constrainInput" );
+//setter
+$(".selector").dateplustimepicker( "option", "constrainInput", false );</code></pre></dd>
+	    			</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-currentText">
+
+				<div class="option-header">
+ 					<h3 class="option-name"><a href="#option-currentText">currentText</a></h3>
+    				<dl>
+   						<dt class="option-type-label">Type:</dt>
+ 						<dd class="option-type">String</dd>
+ 						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">'Today'</dd>
+
+					</dl>
+				</div>
+
+				<div class="option-description">
+					    <p>The text to display for the current day link. This attribute is one of the regionalisation attributes. Use the <a href="http://docs.jquery.com/UI/Datepicker#option-showButtonPanel" title="UI/Datepicker">showButtonPanel</a> to display this button.</p>
+ 				</div>
+	
+	 			<div class="option-examples">
+ 					<h4>Code examples</h4>
+	  				<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the currentText option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ currentText: 'Now' });</code></pre></dd>
+						<dt>Get or set the currentText option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var currentText = $(".selector").dateplustimepicker( "option", "currentText" );
+//setter
+$(".selector").dateplustimepicker( "option", "currentText", 'Now' );</code></pre></dd>
+	    			</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-dateFormat">
+		
+			 	<div class="option-header">
+				  	<h3 class="option-name"><a href="#option-dateFormat">dateFormat</a></h3>
+					<dl>
+		      			<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				     	<dd class="option-default">'mm/dd/yy'</dd>
+		    		</dl>
+	  			</div>
+	
+	  			<div class="option-description">
+					<p>The format for parsed and displayed dates. This attribute is one of the regionalisation attributes. For a full list of the possible formats see the <a href="http://docs.jquery.com/UI/Datepicker/formatDate" title="UI/Datepicker/formatDate">formatDate</a> function.</p>
+		 		</div>
+
+		  		<div class="option-examples">
+			    	<h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the dateFormat option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ dateFormat: 'yy-mm-dd' });</code></pre></dd>
+						<dt>Get or set the dateFormat option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var dateFormat = $(".selector").dateplustimepicker( "option", "dateFormat" );
+//setter
+$(".selector").dateplustimepicker( "option", "dateFormat", 'yy-mm-dd' );</code></pre></dd>
+					</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-dayNames">
+	  			<div class="option-header">
+		 			<h3 class="option-name"><a href="#option-dayNames">dayNames</a></h3>
+				    <dl>
+		     			<dt class="option-type-label">Type:</dt>
+			        	<dd class="option-type">Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				       	<dd class="option-default">['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']</dd>
+		    		</dl>
+		  		</div>
+
+	  			<div class="option-description">
+		    		<p>The list of long day names, starting from Sunday, for use as requested via the <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a> setting. They also appear as popup hints when hovering over the corresponding column headings. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+			
+			 	<div class="option-examples">
+	    			<h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the dayNames option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'] });</code></pre></dd>
+						<dt>Get or set the dayNames option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var dayNames = $(".selector").dateplustimepicker( "option", "dayNames" );
+//setter
+$(".selector").dateplustimepicker( "option", "dayNames", ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'] );</code></pre></dd>
+		    		</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-dayNamesMin">
+		  		<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-dayNamesMin">dayNamesMin</a></h3>
+			    	<dl>
+			      		<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']</dd>
+			    	</dl>
+		  		</div>
+
+		  		<div class="option-description">
+			    	<p>The list of minimised day names, starting from Sunday, for use as column headers within the dateplustimepicker. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+	
+		  		<div class="option-examples">
+		   			<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the dayNamesMin option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'] });</code></pre></dd>
+						<dt>Get or set the dayNamesMin option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var dayNamesMin = $(".selector").dateplustimepicker( "option", "dayNamesMin" );
+//setter
+$(".selector").dateplustimepicker( "option", "dayNamesMin", ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'] );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-dayNamesShort">
+		  		<div class="option-header">
+		   			<h3 class="option-name"><a href="#option-dayNamesShort">dayNamesShort</a></h3>
+			    	<dl>
+			  			<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']</dd>
+				    </dl>
+		  		</div>
+
+			  	<div class="option-description">
+			    	<p>The list of abbreviated day names, starting from Sunday, for use as requested via the <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a> setting. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+			    	<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the dayNamesShort option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'] });</code></pre></dd>
+						<dt>Get or set the dayNamesShort option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var dayNamesShort = $(".selector").dateplustimepicker( "option", "dayNamesShort" );
+//setter
+$(".selector").dateplustimepicker( "option", "dayNamesShort", ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'] );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-defaultDate">
+		  		<div class="option-header">
+				   	<h3 class="option-name"><a href="#option-defaultDate">defaultDate</a></h3>
+		    		<dl>
+			     		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Date, Number, String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">null</dd>
+			    	</dl>
+			  	</div>
+
+	  			<div class="option-description">
+			    	<p>Set the date to highlight on first opening if the field is blank. Specify either an actual date via a Date object or as a string in the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a>, or a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +7d'), or null for today.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+				 	<h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the defaultDate option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ defaultDate: +7 });</code></pre></dd>
+						<dt>Get or set the defaultDate option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var defaultDate = $(".selector").dateplustimepicker( "option", "defaultDate" );
+//setter
+$(".selector").dateplustimepicker( "option", "defaultDate", +7 );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-duration">
+		  		<div class="option-header">
+				  	<h3 class="option-name"><a href="#option-duration">duration</a></h3>
+		 			<dl>
+		      			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String, Number</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">'normal'</dd>
+		    		</dl>
+		  		</div>
+
+		  		<div class="option-description">
+	    			<p>Control the speed at which the dateplustimepicker appears, it may be a time in milliseconds or a string representing one of the three predefined speeds ("slow", "normal", "fast").</p>
+			  	</div>
+	
+		  		<div class="option-examples">
+				 	<h4>Code examples</h4>
+		    		<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the duration option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ duration: 'slow' });</code></pre></dd>
+						<dt>Get or set the duration option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var duration = $(".selector").dateplustimepicker( "option", "duration" );
+//setter
+$(".selector").dateplustimepicker( "option", "duration", 'slow' );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-firstDay">
+			  	<div class="option-header">
+			    	<h3 class="option-name"><a href="#option-firstDay">firstDay</a></h3>
+		    		<dl>
+					 	<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Number</dd>
+			      		<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">0</dd>
+			    	</dl>
+			  	</div>
+
+			  	<div class="option-description">
+		    		<p>Set the first day of the week: Sunday is 0, Monday is 1, ... This attribute is one of the regionalisation attributes.</p>
+			  	</div>
+	
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the firstDay option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ firstDay: 1 });</code></pre></dd>
+						<dt>Get or set the firstDay option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var firstDay = $(".selector").dateplustimepicker( "option", "firstDay" );
+//setter
+$(".selector").dateplustimepicker( "option", "firstDay", 1 );</code></pre></dd>
+			    	</dl>
+			  	</div>
+			</li>
+
+			<li class="option" id="option-gotoCurrent">
+	  			<div class="option-header">
+		   			<h3 class="option-name"><a href="#option-gotoCurrent">gotoCurrent</a></h3>
+			    	<dl>
+		      			<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">Boolean</dd>
+		      			<dt class="option-default-label">Default:</dt>
+	        			<dd class="option-default">false</dd>
+		    		</dl>
+			  	</div>
+	
+			  	<div class="option-description">
+		    		<p>When true the current day link moves to the currently selected date instead of today.</p>
+		  		</div>
+	
+			  	<div class="option-examples">
+			    	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the gotoCurrent option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ gotoCurrent: true });</code></pre></dd>
+						<dt>Get or set the gotoCurrent option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var gotoCurrent = $(".selector").dateplustimepicker( "option", "gotoCurrent" );
+//setter
+$(".selector").dateplustimepicker( "option", "gotoCurrent", true );</code></pre></dd>
+	    			</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-hideIfNoPrevNext">
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-hideIfNoPrevNext">hideIfNoPrevNext</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">Boolean</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">false</dd>
+					</dl>
+				</div>
+
+				<div class="option-description">
+	 				<p>Normally the previous and next links are disabled when not applicable (see <a href="http://docs.jquery.com/UI/Datepicker#option-minDate" title="UI/Datepicker">minDate</a>/<a href="http://docs.jquery.com/UI/Datepicker#option-maxDate" title="UI/Datepicker">maxDate</a>). You can hide them altogether by setting this attribute to true.</p>
+				</div>
+
+				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the hideIfNoPrevNext option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ hideIfNoPrevNext: true });</code></pre></dd>
+						<dt>Get or set the hideIfNoPrevNext option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var hideIfNoPrevNext = $(".selector").dateplustimepicker( "option", "hideIfNoPrevNext" );
+//setter
+$(".selector").dateplustimepicker( "option", "hideIfNoPrevNext", true );</code></pre></dd>
+			    	</dl>
+			  	</div>
+			</li>
+
+			<li class="option" id="option-isRTL">
+	  			<div class="option-header">
+				 	<h3 class="option-name"><a href="#option-isRTL">isRTL</a></h3>
+			    	<dl>
+			   			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				      	<dd class="option-default">false</dd>
+			    	</dl>
+			  	</div>
+	
+		  		<div class="option-description">
+		    		<p>True if the current language is drawn from right to left. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+			    	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the isRTL option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ isRTL: true });</code></pre></dd>
+						<dt>Get or set the isRTL option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var isRTL = $(".selector").dateplustimepicker( "option", "isRTL" );
+//setter
+$(".selector").dateplustimepicker( "option", "isRTL", true );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-maxDate">
+		  		<div class="option-header">
+		   			<h3 class="option-name"><a href="#option-maxDate">maxDate</a></h3>
+			    	<dl>
+						<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Date, Number, String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">null</dd>
+			    	</dl>
+			  	</div>
+
+		  		<div class="option-description">
+					<p>Set a maximum selectable date via a Date object or as a string in the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a>, or a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +1w'), or null for no limit.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+			    	<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the maxDate option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ maxDate: '+1m +1w' });</code></pre></dd>
+						<dt>Get or set the maxDate option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var maxDate = $(".selector").dateplustimepicker( "option", "maxDate" );
+//setter
+$(".selector").dateplustimepicker( "option", "maxDate", '+1m +1w' );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-minDate">
+	  			<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-minDate">minDate</a></h3>
+			    	<dl>
+		      			<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">Date, Number, String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">null</dd>
+			    	</dl>
+		  		</div>
+
+		  		<div class="option-description">
+		    		<p>Set a minimum selectable date via a Date object or as a string in the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a>, or a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '-1y -1m'), or null for no limit.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the minDate option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ minDate: new Date(2007, 1 - 1, 1) });</code></pre></dd>
+						<dt>Get or set the minDate option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var minDate = $(".selector").dateplustimepicker( "option", "minDate" );
+//setter
+$(".selector").dateplustimepicker( "option", "minDate", new Date(2007, 1 - 1, 1) );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-monthNames">
+			  	<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-monthNames">monthNames</a></h3>
+			    	<dl>
+		      			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']</dd>
+			    	</dl>
+			  	</div>
+
+			  	<div class="option-description">
+		    		<p>The list of full month names, for use as requested via the <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a> setting. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+		   			<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the monthNames option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ monthNames: ['Januar','Februar','Marts','April','Maj','Juni','Juli','August','September','Oktober','November','December'] });</code></pre></dd>
+						<dt>Get or set the monthNames option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var monthNames = $(".selector").dateplustimepicker( "option", "monthNames" );
+//setter
+$(".selector").dateplustimepicker( "option", "monthNames", ['Januar','Februar','Marts','April','Maj','Juni','Juli','August','September','Oktober','November','December'] );</code></pre></dd>
+	    			</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-monthNamesShort">
+			  	<div class="option-header">
+			    	<h3 class="option-name"><a href="#option-monthNamesShort">monthNamesShort</a></h3>
+		    		<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']</dd>
+			    	</dl>
+		  		</div>
+
+			  	<div class="option-description">
+			    	<p>The list of abbreviated month names, as used in the month header on each dateplustimepicker and as requested via the <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a> setting. This attribute is one of the regionalisation attributes.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+			    	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the monthNamesShort option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ monthNamesShort: ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'] });</code></pre></dd>
+						<dt>Get or set the monthNamesShort option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var monthNamesShort = $(".selector").dateplustimepicker( "option", "monthNamesShort" );
+//setter
+$(".selector").dateplustimepicker( "option", "monthNamesShort", ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'] );</code></pre></dd>
+		    		</dl>
+		 		</div>
+			</li>
+
+			<li class="option" id="option-navigationAsDateFormat">
+			  	<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-navigationAsDateFormat">navigationAsDateFormat</a></h3>
+				    <dl>
+			      		<dt class="option-type-label">Type:</dt>
+		        		<dd class="option-type">Boolean</dd>
+			      		<dt class="option-default-label">Default:</dt>
+		        		<dd class="option-default">false</dd>
+		    		</dl>
+		  		</div>
+
+		  		<div class="option-description">
+			    	<p>When true the <a href="http://docs.jquery.com/UI/Datepicker/formatDate" title="UI/Datepicker/formatDate">formatDate</a> function is applied to the <a href="http://docs.jquery.com/UI/Datepicker#option-prevText" title="UI/Datepicker">prevText</a>, <a href="http://docs.jquery.com/UI/Datepicker#option-nextText" title="UI/Datepicker">nextText</a>, and <a href="http://docs.jquery.com/UI/Datepicker#option-currentText" title="UI/Datepicker">currentText</a> values before display, allowing them to display the target month names for example.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the navigationAsDateFormat option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ navigationAsDateFormat: true });</code></pre></dd>
+						<dt>Get or set the navigationAsDateFormat option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var navigationAsDateFormat = $(".selector").dateplustimepicker( "option", "navigationAsDateFormat" );
+//setter
+$(".selector").dateplustimepicker( "option", "navigationAsDateFormat", true );</code></pre></dd>
+	    			</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-nextText">
+		  		<div class="option-header">
+	    			<h3 class="option-name"><a href="#option-nextText">nextText</a></h3>
+			    	<dl>
+			     		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+			      		<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">'Next'</dd>
+		    		</dl>
+		  		</div>
+
+			  	<div class="option-description">
+		    		<p>The text to display for the next month link. This attribute is one of the regionalisation attributes. With the standard ThemeRoller styling, this value is replaced by an icon.</p>
+			  	</div>
+
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the nextText option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ nextText: 'Later' });</code></pre></dd>
+						<dt>Get or set the nextText option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var nextText = $(".selector").dateplustimepicker( "option", "nextText" );
+//setter
+$(".selector").dateplustimepicker( "option", "nextText", 'Later' );</code></pre></dd>
+	    			</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-numberOfMonths">
+		  		<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-numberOfMonths">numberOfMonths</a></h3>
+			   		<dl>
+			     		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Number, Array</dd>
+				      	<dt class="option-default-label">Default:</dt>
+					  	<dd class="option-default">1</dd>
+		    		</dl>
+		  		</div>
+	
+			  	<div class="option-description">
+		    		<p>Set how many months to show at once. The value can be a straight integer, or can be a two-element array to define the number of rows and columns to display.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+				   	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the numberOfMonths option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ numberOfMonths: [2, 3] });</code></pre></dd>
+						<dt>Get or set the numberOfMonths option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var numberOfMonths = $(".selector").dateplustimepicker( "option", "numberOfMonths" );
+//setter
+$(".selector").dateplustimepicker( "option", "numberOfMonths", [2, 3] );</code></pre></dd>
+					</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-prevText">
+		  		<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-prevText">prevText</a></h3>
+			    	<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+					  	<dd class="option-default">'Prev'</dd>
+				    </dl>
+		  		</div>
+
+			  	<div class="option-description">
+		    		<p>The text to display for the previous month link. This attribute is one of the regionalisation attributes. With the standard ThemeRoller styling, this value is replaced by an icon.</p>
+	  			</div>
+
+		  		<div class="option-examples">
+			    	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the prevText option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ prevText: 'Earlier' });</code></pre></dd>
+						<dt>Get or set the prevText option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var prevText = $(".selector").dateplustimepicker( "option", "prevText" );
+//setter
+$(".selector").dateplustimepicker( "option", "prevText", 'Earlier' );</code></pre></dd>
+			    	</dl>
+			  	</div>
+			</li>
+
+			<li class="option" id="option-selectOtherMonths">
+		  		<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-selectOtherMonths">selectOtherMonths</a></h3>
+		    		<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">false</dd>
+				    </dl>
+			  	</div>
+
+			  	<div class="option-description">
+			    	<p>When true days in other months shown before or after the current month are selectable. This only applies if <a href="http://docs.jquery.com/UI/Datepicker#option-showOtherMonths" title="UI/Datepicker">showOtherMonths</a> is also true.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the selectOtherMonths option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ selectOtherMonths: true });</code></pre></dd>
+						<dt>Get or set the selectOtherMonths option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var selectOtherMonths = $(".selector").dateplustimepicker( "option", "selectOtherMonths" );
+//setter
+$(".selector").dateplustimepicker( "option", "selectOtherMonths", true );</code></pre></dd>
+			    	</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-shortYearCutoff">
+		  		<div class="option-header">
+		    		<h3 class="option-name"><a href="#option-shortYearCutoff">shortYearCutoff</a></h3>
+			    	<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String, Number</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">'+10'</dd>
+				    </dl>
+		  		</div>
+
+			  	<div class="option-description">
+			    	<p>Set the cutoff year for determining the century for a date (used in conjunction with <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">dateFormat</a> 'y'). If a numeric value (0-99) is provided then this value is used directly. If a string value is provided then it is converted to a number and added to the current year. Once the cutoff year is calculated, any dates entered with a year value less than or equal to it are considered to be in the current century, while those greater than it are deemed to be in the previous century.</p>
+			  	</div>
+	
+			  	<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the shortYearCutoff option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ shortYearCutoff: 50 });</code></pre></dd>
+						<dt>Get or set the shortYearCutoff option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var shortYearCutoff = $(".selector").dateplustimepicker( "option", "shortYearCutoff" );
+//setter
+$(".selector").dateplustimepicker( "option", "shortYearCutoff", 50 );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-showAnim">
+ 				<div class="option-header">
+	 				<h3 class="option-name"><a href="#option-showAnim">showAnim</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+ 						<dd class="option-type">String</dd>
+						<dt class="option-default-label">Default:</dt>
+						<dd class="option-default">'show'</dd>
+					</dl>
+				</div>
+				
+				<div class="option-description">
+ 					<p>Set the name of the animation used to show/hide the dateplustimepicker. Use 'show' (the default), 'slideDown', 'fadeIn', any of the show/hide <a href="http://docs.jquery.com/UI/Effects" class="external text" title="http://docs.jquery.com/UI/Effects">jQuery UI effects</a>, or '' for no animation.</p>
+ 				</div>
+
+ 				<div class="option-examples">
+					<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showAnim option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showAnim: 'fold' });</code></pre></dd>
+						<dt>Get or set the showAnim option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showAnim = $(".selector").dateplustimepicker( "option", "showAnim" );
+//setter
+$(".selector").dateplustimepicker( "option", "showAnim", 'fold' );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-showButtonPanel">
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-showButtonPanel">showButtonPanel</a></h3>
+	 				<dl>
+	 					<dt class="option-type-label">Type:</dt>
+ 						<dd class="option-type">Boolean</dd>
+  						<dt class="option-default-label">Default:</dt>
+			  			<dd class="option-default">false</dd>
+  					</dl>
+	  			</div>
+ 				
+				<div class="option-description">
+					<p>Whether to show the button panel.</p>
+ 				</div>
+
+			  	<div class="option-examples">
+					<h4>Code examples</h4>
+		 			<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showButtonPanel option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showButtonPanel: true });</code></pre></dd>
+						<dt>Get or set the showButtonPanel option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showButtonPanel = $(".selector").dateplustimepicker( "option", "showButtonPanel" );
+//setter
+$(".selector").dateplustimepicker( "option", "showButtonPanel", true );</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="option" id="option-showCurrentAtPos">
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-showCurrentAtPos">showCurrentAtPos</a></h3>
+	  				<dl>
+						<dt class="option-type-label">Type:</dt>
+ 						<dd class="option-type">Number</dd>
+						<dt class="option-default-label">Default:</dt>
+		  				<dd class="option-default">0</dd>
+ 					</dl>
+ 				</div>
+ 				
+				<div class="option-description">
+ 					<p>Specify where in a <a href="http://docs.jquery.com/UI/Datepicker#option-numberOfMonths" title="UI/Datepicker">multi-month</a> display the current month shows, starting from 0 at the top/left.</p>
+	  			</div>
+	 			
+				<div class="option-examples">
+				    <h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showCurrentAtPos option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showCurrentAtPos: 3 });</code></pre></dd>
+						<dt>Get or set the showCurrentAtPos option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showCurrentAtPos = $(".selector").dateplustimepicker( "option", "showCurrentAtPos" );
+//setter
+$(".selector").dateplustimepicker( "option", "showCurrentAtPos", 3 );</code></pre></dd>
+		   			</dl>
+				</div>
+			</li>
+
+
+			<li class="option" id="option-showMonthAfterYear">
+			  	<div class="option-header">
+				    <h3 class="option-name"><a href="#option-showMonthAfterYear">showMonthAfterYear</a></h3>
+			    	<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				        <dd class="option-default">false</dd>
+				    </dl>
+			  	</div>
+
+			  	<div class="option-description">
+			    	<p>Whether to show the month after the year in the header. This attribute is one of the regionalisation attributes.</p>
+				</div>
+
+				<div class="option-examples">
+			  		<h4>Code examples</h4>
+				   	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showMonthAfterYear option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showMonthAfterYear: true });</code></pre></dd>
+						<dt>Get or set the showMonthAfterYear option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showMonthAfterYear = $(".selector").dateplustimepicker( "option", "showMonthAfterYear" );
+//setter
+$(".selector").dateplustimepicker( "option", "showMonthAfterYear", true );</code></pre></dd>
+		    		</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-showOn">
+		  		<div class="option-header">
+			    	<h3 class="option-name"><a href="#option-showOn">showOn</a></h3>
+		    		<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">'focus'</dd>
+				    </dl>
+		  		</div>
+		
+			  	<div class="option-description">
+			    	<p>Have the dateplustimepicker appear automatically when the field receives focus ('focus'), appear only when a button is clicked ('button'), or appear when either event takes place ('both').</p>
+			  	</div>
+	
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showOn option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showOn: 'both' });</code></pre></dd>
+						<dt>Get or set the showOn option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showOn = $(".selector").dateplustimepicker( "option", "showOn" );
+//setter
+$(".selector").dateplustimepicker( "option", "showOn", 'both' );</code></pre></dd>
+					</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-showOptions">
+  				<div class="option-header">
+	    			<h3 class="option-name"><a href="#option-showOptions">showOptions</a></h3>
+				    <dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Options</dd>
+				      	<dt class="option-default-label">Default:</dt>
+				       	<dd class="option-default">{}</dd>
+				    </dl>
+		  		</div>
+
+		  		<div class="option-description">
+		    		<p>If using one of the jQuery UI effects for <a href="http://docs.jquery.com/UI/Datepicker#option-showAnim" title="UI/Datepicker">showAnim</a>, you can provide additional settings for that animation via this option.</p>
+		  		</div>
+	
+		  		<div class="option-examples">
+				  	<h4>Code examples</h4>
+				    <dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showOptions option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showOptions: {direction: 'up' });</code></pre></dd>
+						<dt>Get or set the showOptions option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showOptions = $(".selector").dateplustimepicker( "option", "showOptions" );
+//setter
+$(".selector").dateplustimepicker( "option", "showOptions", {direction: 'up' );</code></pre></dd>
+		    		</dl>
+			  	</div>
+
+			</li>
+
+			<li class="option" id="option-showOtherMonths">
+	  			<div class="option-header">
+		   			<h3 class="option-name"><a href="#option-showOtherMonths">showOtherMonths</a></h3>
+					<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">false</dd>
+			    	</dl>
+			  	</div>
+
+		  		<div class="option-description">
+			    	<p>Display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use <a href="http://docs.jquery.com/UI/Datepicker#option-selectOtherMonths" title="UI/Datepicker">selectOtherMonths</a>.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+					<h4>Code examples</h4>
+		    		<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showOtherMonths option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showOtherMonths: true });</code></pre></dd>
+						<dt>Get or set the showOtherMonths option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showOtherMonths = $(".selector").dateplustimepicker( "option", "showOtherMonths" );
+//setter
+$(".selector").dateplustimepicker( "option", "showOtherMonths", true );</code></pre></dd>
+			    	</dl>
+			  	</div>
+			</li>
+
+			<li class="option" id="option-showWeek">
+		  		<div class="option-header">
+			    	<h3 class="option-name"><a href="#option-showWeek">showWeek</a></h3>
+			    	<dl>
+			      		<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Boolean</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">false</dd>
+			    	</dl>
+			  	</div>
+
+			  	<div class="option-description">
+			    	<p>When true a column is added to show the week of the year. The <a href="http://docs.jquery.com/UI/Datepicker#option-calculateWeek" title="UI/Datepicker">calculateWeek</a> option determines how the week of the year is calculated. You may also want to change the <a href="http://docs.jquery.com/UI/Datepicker#option-firstDay" title="UI/Datepicker">firstDay</a> option.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the showWeek option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ showWeek: true });</code></pre></dd>
+						<dt>Get or set the showWeek option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var showWeek = $(".selector").dateplustimepicker( "option", "showWeek" );
+//setter
+$(".selector").dateplustimepicker( "option", "showWeek", true );</code></pre></dd>
+			    	</dl>
+	  			</div>
+			</li>
+
+			<li class="option" id="option-stepMonths">
+				<div class="option-header">
+			    	<h3 class="option-name"><a href="#option-stepMonths">stepMonths</a></h3>
+				  	<dl>
+		      			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">Number</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			       		<dd class="option-default">1</dd>
+				    </dl>
+		  		</div>
+
+	  			<div class="option-description">
+			    	<p>Set how many months to move when clicking the Previous/Next links.</p>
+		  		</div>
+
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+					<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the stepMonths option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ stepMonths: 3 });</code></pre></dd>
+						<dt>Get or set the stepMonths option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var stepMonths = $(".selector").dateplustimepicker( "option", "stepMonths" );
+//setter
+$(".selector").dateplustimepicker( "option", "stepMonths", 3 );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-weekHeader">
+				<div class="option-header">
+	    			<h3 class="option-name"><a href="#option-weekHeader">weekHeader</a></h3>
+		    		<dl>
+		      			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">'Wk'</dd>
+				    </dl>
+		  		</div>
+
+			  	<div class="option-description">
+		    		<p>The text to display for the week of the year column heading. This attribute is one of the regionalisation attributes. Use <a href="http://docs.jquery.com/UI/Datepicker#option-showWeek" title="UI/Datepicker">showWeek</a> to display this column.</p>
+			  	</div>
+
+		  		<div class="option-examples">
+		    		<h4>Code examples</h4>
+		    		<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the weekHeader option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ weekHeader: 'W' });</code></pre></dd>
+						<dt>Get or set the weekHeader option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var weekHeader = $(".selector").dateplustimepicker( "option", "weekHeader" );
+//setter
+$(".selector").dateplustimepicker( "option", "weekHeader", 'W' );</code></pre></dd>
+	    			</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-yearRange">
+				<div class="option-header">
+					<h3 class="option-name"><a href="#option-yearRange">yearRange</a></h3>
+					<dl>
+						<dt class="option-type-label">Type:</dt>
+						<dd class="option-type">String</dd>
+						<dt class="option-default-label">Default:</dt>
+	 					<dd class="option-default">'c-10:c+10'</dd>
+					</dl>
+				</div>
+
+		  		<div class="option-description">
+		    		<p>Control the range of years displayed in the year drop-down: either relative to today's year (-nn:+nn), relative to the currently selected year (c-nn:c+nn), absolute (nnnn:nnnn), or combinations of these formats (nnnn:-nn). Note that this option only affects what appears in the drop-down, to restrict which dates may be selected use the <a href="http://docs.jquery.com/UI/Datepicker#option-minDate" title="UI/Datepicker">minDate</a> and/or <a href="http://docs.jquery.com/UI/Datepicker#option-maxDate" title="UI/Datepicker">maxDate</a> options.</p>
+		  		</div>
+
+			  	<div class="option-examples">
+			    	<h4>Code examples</h4>
+			    	<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the yearRange option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ yearRange: '2000:2010' });</code></pre></dd>
+						<dt>Get or set the yearRange option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var yearRange = $(".selector").dateplustimepicker( "option", "yearRange" );
+//setter
+$(".selector").dateplustimepicker( "option", "yearRange", '2000:2010' );</code></pre></dd>
+		    		</dl>
+		  		</div>
+			</li>
+
+			<li class="option" id="option-yearSuffix">
+		  		<div class="option-header">
+		  			<h3 class="option-name"><a href="#option-yearSuffix">yearSuffix</a></h3>
+		    		<dl>
+		      			<dt class="option-type-label">Type:</dt>
+				        <dd class="option-type">String</dd>
+				      	<dt class="option-default-label">Default:</dt>
+			        	<dd class="option-default">''</dd>
+		    		</dl>
+		  		</div>
+
+			  	<div class="option-description">
+			    	<p>Additional text to display after the year in the month headers. This attribute is one of the regionalisation attributes.</p>
+				</div>
+	
+		  		<div class="option-examples">
+			    	<h4>Code examples</h4>
+		    		<dl class="option-examples-list">
+						<dt>Initialize a dateplustimepicker with the yearSuffix option specified.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$(".selector").dateplustimepicker({ yearSuffix: 'CE' });</code></pre></dd>
+						<dt>Get or set the yearSuffix option, after init.</dt>
+						<dd><pre class="prettyprint lang-js"><code>//getter
+var yearSuffix = $(".selector").dateplustimepicker( "option", "yearSuffix" );
+//setter
+$(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre></dd>
+			    	</dl>
+				</div>
+			</li>
+
+    	</ul>
+	</div>
+
+  	<div id="events">
+		<h2 class="top-header">Events</h2>
+		<p><i>* All events are inherited from datepicker.</i></p>
+    	<ul class="events-list">
+			<li class="event" id="event-beforeShow">
+				<div class="event-header">
+					<h3 class="event-name"><a href="#event-beforeShow">beforeShow</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+						<dd class="event-type">function(input, inst)</dd>
+					</dl>
+				</div>
+
+				<div class="event-description">
+					<p>Can be a function that takes an input field and current dateplustimepicker instance and returns an options object to update the dateplustimepicker with. It is called just before the dateplustimepicker is displayed.</p>
+				</div>
+
+				<div class="event-examples">
+					<h4>Code examples</h4>
+					<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the beforeShow event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  beforeShow: function(input, inst) { ... }
+});</code></pre></dd>
+		    		</dl>
+				</div>
+			</li>
+
+			<li class="event" id="event-beforeShowDay">
+		 		<div class="event-header">
+					<h3 class="event-name"><a href="#event-beforeShowDay">beforeShowDay</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+						<dd class="event-type">function(date)</dd>
+					</dl>
+ 				</div>
+
+				<div class="event-description">
+ 					<p>The function takes a date as a parameter and must return an array with [0] equal to true/false indicating whether or not this date is selectable, [1] equal to a CSS class name(s) or '' for the default presentation, and [2] an optional popup tooltip for this date. It is called for each day in the dateplustimepicker before it is displayed.</p>
+				</div>
+
+				<div class="event-examples">
+		 			<h4>Code examples</h4>
+ 					<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the beforeShowDay event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  beforeShowDay: function(date) { ... }
+});</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="event" id="event-onChangeMonthYear">
+				<div class="event-header">
+ 					<h3 class="event-name"><a href="#event-onChangeMonthYear">onChangeMonthYear</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+ 						<dd class="event-type">function(year, month, inst)</dd>
+					</dl>
+				</div>
+
+				<div class="event-description">
+ 					<p>Allows you to define your own event when the dateplustimepicker moves to a new month and/or year. The function receives the selected year, month (1-12), and the dateplustimepicker instance as parameters. this refers to the associated input field.</p>
+				</div>
+
+				<div class="event-examples">
+ 					<h4>Code examples</h4>
+	 				<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the onChangeMonthYear event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  onChangeMonthYear: function(year, month, inst) { ... }
+});</code></pre></dd>
+					</dl>
+				</div>
+			</li>
+
+			<li class="event" id="event-onClose">
+ 				<div class="event-header">
+	 				<h3 class="event-name"><a href="#event-onClose">onClose</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+						<dd class="event-type">function(dateText, inst)</dd>
+					</dl>
+ 				</div>
+
+				<div class="event-description">
+					<p>Allows you to define your own event when the dateplustimepicker is closed, whether or not a date is selected. The function receives the selected date as text ('' if none) and the dateplustimepicker instance as parameters. this refers to the associated input field.</p>
+				</div>
+
+	  			<div class="event-examples">
+	  				<h4>Code examples</h4>
+  					<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the onClose event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  onClose: function(dateText, inst) { ... }
+});</code></pre></dd>
+		    		</dl>
+				</div>
+			</li>
+
+			<li class="event" id="event-onSelect">
+		  		<div class="event-header">
+		    		<h3 class="event-name"><a href="#event-onSelect">onSelect</a></h3>
+					<dl>
+			 			<dt class="event-type-label"></dt>
+      					<dd class="event-type">function(dateText, inst)</dd>
+		    		</dl>
+	  			</div>
+			
+		  		<div class="event-description">
+	    			<p>Allows you to define your own event when the dateplustimepicker is selected. The function receives the selected date as text and the dateplustimepicker instance as parameters. this refers to the associated input field.</p>
+			  	</div>
+
+	  			<div class="event-examples">
+	    			<h4>Code examples</h4>
+	    			<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the onSelect event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  onSelect: function(dateText, inst) { ... }
+});</code></pre></dd>
+			    	</dl>
+		  		</div>
+			</li>
+
+		</ul>
+	</div>
+
+	<div id="methods">
+		<h2 class="top-header">Methods</h2>
+		<p><i>* Some methods are inherited from datepicker.</i></p>
+		<ul class="methods-list">
+
+			<li class="method" id="method-getTime">
+	  			<div class="method-header">
+	   				<h3 class="method-name"><a href="#method-getTime">getTime</a></h3>
+	    			<dl>
+		 				<dt class="method-signature-label">Signature:</dt>
+		   				<dd class="method-signature">.dateplustimepicker( "getTime" )</dd>
+  					</dl>
+  				</div>
+
+				<div class="method-description">
+	   				<p>Returns the current time for the dateplustimepicker or null if no time has been selected.</p>
+		 		</div>
+			</li>
+
+			<li class="method" id="method-setTime">
+				<div class="method-header">
+			    	<h3 class="method-name"><a href="#method-setTime">setTime</a></h3>
+		 			<dl>
+	    				<dt class="method-signature-label">Signature:</dt>
+		     			<dd class="method-signature">.dateplustimepicker( "setTime" , time )</dd>
+		    		</dl>
+	  			</div>
+
+		  		<div class="method-description">
+  					<p>Sets the current time for the dateplustimepicker. The new time may be a Time object or a string in the current <a href="http://docs.jquery.com/UI/Datepicker#option-timeFormat" title="UI/Datepicker">time format</a> (e.g. '05:30 pm').</p>
+ 				</div>
+			</li>
+
+			<li class="method" id="method-getDateTime">
+	  			<div class="method-header">
+	   				<h3 class="method-name"><a href="#method-getDateTime">getDateTime</a></h3>
+	    			<dl>
+		 				<dt class="method-signature-label">Signature:</dt>
+		   				<dd class="method-signature">.dateplustimepicker( "getDateTime" )</dd>
+  					</dl>
+  				</div>
+
+				<div class="method-description">
+	   				<p>Returns the current date and time for the dateplustimepicker or null if no date and time has been selected.</p>
+		 		</div>
+			</li>
+
+			<li class="method" id="method-setDateTime">
+				<div class="method-header">
+			    	<h3 class="method-name"><a href="#method-setDateTime">setDateTime</a></h3>
+		 			<dl>
+	    				<dt class="method-signature-label">Signature:</dt>
+		     			<dd class="method-signature">.dateplustimepicker( "setDateTime" , datetime )</dd>
+		    		</dl>
+	  			</div>
+
+		  		<div class="method-description">
+  					<p>Sets the current date and time for the dateplustimepicker. The new date and time may be a string in the current date and time formats (e.g. '12/25/2010 05:30 pm').</p>
+ 				</div>
+			</li>
+
+		</ul>
+		
+		<div class="ui-helper-clearfix"></div>
+		<h2 class="inherited-header">Inherited from datepicker</h2>
+
+		<ul class="methods-list">
+
+			<li class="method" id="method-destroy">
+				<div class="method-header">
+					<h3 class="method-name"><a href="#method-destroy">destroy</a></h3>
+					<dl>
+						<dt class="method-signature-label">Signature:</dt>
+						<dd class="method-signature">.dateplustimepicker( "destroy" )</dd>
+					</dl>
+				</div>
+
+				<div class="method-description">
+					<p>Remove the dateplustimepicker functionality completely. This will return the element back to its pre-init state.</p>
+				</div>
+			</li>
+
+			<li class="method" id="method-disable">
+				<div class="method-header">
+					<h3 class="method-name"><a href="#method-disable">disable</a></h3>
+					<dl>
+						<dt class="method-signature-label">Signature:</dt>
+			  			<dd class="method-signature">.dateplustimepicker( "disable" )</dd>
+  					</dl>
+		 		</div>
+
+				<div class="method-description">
+		    		<p>Disable the dateplustimepicker.</p>
+		  		</div>
+			</li>
+
+			<li class="method" id="method-enable">
+	  			<div class="method-header">
+		   			<h3 class="method-name"><a href="#method-enable">enable</a></h3>
+	    			<dl>
+						<dt class="method-signature-label">Signature:</dt>
+		  				<dd class="method-signature">.dateplustimepicker( "enable" )</dd>
+	    			</dl>
+		  		</div>
+
+		  		<div class="method-description">
+		    		<p>Enable the dateplustimepicker.</p>
+				</div>
+
+			</li>
+
+
+			<li class="method" id="method-option">
+		  		<div class="method-header">
+					<h3 class="method-name"><a href="#method-option">option</a></h3>
+	  				<dl>
+    					<dt class="method-signature-label">Signature:</dt>
+        				<dd class="method-signature">.dateplustimepicker( "option" , optionName	, <span class="optional">[</span>value<span class="optional">] </span>)</dd>
+ 					</dl>
+  				</div>
+
+ 				<div class="method-description">
+  					<p>Get or set any dateplustimepicker option. If no value is specified, will act as a getter.</p>
+	  			</div>
+			</li>
+
+			<li class="method" id="method-option">
+	  			<div class="method-header">
+    				<h3 class="method-name"><a href="#method-option">option</a></h3>
+	    			<dl>
+		   				<dt class="method-signature-label">Signature:</dt>
+		  				<dd class="method-signature">.dateplustimepicker( "option" , options )</dd>
+		  			</dl>
+ 				</div>
+
+  				<div class="method-description">
+    				<p>Set multiple dateplustimepicker options at once by providing an options object.</p>
+	  			</div>
+			</li>
+
+			<li class="method" id="method-widget">
+	  			<div class="method-header">
+   					<h3 class="method-name"><a href="#method-widget">widget</a></h3>
+		    		<dl>
+	  					<dt class="method-signature-label">Signature:</dt>
+	       				<dd class="method-signature">.dateplustimepicker( "widget" )</dd>
+  					</dl>
+		  		</div>
+			
+				<div class="method-description">
+		   			<p>Returns the .ui-datepicker element.</p>
+				</div>
+			</li>
+
+			<li class="method" id="method-dialog">
+				<div class="method-header">
+	  				<h3 class="method-name"><a href="#method-dialog">dialog</a></h3>
+	   				<dl>
+	  					<dt class="method-signature-label">Signature:</dt>
+	   					<dd class="method-signature">.dateplustimepicker( "dialog" , date , <span class="optional">[</span>onSelect<span class="optional">] </span>, <span class="optional">[</span>settings<span class="optional">] </span> , <span class="optional">[</span>pos<span class="optional">] </span>)</dd>
+	 				</dl>
+				</div>
+
+				<div class="method-description">
+ 					<p>Open a dateplustimepicker in a "dialog" box.</p>
+					<p>dateText: the initial date for the date picker as either a Date or a string in the current date format.</p>
+					<p>onSelect: A callback function when a date is selected. The function receives the date text and date picker instance as parameters.</p>
+					<p>settings: The new settings for the date picker.</p>
+					<p>pos: The position of the top/left of the dialog as [x, y] or a MouseEvent that contains the coordinates. If not specified the dialog is centered on the screen.</p>
+	 			</div>
+			</li>
+
+			<li class="method" id="method-isDisabled">
+  				<div class="method-header">
+ 					<h3 class="method-name"><a href="#method-isDisabled">isDisabled</a></h3>
+	 				<dl>
+		    			<dt class="method-signature-label">Signature:</dt>
+		 				<dd class="method-signature">.dateplustimepicker( "isDisabled" )</dd>
+	  				</dl>
+ 				</div>
+
+  				<div class="method-description">
+  					<p>Determine whether a date picker has been disabled.</p>
+	  			</div>
+			</li>
+
+			<li class="method" id="method-hide">
+	  			<div class="method-header">
+	    			<h3 class="method-name"><a href="#method-hide">hide</a></h3>
+	   				<dl>
+	   					<dt class="method-signature-label">Signature:</dt>
+      					<dd class="method-signature">.dateplustimepicker( "hide" )</dd>
+ 					</dl>
+		  		</div>
+ 				
+				<div class="method-description">
+	    			<p>Close a previously opened date picker.</p>
+	  			</div>
+			</li>
+
+			<li class="method" id="method-show">
+		  		<div class="method-header">
+		    		<h3 class="method-name"><a href="#method-show">show</a></h3>
+		    		<dl>
+	      				<dt class="method-signature-label">Signature:</dt>
+	        			<dd class="method-signature">.dateplustimepicker( "show" )</dd>
+			    	</dl>
+	 			</div>
+
+		  		<div class="method-description">
+	   				<p>Call up a previously attached date picker.</p>
+	  			</div>
+			</li>
+
+			<li class="method" id="method-refresh">
+	  			<div class="method-header">
+		  			<h3 class="method-name"><a href="#method-refresh">refresh</a></h3>
+	 				<dl>
+	      				<dt class="method-signature-label">Signature:</dt>
+		        		<dd class="method-signature">.dateplustimepicker( "refresh" )</dd>
+		   			</dl>
+	  			</div>
+
+				<div class="method-description">
+		  			<p>Redraw a date picker, after having made some external modifications.</p>
+  				</div>
+			</li>
+
+			<li class="method" id="method-getDate">
+	  			<div class="method-header">
+	   				<h3 class="method-name"><a href="#method-getDate">getDate</a></h3>
+	    			<dl>
+		 				<dt class="method-signature-label">Signature:</dt>
+		   				<dd class="method-signature">.dateplustimepicker( "getDate" )</dd>
+  					</dl>
+  				</div>
+
+				<div class="method-description">
+	   				<p>Returns the current date for the dateplustimepicker or null if no date has been selected.</p>
+		 		</div>
+			</li>
+
+			<li class="method" id="method-setDate">
+				<div class="method-header">
+			    	<h3 class="method-name"><a href="#method-setDate">setDate</a></h3>
+		 			<dl>
+	    				<dt class="method-signature-label">Signature:</dt>
+		     			<dd class="method-signature">.dateplustimepicker( "setDate" , date )</dd>
+		    		</dl>
+	  			</div>
+
+		  		<div class="method-description">
+  					<p>Sets the current date for the dateplustimepicker. The new date may be a Date object or a string in the current <a href="http://docs.jquery.com/UI/Datepicker#option-dateFormat" title="UI/Datepicker">date format</a> (e.g. '01/26/2009'), a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +7d'), or null to clear the selected date.</p>
+ 				</div>
+			</li>
+
+  		</ul>
+ 	</div>
+
+	<div id="theming">
+    	<h2 class="top-header">Theming</h2>
+		<p>The jQuery UI Datepicker plugin uses the jQuery UI CSS Framework to style its look and feel, including colors and background textures. We recommend using the ThemeRoller tool to create and download custom themes that are easy to build and maintain.</p>
+		<p>If a deeper level of customization is needed, there are widget-specific classes referenced within the jquery.ui.datepicker.css stylesheet that can be modified. These classes are highlighed in bold below.</p>
+	  	<h3>Sample markup with jQuery UI CSS Framework classes</h3>
+					  &lt;div id=&quot;ui-datepicker-div&quot; class=&quot;<strong>ui-datepicker</strong> ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible&quot;&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&lt;div class=&quot;<strong>ui-datepicker-header</strong> ui-widget-header ui-helper-clearfix ui-corner-all&quot;&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class=&quot;<strong>ui-datepicker-prev</strong> ui-corner-all&quot;&gt;title=&quot;Prev&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-circle-triangle-w&quot;&gt;Prev&lt;/span&gt;&lt;/a&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class=&quot;<strong>ui-datepicker-next</strong> ui-corner-all&quot; title=&quot;Next&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-circle-triangle-e&quot;&gt;Next&lt;/span&gt;&lt;/a&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;<strong>ui-datepicker-title</strong>&quot;&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class=&quot;<strong>ui-datepicker-month</strong>&quot;&gt;January&lt;/span&gt;&lt;span class=&quot;<strong>ui-datepicker-year</strong>&quot;&gt;2009&lt;/span&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;table class=&quot;<strong>ui-datepicker-calendar</strong>&quot;&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th class=&quot;<strong>ui-datepicker-week-end</strong>&quot;&gt;&lt;span title=&quot;Sunday&quot;&gt;Su&lt;/span&gt;&lt;/th&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;&lt;tr&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td class=&quot;<strong>ui-datepicker-week-end ui-datepicker-other-month</strong> &quot;&gt;&nbsp;1&nbsp;&lt;/td&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;/table&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;div class=&quot;<strong>ui-datepicker-buttonpane</strong> ui-widget-content&quot;&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type=&quot;button&quot; class=&quot;<strong>ui-datepicker-current</strong> ui-state-default ui-priority-secondary ui-corner-all&quot;&gt;Today&lt;/button&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type=&quot;button&quot; class=&quot;<strong>ui-datepicker-close</strong> ui-state-default ui-priority-primary ui-corner-all&quot;&gt;Done&lt;/button&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+					&lt;/div&gt;<br />
+					
+		<p class="theme-note ui-state-hover ui-corner-all"><strong>Note: This is a sample of markup generated by the datepicker plugin, not markup you should use to create a datepicker. The only markup needed for that is &lt;input type="text" /&gt; or &lt;div&gt;&lt;/div&gt;.</strong></p>
+
+	</div>
+	</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

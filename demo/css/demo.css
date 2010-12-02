@@ -1,0 +1,182 @@
+body {
+	font-size: 10px;
+}
+
+#wrapper {
+	width: 800px;
+	margin:20px auto;
+}
+
+#title {
+	color: #654B24;
+	font-size: 3em;
+	margin-bottom: 30px;
+}
+
+#title span {
+	color: #B2A266;
+	font-size: .5em;
+	font-style: italic;
+}
+
+#toggledemdoc {
+	text-align: right;
+	margin-right: 30px;
+}
+
+a.inview {
+	font-size: 2em;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+a.outofview {
+	font-size: 1em;
+	text-decoration: underline;
+	font-style: italic;
+	color: black;
+}
+
+#header,
+#dateplustimepicker-documentation,
+#dateplustimepicker-demos {
+	width: 800px;
+}
+
+#theme-switcher {
+	width: 200px;
+	float: right;
+}
+
+#dateplustimepicker-demos,
+#dateplustimepicker-documentation {
+	margin-top: 20px;
+}
+
+#widget-docs h2.top-header {
+	display: none;
+}
+
+#widget-docs h2, #widget-docs h3, #widget-docs h4, #widget-docs p, #widget-docs ul { margin:0; padding:0; }
+#widget-docs p { margin:0 15em 1.2em 0; }
+#widget-docs p.intro { font-size:13px; line-height:1.3; }
+#widget-docs p.theme-note { margin-top:1.2em; padding:8px; width:96%; }
+
+#widget-docs h2 { font-size:16px; margin:1.2em 0 .5em; }
+#widget-docs h3 { font-size:14px; margin:1.5em 0 .5em; }
+.normal #widget-docs #overview-dependencies h3,
+.normal #widget-docs h4 { font-size:12px; border:0; margin:0 0 .5em; font-weight:bold; }
+.normal #widget-docs h5 { font-size:12px; font-weight:normal; margin:1.5em 0 .5em; }
+
+#overview-main { float:left; width:550px; margin-top:20px;}
+#overview-example { float:left; width: 100%;}
+#overview-example #source pre { overflow: scroll;}
+#overview-dependencies { float:right; width:150px; }
+#overview-dependencies ul, #docs-theming ul { list-style-type: none; }
+#widget-docs #overview-main p { margin-right:0; }
+#widget-docs #overview-dependencies h4 { padding-left:0; }
+
+#overview-main ul { margin-left:20px; margin-bottom:1.2em; }
+
+#widget-docs ul.options-list, 
+#widget-docs ul.events-list,
+#widget-docs ul.methods-list { list-style-type: none; }
+
+
+#widget-docs ul.options-list li,
+#widget-docs ul.events-list li,
+#widget-docs ul.methods-list li { clear:left; float:left; width:100%; }
+
+
+#widget-docs ul.options-list pre,
+#widget-docs ul.events-list pre { width:680px; overflow:auto; }
+
+#widget-docs .option-header,
+#widget-docs .event-header,
+#widget-docs .method-header { float:left; width:100%; padding:10px 0 8px; border-top:1px solid; }
+
+#widget-docs .option-header h3,
+#widget-docs .event-header h3,
+#widget-docs .method-header h3 { float:left; width:30%; margin:0 0 0 10px; padding:0 0 0 15px; line-height: 1;  cursor: pointer; cursor: hand; }
+
+div.triangle-container { margin-left: -20px; margin-top: -15px; position:relative; top:15px; }
+
+#widget-docs .option-description, 
+#widget-docs .event-description, 
+#widget-docs .method-description,
+#widget-docs .option-examples,
+#widget-docs .event-examples { padding:0 10px 0 25px; }
+
+#widget-docs .option-description ul { margin-left: 3em; list-style: disc; height:150px;}
+
+#widget-docs .option-examples,
+#widget-docs .event-examples { padding-bottom:15px; }
+
+#widget-docs .option-header dl,
+#widget-docs .event-header dl,
+#widget-docs .method-header dl { float:right; width: 65%; }
+
+#widget-docs .option-header dt,
+#widget-docs .event-header dt,
+#widget-docs .option-header dd,
+#widget-docs .event-header dd { float:left; font-size:1.1em; }
+
+#widget-docs .option-header dt,
+#widget-docs .event-header dt { padding-right:.5em; }
+
+#widget-docs .option-header dt.option-type-label,
+#widget-docs .method-header dt.method-signature-label { display:none; }
+
+#widget-docs .option-header dd,
+#widget-docs .event-header dd { width:35%; margin:0; padding-right:15px; }
+
+#widget-docs .option-header dd span { border-bottom: 1px dashed #999; cursor: pointer; cursor: hand; }
+#widget-docs .option-header dd span:hover { border-bottom: 1px dashed #000; color: #999; cursor: pointer; cursor: hand; }
+
+#widget-docs .option-examples-list dd,
+#widget-docs .event-examples-list dd { padding:0 0 0 20px; margin:0; }
+
+#widget-docs h2.inherited-header {
+	margin-top: 4em;
+}
+
+#theming p {
+	margin-top: 20px;
+}
+
+pre {
+	background-color: white;
+	color: black;
+}
+
+pre code {
+	display:block;
+	margin: 5px;
+}
+
+
+#widget-docs .toggle-docs-links { float:right; margin:0 0.4em 0.4em; }
+#widget-docs .toggle-docs-links a { margin:0 0.4em;cursor:pointer; }
+
+
+/* ---------------------------------------------------------------
+Clearfix
+--------------------------------------------------------------- */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix { display: inline-block; }
+
+/* Hides from IE-mac \*/
+
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+/* End hide from IE-mac */
