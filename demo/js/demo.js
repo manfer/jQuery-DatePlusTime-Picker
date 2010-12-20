@@ -1,7 +1,7 @@
 ﻿$(document).ready(function() {
 
 	// inputs with jquery ui style
-	$("input").addClass('ui-widget ui-state-default ui-corner-all');
+	$("#dateplustimepicker-demos input").addClass('ui-widget ui-state-default ui-corner-all');
 
 	// select with jquery ui style
 	$('#format-switcher').addClass('ui-widget ui-state-default ui-corner-all');
@@ -81,7 +81,7 @@
 	
 	//Make list items collapsible
 	$('div.option-header h3, div.event-header h3, div.method-header h3').live('click', function() {
-		var details = $(this).parent();//.toggleClass('header-open');
+		var details = $(this).parent().toggleClass('header-open');
 		$("span.ui-icon", $(this)).toggleClass('ui-icon-triangle-1-e').toggleClass('ui-icon-triangle-1-s');
 		if ( showExamples ) {
 			details.nextAll().toggle();
@@ -224,6 +224,23 @@
 		altTimeField: '#withAltTime-dateplustimepicker-alt',
 		dateFormat: 'D, dd M yy',
 		timeFormat: 'hh:mmTT'
+	});
+
+	//Make show source collapsible
+	$('div.demo-source-wrapper div.demo-source').hide();
+	$('div.demo-source-button a').click(function() {
+		var text = $(this).text() === 'View Source' ? 'Hide Source' : 'View Source';
+		$(this).text(text);
+		$('.demo-source', $(this).parent().parent()).toggle();
+	});
+
+	//Make donate collapsible
+	// $('#donate-button').hide();
+	$('#donate-toggle a').click(function() {
+		var text = $(this).text() === 'Donate' ? 'Hide Donate Button' : 'Donate';
+		$(this).prev().toggleClass("ui-icon-triangle-1-e").toggleClass("ui-icon-triangle-1-s");
+		$(this).text(text);
+		$('#donate-toggle').nextAll().toggle();
 	});
 
 	//Load themeswitcher

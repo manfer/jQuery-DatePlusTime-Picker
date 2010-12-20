@@ -10,7 +10,7 @@ body {
 #title {
 	color: #654B24;
 	font-size: 3em;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 #title span {
@@ -141,8 +141,36 @@ div.triangle-container { margin-left: -20px; margin-top: -15px; position:relativ
 	margin-top: 4em;
 }
 
-#theming p {
+#theming p, #source p {
 	margin-top: 20px;
+}
+
+#source a {
+	font-size: 1.5em;
+}
+
+#dateplustimepicker-download, #dateplustimepicker-code, #dateplustimepicker-issues  {
+	font-weight: bold;
+	font-style: italic;
+	height: 130px;
+	margin: 30px;
+	padding: 30px 0px 0px 150px;
+}
+
+#dateplustimepicker-download {
+	background: url(../images/Download_Ico.png) no-repeat scroll transparent;
+}
+
+#dateplustimepicker-code {
+	background: url(../images/github.png) no-repeat scroll;
+}
+
+#dateplustimepicker-issues {
+	background: url(../images/question.png) no-repeat scroll;
+}
+
+#dateplustimepicker-download a, #dateplustimepicker-code a {
+	font-size: 1.5em;
 }
 
 pre {
@@ -159,7 +187,51 @@ pre code {
 #widget-docs .toggle-docs-links { float:right; margin:0 0.4em 0.4em; }
 #widget-docs .toggle-docs-links a { margin:0 0.4em;cursor:pointer; }
 
+/*
+ * Demos source
+ */
+.demo-source-wrapper pre{
+	overflow: scroll;
+}
+.demo-source-button {
+	text-align: right;
+}
 
+/*
+ * Donate
+ */
+#donate-toggle {
+	position: relative;
+}
+#donate-toggle span {
+	position: absolute;
+	margin-top: -8px;
+	top: 50%;
+}
+#donate-toggle a {
+	color: black;
+	text-decoration: none;
+	padding-left: 20px;
+}
+
+#donate-button {
+	position: relative;
+	padding: 5px;
+	border: 1px dotted;
+	margin-bottom: 10px;
+	width: 400px;
+}
+#donate-text {
+	padding: 10px 0px 5px 25px;
+	font-size: 1.2em;
+	font-style: italic;
+	width: 230px;
+}
+#donate-form {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
 /* ---------------------------------------------------------------
 Clearfix
 --------------------------------------------------------------- */

@@ -54,8 +54,24 @@
 		<div id="title"><span>jQuery</span> Date<span>plus</span>TimePicker</div>
 	</div>
 	
+	<div id="donate-button" class="ui-corner-all ui-widget">
+		<div id="donate-toggle">
+			<span class="ui-icon ui-icon-triangle-1-s"></span>
+			<a href="#">Hide Donate Button</a>
+		</div>
+		<div id="donate-text">If you find this useful please consider buying me a coffee. Thanks.</div>
+		<div id="donate-form">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+				<input type="image" src="https://www.paypal.com/en_US/ES/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+	</div>
+
 	<div id="toggledemdoc">
-	<a href="#" id="showdem" class="inview">Demos</a> / <a href="#" id="showdoc" class="outofview">Documentation</a>
+		<a href="#" id="showdem" class="inview">Demos</a> / <a href="#" id="showdoc" class="outofview">Documentation</a>
 	</div>
 
 	<div id="dateplustimepicker-demos">
@@ -68,31 +84,303 @@
 				<button type="button" id="getTime-button">Get Time</button>
 				<button type="button" id="getDatetime-button">Get Date and Time</button>
 				<br /><br /><label id="datetime-display"></label>
+				<div id="dialog">
+					<label for="indialog-dateplustimepicker"><strong>Datetime:</strong></label><br /><input id="indialog-dateplustimepicker" name="indialog-dateplustimepicker" />
+				</div>
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      // in dialog dateplustimepicker and its buttons
+      $('#displayDialog-button').button();
+      $('#displayDialog-button').click(function() {
+        $('#dialog').dialog('open');
+        // prevent datepicker appearing opened because it gains focus
+        $('#datetime').blur();
+        setTimeout(function() {
+          $.datepicker._hideDatepicker();
+        }, 300);
+      });
+
+      $('#getDatetime-button').button();
+      $('#getDatetime-button').click(function() {
+        var date = $('#indialog-dateplustimepicker').dateplustimepicker('getDateTime');
+        if (date!==null) {
+          $('#datetime-display').html('&lt;strong&gt;Datetime: &lt;/strong&gt;&lt;i&gt;' + date.toString() + '&lt;/i&gt;');
+        }
+        else {
+          $('#datetime-display').html('Nothing selected yet. Open modal dialog and choose a datetime.');
+        }
+      });
+
+      $('#getTime-button').button();
+      $('#getTime-button').click(function() {
+        var time = $('#indialog-dateplustimepicker').dateplustimepicker('getTime');
+        if (time!==null) {
+          $('#datetime-display').html('&lt;strong&gt;Time: &lt;/strong&gt;&lt;i&gt;' + time.formatTime('hh:mmtt') + '&lt;/i&gt;');
+        }
+        else {
+          $('#datetime-display').html('Nothing selected yet. Open modal dialog and choose a datetime.');
+        }
+      });
+
+      $('#getDate-button').button();
+      $('#getDate-button').click(function() {
+        var date = $('#indialog-dateplustimepicker').dateplustimepicker('getDate');
+        if (date!==null) {
+          $('#datetime-display').html('&lt;strong&gt;Datetime: &lt;/strong&gt;&lt;i&gt;' + date.toString() + '&lt;/i&gt;');
+        }
+        else {
+          $('#datetime-display').html('Nothing selected yet. Open modal dialog and choose a datetime.');
+        }
+      });
+
+      $('#indialog-dateplustimepicker').dateplustimepicker({
+        timeFormat: 'hh:mmtt',
+        altField: '#testAlt',
+        altTimeFormat: 'h:m',
+        defaultTime: 0,
+        minTime: 0,
+        maxTime: { hours: 24 },
+        step: {	minutes: 15 },
+        show: 'fold',
+        showButtonPanel: true
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;A Date Plus Time picker inside a dialog. Click the open dialog button to open the modal dialog. Use the get buttons to retrieve what is selected in the picker.&lt;/p&gt;
+  &lt;button type="button" id="displayDialog-button"&gt;Open Dialog&lt;/button&gt;
+  &lt;button type="button" id="getDate-button"&gt;Get Date&lt;/button&gt;
+  &lt;button type="button" id="getTime-button"&gt;Get Time&lt;/button&gt;
+  &lt;button type="button" id="getDatetime-button"&gt;Get Date and Time&lt;/button&gt;
+  &lt;br /&gt;&lt;br /&gt;&lt;label id="datetime-display"&gt;&lt;/label&gt;
+  &lt;div id="dialog"&gt;
+    &lt;label for="indialog-dateplustimepicker"&gt;&lt;strong&gt;Datetime:&lt;/strong&gt;&lt;/label&gt;&lt;br /&gt;&lt;input id="indialog-dateplustimepicker" name="indialog-dateplustimepicker" /&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Display inline</a></h3>
 			<div>
 				<div id="inline-dateplustimepicker"></div>
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#inline-dateplustimepicker').dateplustimepicker({
+        timeFormat: 'hh:mm:ss'
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;div id="inline-dateplustimepicker"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Time limits</a></h3>
 			<div>
 				<p>A Date Plus Time picker can be configured with time limits. In this demo the min time is 8:30am and max time is 8:00pm so you can't select times outside that range.</p>
 				<input type="text" id="limit-dateplustimepicker" name="limit-dateplustimepicker" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#limit-dateplustimepicker').dateplustimepicker({
+        minTime: { hours: 8, minutes: 30 },
+        maxTime: { hours: 20 }
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;A Date Plus Time picker can be configured with time limits. In this demo the min time is 8:30am and max time is 8:00pm so you can't select times outside that range.&lt;/p&gt;
+  &lt;input type="text" id="limit-dateplustimepicker" name="limit-dateplustimepicker" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Step</a></h3>
 			<div>
 				<p>A Date Plus Time picker can be configured with a step. When step is configured you can select times only in steps from min time to max time. In this demo the step is 1hour 5minutes and 30seconds, min time is 9:00:00 and max time is 15:00:00 so the allowed values are 9:00:00, 10:05:30, 11:11:00, 12:16:30, 13:22:00, 14:27:30.</p>
 				<p>I have chosen for the demo such a step so you can see how it works. Normally the step would be something more intuitive like 15min.</p>
 				<input type="text" id="step-dateplustimepicker" name="step-dateplustimepicker" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#step-dateplustimepicker').dateplustimepicker({
+        timeFormat: 'hh:mm:ss',
+        minTime: { hours: 9 },
+        maxTime: { hours: 15 },
+        step: { hours: 1, minutes: 5, seconds: 30 }
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;A Date Plus Time picker can be configured with a step. When step is configured you can select times only in steps from min time to max time. In this demo the step is 1hour 5minutes and 30seconds, min time is 9:00:00 and max time is 15:00:00 so the allowed values are 9:00:00, 10:05:30, 11:11:00, 12:16:30, 13:22:00, 14:27:30.&lt;/p&gt;
+  &lt;p&gt;I have chosen for the demo such a step so you can see how it works. Normally the step would be something more intuitive like 15min.&lt;/p&gt;
+  &lt;input type="text" id="step-dateplustimepicker" name="step-dateplustimepicker" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Display in multiple months</a></h3>
 			<div>
 				<p>When the picker show multiple months, the time is shown once behind all months.</p>
 				<input type="text" id="multimonth-dateplustimepicker" name="multimonth-dateplustimepicker" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#multimonth-dateplustimepicker').dateplustimepicker({
+        numberOfMonths: 2 
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;When the picker show multiple months, the time is shown once behind all months.&lt;/p&gt;
+  &lt;input type="text" id="multimonth-dateplustimepicker" name="multimonth-dateplustimepicker" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Show grids</a></h3>
 			<div>
 				<p>Show a grid under the hours, minutes or seconds sliders.</p>
 				<input type="text" id="grid-dateplustimepicker" name="grid-dateplustimepicker" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#grid-dateplustimepicker').dateplustimepicker({
+        hourGrid: 4,
+        minuteGrid: 10,
+        secondGrid: 10 
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;Show a grid under the hours, minutes or seconds sliders.&lt;/p&gt;
+  &lt;input type="text" id="grid-dateplustimepicker" name="grid-dateplustimepicker" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Format Time</a></h3>
 			<div>
@@ -105,11 +393,88 @@
 					<option value="h:m">No leading 0 - h:m</option>
 					<option value="mm:ss">No hours - mm:ss</option>
 				</select>
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#format-dateplustimepicker').dateplustimepicker();
+      $('#format-switcher').change(function(){
+        var format = $('option:selected', this).val();
+        $('#format-dateplustimepicker').dateplustimepicker('option', 'timeFormat', format);
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;Configure the format in which you want to display the time.&lt;/p&gt;
+  &lt;input type="text" id="format-dateplustimepicker" name="format-dateplustimepicker" /&gt;
+  &lt;select id="format-switcher"&gt;
+    &lt;option value="hh:mm tt"&gt;Default format (12hours) - hh:mm tt&lt;/option&gt;
+    &lt;option value="Thh:mm"&gt;Prev 12hours - Thh:mm&lt;/option&gt;
+    &lt;option value="hh:mm:ss"&gt;24hours format - hh:mm:ss&lt;/option&gt;
+    &lt;option value="h:m"&gt;No leading 0 - h:m&lt;/option&gt;
+    &lt;option value="mm:ss"&gt;No hours - mm:ss&lt;/option&gt;
+  &lt;/select&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Only time</a></h3>
 			<div>
 				<p>A picker with time selection only.</p>
 				<input type="text" id="timeonly-dateplustimepicker" name="timeonly-dateplustimepicker" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#timeonly-dateplustimepicker').dateplustimepicker({
+        timeOnly: true
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;A picker with time selection only.&lt;/p&gt;
+  &lt;input type="text" id="timeonly-dateplustimepicker" name="timeonly-dateplustimepicker" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Populate Alternative Field</a></h3>
 			<div>
@@ -118,6 +483,45 @@
 				<input type="text" size="25" id="withalt-dateplustimepicker" name="withalt-dateplustimepicker" />
 				<label for="withalt-dateplustimepicker-altField">In alt format:</label>
 				<input type="text" size="25" id="withalt-dateplustimepicker-altField" name="withalt-dateplustimepicker-altField" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#withalt-dateplustimepicker').dateplustimepicker({
+        altField: '#withalt-dateplustimepicker-altField',
+        altFormat: 'D, dd M yy',
+        altTimeFormat: 'hh:mm TT'
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;As date picker you can use an alternative field to display the datetime in a different format. Use altTimeFormat to define the alternative time format.&lt;/p&gt;
+  &lt;label for="withalt-dateplustimepicker"&gt;Datetime:&lt;/label&gt;
+  &lt;input type="text" size="25" id="withalt-dateplustimepicker" name="withalt-dateplustimepicker" /&gt;
+  &lt;label for="withalt-dateplustimepicker-altField"&gt;In alt format:&lt;/label&gt;
+  &lt;input type="text" size="25" id="withalt-dateplustimepicker-altField" name="withalt-dateplustimepicker-altField" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 			<h3><a href="#">Alternative Time Field</a></h3>
 			<div>
@@ -126,13 +530,49 @@
 				<input type="text" id="withAltTime-dateplustimepicker" name="withAltTime-dateplustimepicker" />
 				<label for="withAltTime-dateplustimepicker-alt">Time:</label>
 				<input type="text" id="withAltTime-dateplustimepicker-alt" name="withAltTime-dateplustimepicker-alt" />
+				<div class="demo-source-wrapper">
+					<div class="demo-source-button"><a href="#">View Source</a></div>
+					<div class="demo-source">
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    $(document).ready(function() {
+      $('#withAltTime-dateplustimepicker').dateplustimepicker({
+        altTimeField: '#withAltTime-dateplustimepicker-alt',
+        dateFormat: 'D, dd M yy',
+        timeFormat: 'hh:mmTT'
+      });
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="font-size:62.5%;"&gt;
+
+  &lt;p&gt;You can configure an alternative field to show the time with the altTimeField option.&lt;/p&gt;
+  &lt;label for="withAltTime-dateplustimepicker"&gt;Date:&lt;/label&gt;
+  &lt;input type="text" id="withAltTime-dateplustimepicker" name="withAltTime-dateplustimepicker" /&gt;
+  &lt;label for="withAltTime-dateplustimepicker-alt"&gt;Time:&lt;/label&gt;
+  &lt;input type="text" id="withAltTime-dateplustimepicker-alt" name="withAltTime-dateplustimepicker-alt" /&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+						</code></pre>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="dialog">
-		<label for="indialog-dateplustimepicker"><strong>Datetime:</strong></label><br /><input id="indialog-dateplustimepicker" name="indialog-dateplustimepicker" />
-	</div>
 
 
 	<div id="dateplustimepicker-documentation">
@@ -144,6 +584,8 @@
 			<li><a href="#events">Events</a></li>
 			<li><a href="#methods">Methods</a></li>
 			<li><a href="#theming">Theming</a></li>
+			<li><a href="#source">Source</a></li>
+			<li><a href="#download">Download</a></li>
 		</ul>
 
 		<div id="overview">
@@ -203,6 +645,7 @@
 				<ul>
 					<li>UI Core</li>
 					<li>UI Datepicker</li>
+					<li>UI Slider</li>
 				</ul>
 			</div>
 
@@ -212,7 +655,7 @@
 
 					<ul>
 						<li><a href="#demo"><span>Demo</span></a></li>
-						<li><a href="#source"><span>View Source</span></a></li>
+						<li><a href="#demo-source"><span>View Source</span></a></li>
 					</ul>
 					<div id="demo" class="tabs-container">
 						<p>
@@ -221,22 +664,24 @@
 						<pre class="prettyprint lang-js"><code>$(&quot;#dateplustimepicker&quot;).dateplustimepicker();</code></pre>
 						<div id="simple-dateplustimepicker"></div>
 					</div>
-					<div id="source" class="tabs-container">
+					<div id="demo-source" class="tabs-container">
 						<p></p>
 						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
- &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
- &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
 
- &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
- &lt;script&gt;
- $(document).ready(function() {
-   $(&quot;#dateplustimepicker&quot;).dateplustimepicker();
- });
- &lt;/script&gt;
+  &lt;script&gt;
+    $(document).ready(function() {
+      $(&quot;#dateplustimepicker&quot;).dateplustimepicker();
+    });
+  &lt;/script&gt;
 &lt;/head&gt;
 
 &lt;body style="font-size:62.5%;"&gt;
@@ -2518,6 +2963,8 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 
 	<div id="theming">
     	<h2 class="top-header">Theming</h2>
+		<p>jQuery DateplusTimePicker time selection has only some sliders and some labels. The sliders will be themed with the jquery ui theme you use. To theme the labels you can tweak the jquery-dateplustimepicker.css file to get the look and feel that fits your proyect.</p>
+		<p>To theme the calendar follow the instructions for datepicker.</p>
 		<p>The jQuery UI Datepicker plugin uses the jQuery UI CSS Framework to style its look and feel, including colors and background textures. We recommend using the ThemeRoller tool to create and download custom themes that are easy to build and maintain.</p>
 		<p>If a deeper level of customization is needed, there are widget-specific classes referenced within the jquery.ui.datepicker.css stylesheet that can be modified. These classes are highlighed in bold below.</p>
 	  	<h3>Sample markup with jQuery UI CSS Framework classes</h3>
@@ -2556,6 +3003,25 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					
 		<p class="theme-note ui-state-hover ui-corner-all"><strong>Note: This is a sample of markup generated by the datepicker plugin, not markup you should use to create a datepicker. The only markup needed for that is &lt;input type="text" /&gt; or &lt;div&gt;&lt;/div&gt;.</strong></p>
 
+	</div>
+	<div id="source">
+		<h2 class="top-header">Source</h2>
+		<p>jQuery DateplusTimePicker code is hosted in github. You can checkitout, contribute, follow changes or ask for help there.</p>
+		<div id="dateplustimepicker-code">
+			<p>Find it at github</p>
+			<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker">jQuery DateplusTimePicker at github</a>
+		</div>
+		<div id="dateplustimepicker-issues">
+			<p>Use the issue queue to submit bugs or ask for help</p>
+			<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker/issues">jQuery DateplusTimePicker issue queue</a>
+		</div>
+	</div>
+	<div id="download">
+		<h2 class="top-header">Download</h2>
+		<div id="dateplustimepicker-download">
+			<p>Download the latest jQuery DateplusTimePicker</p>
+			<a id="" href="https://github.com/manfer/jQuery-DatePlusTime-Picker/zipball/master">jQuery DateplusTimePicker v0.1</a>
+		</div>
 	</div>
 	</div>
 
