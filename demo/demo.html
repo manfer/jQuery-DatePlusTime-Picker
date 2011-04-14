@@ -10,39 +10,16 @@
 	
 	<link rel="stylesheet" href="css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="prettify/prettify.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="../css/jquery-dateplustimepicker.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../js/jquery-dateplustimepicker.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/demo.js"></script>
 	<script type="text/javascript" charset="utf-8" src="prettify/prettify.js"></script>
-	<script type="text/javascript"
-	  src="http://jqueryui.com/themeroller/themeswitchertool/">
-	</script>
-	<script>
-		$(document).ready(function() {
-			var demosShowing = true;
-			$("#dateplustimepicker-documentation").hide();
-			$("#showdem").click(function() {
-				if (demosShowing) return;
-				$("#showdoc").removeClass("inview").addClass("outofview");
-				$("#showdem").addClass("inview").removeClass("outofview");
-				$("#dateplustimepicker-demos").show();
-				$("#dateplustimepicker-documentation").hide();
-				demosShowing = true;
-			});
-			$("#showdoc").click(function() {
-				if (!demosShowing) return;
-				$("#showdem").removeClass("inview").addClass("outofview");
-				$("#showdoc").addClass("inview").removeClass("outofview");
-				$("#dateplustimepicker-documentation").show();
-				$("#dateplustimepicker-demos").hide();
-				demosShowing = false;
-			});
-		});
+	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/">
 	</script>
 </head>
 
@@ -71,10 +48,10 @@
 	</div>
 
 	<div id="toggledemdoc">
-		<a href="#" id="showdem" class="inview">Demos</a> / <a href="#" id="showdoc" class="outofview">Documentation</a>
+		<a href="#" id="showdem" class="inview menu-item">Demos</a> / <a href="#" id="showdoc" class="outofview menu-item">Documentation</a> / <a href="#" id="showdown" class="outofview menu-item">Download</a>
 	</div>
 
-	<div id="dateplustimepicker-demos">
+	<div id="dateplustimepicker-demos" class="menu-content">
 		<div id="demos-accordion">
 			<h3><a href="#">Display in Dialog</a></h3>
 			<div>
@@ -90,15 +67,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -187,15 +166,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -225,15 +206,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -266,15 +249,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -309,15 +294,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -348,15 +335,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -396,15 +385,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -444,15 +435,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -486,15 +479,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -533,15 +528,17 @@
 				<div class="demo-source-wrapper">
 					<div class="demo-source-button"><a href="#">View Source</a></div>
 					<div class="demo-source">
-						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+						<pre class="prettyprint lang-xhtml"><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
 
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -575,7 +572,7 @@
 
 
 
-	<div id="dateplustimepicker-documentation">
+	<div id="dateplustimepicker-documentation" class="menu-content">
 
 	<div class="UIAPIPlugin" id="widget-docs">
 		<ul>
@@ -584,8 +581,6 @@
 			<li><a href="#events">Events</a></li>
 			<li><a href="#methods">Methods</a></li>
 			<li><a href="#theming">Theming</a></li>
-			<li><a href="#source">Source</a></li>
-			<li><a href="#download">Download</a></li>
 		</ul>
 
 		<div id="overview">
@@ -670,11 +665,11 @@
 &lt;html&gt;
 
 &lt;head&gt;
-  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
   &lt;link href=&quot;jquery-dateplustimepicker.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;jquery-dateplustimepicker.min.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
@@ -3004,28 +2999,39 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 		<p class="theme-note ui-state-hover ui-corner-all"><strong>Note: This is a sample of markup generated by the datepicker plugin, not markup you should use to create a datepicker. The only markup needed for that is &lt;input type="text" /&gt; or &lt;div&gt;&lt;/div&gt;.</strong></p>
 
 	</div>
-	<div id="source">
-		<h2 class="top-header">Source</h2>
-		<p>jQuery DateplusTimePicker code is hosted in github. You can checkitout, contribute, follow changes or ask for help there.</p>
-		<div id="dateplustimepicker-code">
-			<p>Find it at github</p>
-			<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker">jQuery DateplusTimePicker at github</a>
-		</div>
-		<div id="dateplustimepicker-issues">
-			<p>Use the issue queue to submit bugs or ask for help</p>
-			<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker/issues">jQuery DateplusTimePicker issue queue</a>
-		</div>
-	</div>
-	<div id="download">
-		<h2 class="top-header">Download</h2>
-		<div id="dateplustimepicker-download">
-			<p>Download the latest jQuery DateplusTimePicker</p>
-			<a id="" href="https://github.com/manfer/jQuery-DatePlusTime-Picker/zipball/master">jQuery DateplusTimePicker v0.1</a>
-		</div>
-	</div>
-	</div>
 
-</div>
+	</div>
+  </div>
+
+  <div id="dateplustimepicker-download" class="menu-content">
+
+	<div class="UIAPIPlugin" id="widget-down">
+		<ul>
+			<li><a href="#download">Download</a></li>
+			<li><a href="#source">Source</a></li>
+		</ul>
+
+		<div id="download">
+			<h2 class="top-header">Download</h2>
+			<div id="dateplustimepicker-downloadlinks">
+				<p>Download the latest jQuery DateplusTimePicker</p>
+				<a id="" href="https://github.com/manfer/jQuery-DatePlusTime-Picker/zipball/v0.1">jQuery DateplusTimePicker v0.1</a>
+			</div>
+		</div>
+		<div id="source">
+			<h2 class="top-header">Source</h2>
+			<p>jQuery DateplusTimePicker code is hosted in github. You can checkout, contribute, follow changes or ask for help there.</p>
+			<div id="dateplustimepicker-code">
+				<p>Find it at github</p>
+				<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker">jQuery DateplusTimePicker at github</a>
+			</div>
+			<div id="dateplustimepicker-issues">
+				<p>Use the issue queue to submit bugs or ask for help</p>
+				<a href="https://github.com/manfer/jQuery-DatePlusTime-Picker/issues">jQuery DateplusTimePicker issue queue</a>
+			</div>
+	    </div>
+    </div>
+  </div>
 
 </div>
 

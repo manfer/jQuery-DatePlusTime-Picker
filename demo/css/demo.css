@@ -149,7 +149,7 @@ div.triangle-container { margin-left: -20px; margin-top: -15px; position:relativ
 	font-size: 1.5em;
 }
 
-#dateplustimepicker-download, #dateplustimepicker-code, #dateplustimepicker-issues  {
+#dateplustimepicker-downloadlinks, #dateplustimepicker-code, #dateplustimepicker-issues  {
 	font-weight: bold;
 	font-style: italic;
 	height: 130px;
@@ -157,7 +157,7 @@ div.triangle-container { margin-left: -20px; margin-top: -15px; position:relativ
 	padding: 30px 0px 0px 150px;
 }
 
-#dateplustimepicker-download {
+#dateplustimepicker-downloadlinks {
 	background: url(../images/Download_Ico.png) no-repeat scroll transparent;
 }
 
@@ -169,7 +169,7 @@ div.triangle-container { margin-left: -20px; margin-top: -15px; position:relativ
 	background: url(../images/question.png) no-repeat scroll;
 }
 
-#dateplustimepicker-download a, #dateplustimepicker-code a {
+#dateplustimepicker-downloadlinks a, #dateplustimepicker-code a {
 	font-size: 1.5em;
 }
 
@@ -190,7 +190,8 @@ pre code {
 /*
  * Demos source
  */
-.demo-source-wrapper pre{
+.demo-source-wrapper pre,
+#demo-source pre {
 	overflow: scroll;
 }
 .demo-source-button {

@@ -4,7 +4,7 @@
 	$("#dateplustimepicker-demos input").addClass('ui-widget ui-state-default ui-corner-all');
 
 	// select with jquery ui style
-	$('#format-switcher').addClass('ui-widget ui-state-default ui-corner-all');
+	$('#format-switcher').addClass('ui-widget ui-state-default ui-corner-left');
 	
 	// documentation simple example in tabs
 	$('#overview-example-tabs').tabs();
@@ -40,6 +40,8 @@
 
 	$("#widget-docs").tabs();
 	$("#widget-docs > div").addClass('clearfix'); //This fixes clearing of containers
+	$("#widget-down").tabs();
+	$("#widget-down > div").addClass('clearfix'); //This fixes clearing of containers
 
 	//show details/hide details
 	$("#options .options-list, #events .events-list").before('<div class="toggle-docs-links"><a class="toggle-docs-detail" href="#">Show details</a> | <a class="toggle-docs-example" href="#">Hide examples</a></div>');
@@ -246,8 +248,19 @@
 	//Load themeswitcher
     $('#theme-switcher').themeswitcher({loadTheme: 'Pepper Grinder'});
 
+    // Simple Menu
+	var currentMenu = "demos";
+	$(".menu-content").hide();
+	$("#dateplustimepicker-" + currentMenu).show();
+	$(".menu-item").click(function() {
+		if (currentMenu == $(this).html().toLowerCase()) return;
+		$(".menu-item").removeClass("inview").addClass("outofview");
+		$(this).addClass("inview").removeClass("outofview");
+		$(".menu-content").hide();
+		currentMenu = $(this).html().toLowerCase();
+		$("#dateplustimepicker-" + currentMenu).show();
+	});
+
 	prettyPrint();
-
-
 
 });
