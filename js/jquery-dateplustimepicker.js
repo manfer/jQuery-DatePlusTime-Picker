@@ -539,6 +539,7 @@
 					$.dateplustimepicker._autoSize(inst);
 				}
 				$.dateplustimepicker._setDateTimeDateTimePicker(target, date);
+				$.dateplustimepicker._setDateTimeFromField(inst);
 				$.datepicker._updateDatepicker(inst);
 				
 			}
@@ -1268,6 +1269,10 @@
 				}
 				$(event.target).focus(); // prevent focus stolen if edit on altTimeField
 			}
+			if (val == "") {
+				$.dateplustimepicker._setDateTimeFromField(inst);
+				$.datepicker._updateDatepicker(inst);
+			}
 			return true;
 		},
 
@@ -1283,6 +1288,10 @@
 				inst.timepicker.time = $.dateplustimepicker._constraintTime(inst); // apply min and max constraints
 	            $.datepicker._updateAlternate(inst); // update the alternate input field
 	            $.datepicker._updateDatepicker(inst); // update picker
+			}
+			if (val == "") {
+				$.dateplustimepicker._setDateTimeFromField(inst);
+				$.datepicker._updateDatepicker(inst);
 			}
 			return true;
 		},
