@@ -1,5 +1,5 @@
 jQuery DateplusTimePicker
-Version 0.1
+Version 0.2
 By Fernando San Julián
 Copyright 2010 Fernando San Julián
 Dual Licensed under the MIT and GPL licenses.
@@ -21,3 +21,16 @@ jQuery UI Slider
 == Usage ==
 
 In demo folder you can find an html file with several demos and a complete documention.
+
+== Changelog ==
+
+version x.x
+Fixed error in timeFormat documentation
+
+version 0.2
+Improved demo page
+Improved set options
+Improved keyup event
+
+version 0.1
+Initial dateplustimepicker.
