@@ -2572,7 +2572,64 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 
   	<div id="events">
 		<h2 class="top-header">Events</h2>
-		<p><i>* All events are inherited from datepicker.</i></p>
+		<p><i>* Some events are inherited from datepicker.</i></p>
+
+
+    	<ul class="events-list">
+
+			<li class="event" id="event-onTimeChange">
+				<div class="event-header">
+					<h3 class="event-name"><a href="#event-onTimeChange">onTimeChange</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+						<dd class="event-type">function(time, inst)</dd>
+					</dl>
+				</div>
+
+				<div class="event-description">
+					<p>Allows you to define your own event when the time is changed. The function receives the current time as a time object and the dateplustimepicker instance as parameters.</p>
+				</div>
+
+				<div class="event-examples">
+					<h4>Code examples</h4>
+					<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the onTimeChange event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  onTimeChange: function(time, inst) { ... }
+});</code></pre></dd>
+				    </dl>
+				</div>
+			</li>
+
+			<li class="event" id="event-onDateTimeChange">
+				<div class="event-header">
+					<h3 class="event-name"><a href="#event-onDateTimeChange">onDateTimeChange</a></h3>
+					<dl>
+						<dt class="event-type-label"></dt>
+						<dd class="event-type">function(date, inst)</dd>
+					</dl>
+				</div>
+
+				<div class="event-description">
+					<p>Allows you to define your own event when the date or time are changed. The function receives the current date as a date object and the dateplustimepicker instance as parameters.</p>
+				</div>
+
+				<div class="event-examples">
+					<h4>Code examples</h4>
+					<dl class="event-examples-list">
+						<dt>Supply a callback function to handle the onDateTimeChange event as an init option.</dt>
+						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
+  onDateTimeChange: function(date, inst) { ... }
+});</code></pre></dd>
+				    </dl>
+				</div>
+			</li>
+
+		</ul>
+
+		<div class="ui-helper-clearfix"></div>
+		<h2 class="inherited-header">Inherited from datepicker</h2>
+
     	<ul class="events-list">
 			<li class="event" id="event-beforeShow">
 				<div class="event-header">

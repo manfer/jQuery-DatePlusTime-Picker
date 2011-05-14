@@ -24,6 +24,9 @@ In demo folder you can find an html file with several demos and a complete docum
 
 == Changelog ==
 
+version x.x
+Added onTimeChange and OnDateTimeChange events.
+
 version 0.3
 Fixed initialize alt fields for inline pickers.
 Fixed error in timeFormat documentation
