@@ -490,6 +490,7 @@
 			inst.timepicker.time = defTime;
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst);
 			$.datepicker._updateDatepicker(inst);
+			$.dateplustimepicker.updateDateTime(inst);
 		},
 		
 		/* Get a setting value, defaulting if necessary. */
