@@ -25,7 +25,8 @@ In demo folder you can find an html file with several demos and a complete docum
 == Changelog ==
 
 version x.x
-Added onTimeChange and OnDateTimeChange events.
+Added onTimeChangeStop and onDateTimeChangeStop events.
+Added onTimeChange and onDateTimeChange events.
 
 version 0.3
 Fixed initialize alt fields for inline pickers.

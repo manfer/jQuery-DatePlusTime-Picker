@@ -326,8 +326,10 @@
 				seconds: 0
 			},
             minuteGrid: 0,
-			onDateTimeChange: null, // Define a callback function when the month, year or time is changed
+			onDateTimeChange: null, // Define a callback function when the date or time is changed
+			onDateTimeChangeStop: null, // Define a callback function when the date or time is changed (only after slide stops)
 			onTimeChange: null, // Define a callback function when the time is changed
+			onTimeChangeStop: null, // Define a callback function when the time is changed (only after slide stops)
             secondGrid: 0,
             showTime: true,
             step: {
@@ -671,12 +673,17 @@
 	                min: 0,
 	                max: 23,
 	                step: 1,
+					start: function(event, ui)
+					{
+						timeSlidersTarget = "hour";
+						timeSlidersStartValue = ui.value;
+					},
 	                slide: function(event, ui)
 	                {
 	                    $.dateplustimepicker._onHourChange(inst, ui.value);
 	                },
 					stop: function(event, ui) {
-						$.dateplustimepicker._updateSliders(inst);
+						$.dateplustimepicker._updateSliders(inst, event);
 					}
 	            });
 			}
@@ -689,6 +696,11 @@
 	                min: 0,
 	                max: 59,
 	                step: 1,
+					start: function(event, ui)
+					{
+						timeSlidersTarget = "minute";
+						timeSlidersStartValue = ui.value;
+					},
 	                slide: function(event, ui)
 	                {
 	                  	$.dateplustimepicker._onMinuteChange(inst, ui.value);
@@ -707,6 +719,11 @@
 	                min: 0,
 	                max: 59,
 	                step: 1,
+					start: function(event, ui)
+					{
+						timeSlidersTarget = "second";
+						timeSlidersStartValue = ui.value;
+					},
 	                slide: function(event, ui)
 	                {
 	                    $.dateplustimepicker._onSecondChange(inst, ui.value);
@@ -838,13 +855,22 @@
 
         /* Update sliders with time value
 		   @param  inst   Object - datepicker instance */
-		_updateSliders: function(inst) {
+		_updateSliders: function(inst, event) {
 			var hourSlider = $('.ui-dateplustimepicker-hour-slider', inst.dpDiv);
 			var minuteSlider = $('.ui-dateplustimepicker-minute-slider', inst.dpDiv);
 			var secondSlider = $('.ui-dateplustimepicker-second-slider', inst.dpDiv);
 			hourSlider.slider('option', 'value', inst.timepicker.time.hours);
 			minuteSlider.slider('option', 'value', inst.timepicker.time.minutes);
 			secondSlider.slider('option', 'value', inst.timepicker.time.seconds);
+
+			if ((timeSlidersTarget == "hour" && timeSlidersStartValue != inst.timepicker.time.hours)
+			 || (timeSlidersTarget == "minute" && timeSlidersStartValue != inst.timepicker.time.minutes)
+			 || (timeSlidersTarget == "second" && timeSlidersStartValue != inst.timepicker.time.seconds))
+			{
+				this._notifyTimeChangeStop(inst);
+				this._notifyDateTimeChangeStop(inst);
+			}
+
 		},
 
         /* Constraint the time taking into account min, max and step
@@ -986,6 +1012,23 @@
 					[date, inst]);
 		},
 
+		/* Notify change of time. After the slide stops */
+		_notifyTimeChangeStop: function(inst) {
+			var onTimeChangeStop = this._get(inst, 'onTimeChangeStop');
+			if (onTimeChangeStop)
+				onTimeChangeStop.apply((inst.input ? inst.input[0] : null),
+					[inst.timepicker.time, inst]);
+		},
+
+		/* Notify change of date and/or time. After the slide stops */
+		_notifyDateTimeChangeStop: function(inst) {
+			var onDateTimeChangeStop = this._get(inst, 'onDateTimeChangeStop');
+			var date = this._getDateTime(inst);
+			if (onDateTimeChangeStop)
+				onDateTimeChangeStop.apply((inst.input ? inst.input[0] : null),
+					[date, inst]);
+		},
+
 		/* Update inputs with current date and time.
 		   @param  inst   object - date picker instance */
 		updateDateTime: function(inst) {
@@ -1104,7 +1147,9 @@
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst);
 
 			this._notifyTimeChange(inst);
+			this._notifyTimeChangeStop(inst);
 			this._notifyDateTimeChange(inst);
+			this._notifyDateTimeChangeStop(inst);
         },
 
         /* Set the time directly from a datetime string. */
@@ -1212,7 +1257,9 @@
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst);
 
 			this._notifyTimeChange(inst);
+			this._notifyTimeChangeStop(inst);
 			this._notifyDateTimeChange(inst);
+			this._notifyDateTimeChangeStop(inst);
 		},
 
 		/* Parse existing datetime and initialise datetime picker. */
@@ -1425,6 +1472,7 @@
 	        }
 
 			$.dateplustimepicker._notifyDateTimeChange(inst);
+			$.dateplustimepicker._notifyDateTimeChangeStop(inst);
 	    }
 
     });
