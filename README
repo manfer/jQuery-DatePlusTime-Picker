@@ -25,6 +25,7 @@ In demo folder you can find an html file with several demos and a complete docum
 == Changelog ==
 
 version x.x
+Added from_picker parameter to on change events.
 Added onTimeChangeStop and onDateTimeChangeStop events.
 Added onTimeChange and onDateTimeChange events.
 

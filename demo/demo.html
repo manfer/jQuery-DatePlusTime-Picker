@@ -2582,12 +2582,12 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<h3 class="event-name"><a href="#event-onDateTimeChange">onDateTimeChange</a></h3>
 					<dl>
 						<dt class="event-type-label"></dt>
-						<dd class="event-type">function(date, inst)</dd>
+						<dd class="event-type">function(date, inst, from_picker)</dd>
 					</dl>
 				</div>
 
 				<div class="event-description">
-					<p>Allows you to define your own event when the date or time are changed. The function receives the current date as a date object and the dateplustimepicker instance as parameters.</p>
+					<p>Allows you to define your own event when the date or time are changed. The function receives the current date as a date object, the dateplustimepicker instance and a boolean as parameters. The last parameter will be true when the change comes from the picker and false when the change is made programmatically.</p>
 				</div>
 
 				<div class="event-examples">
@@ -2595,7 +2595,7 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<dl class="event-examples-list">
 						<dt>Supply a callback function to handle the onDateTimeChange event as an init option.</dt>
 						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
-  onDateTimeChange: function(date, inst) { ... }
+  onDateTimeChange: function(date, inst, from_picker) { ... }
 });</code></pre></dd>
 				    </dl>
 				</div>
@@ -2606,12 +2606,12 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<h3 class="event-name"><a href="#event-onDateTimeChange">onDateTimeChangeStop</a></h3>
 					<dl>
 						<dt class="event-type-label"></dt>
-						<dd class="event-type">function(date, inst)</dd>
+						<dd class="event-type">function(date, inst, from_picker)</dd>
 					</dl>
 				</div>
 
 				<div class="event-description">
-					<p>Allows you to define your own event when the date or time are changed, after sliding has finished. The function receives the current date as a date object and the dateplustimepicker instance as parameters.</p>
+					<p>Allows you to define your own event when the date or time are changed, after sliding has finished. The function receives the current date as a date object, the dateplustimepicker instance and a boolean as parameters. The last parameter will be true when the change comes from the picker and false when the change is made programmatically.</p>
 				</div>
 
 				<div class="event-examples">
@@ -2619,7 +2619,7 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<dl class="event-examples-list">
 						<dt>Supply a callback function to handle the onDateTimeChangeStop event as an init option.</dt>
 						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
-  onDateTimeChangeStop: function(date, inst) { ... }
+  onDateTimeChangeStop: function(date, inst, from_picker) { ... }
 });</code></pre></dd>
 				    </dl>
 				</div>
@@ -2630,12 +2630,12 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<h3 class="event-name"><a href="#event-onTimeChange">onTimeChange</a></h3>
 					<dl>
 						<dt class="event-type-label"></dt>
-						<dd class="event-type">function(time, inst)</dd>
+						<dd class="event-type">function(time, inst, from_picker)</dd>
 					</dl>
 				</div>
 
 				<div class="event-description">
-					<p>Allows you to define your own event when the time is changed. The function receives the current time as a time object and the dateplustimepicker instance as parameters.</p>
+					<p>Allows you to define your own event when the time is changed. The function receives the current time as a time object, the dateplustimepicker instance and a boolean as parameters. The last parameter will be true when the change comes from the picker and false when the change is made programmatically.</p>
 				</div>
 
 				<div class="event-examples">
@@ -2643,7 +2643,7 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<dl class="event-examples-list">
 						<dt>Supply a callback function to handle the onTimeChange event as an init option.</dt>
 						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
-  onTimeChange: function(time, inst) { ... }
+  onTimeChange: function(time, inst, from_picker) { ... }
 });</code></pre></dd>
 				    </dl>
 				</div>
@@ -2654,12 +2654,12 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<h3 class="event-name"><a href="#event-onTimeChange">onTimeChangeStop</a></h3>
 					<dl>
 						<dt class="event-type-label"></dt>
-						<dd class="event-type">function(time, inst)</dd>
+						<dd class="event-type">function(time, inst, from_picker)</dd>
 					</dl>
 				</div>
 
 				<div class="event-description">
-					<p>Allows you to define your own event when the sliding stops and time is changed. The function receives the current time as a time object and the dateplustimepicker instance as parameters.</p>
+					<p>Allows you to define your own event when the sliding stops and time is changed. The function receives the current time as a time object, the dateplustimepicker instance and a boolean as parameters. The last parameter will be true when the change comes from the picker and false when the change is made programmatically.</p>
 				</div>
 
 				<div class="event-examples">
@@ -2667,7 +2667,7 @@ $(".selector").dateplustimepicker( "option", "yearSuffix", 'CE' );</code></pre><
 					<dl class="event-examples-list">
 						<dt>Supply a callback function to handle the onTimeChangeStop event as an init option.</dt>
 						<dd><pre class="prettyprint lang-js"><code>$('.selector').dateplustimepicker({
-  onTimeChangeStop: function(time, inst) { ... }
+  onTimeChangeStop: function(time, inst, from_picker) { ... }
 });</code></pre></dd>
 				    </dl>
 				</div>
