@@ -683,7 +683,7 @@
 	                    $.dateplustimepicker._onHourChange(inst, ui.value);
 	                },
 					stop: function(event, ui) {
-						$.dateplustimepicker._updateSliders(inst, event);
+						$.dateplustimepicker._updateSliders(inst);
 					}
 	            });
 			}
@@ -855,7 +855,7 @@
 
         /* Update sliders with time value
 		   @param  inst   Object - datepicker instance */
-		_updateSliders: function(inst, event) {
+		_updateSliders: function(inst) {
 			var hourSlider = $('.ui-dateplustimepicker-hour-slider', inst.dpDiv);
 			var minuteSlider = $('.ui-dateplustimepicker-minute-slider', inst.dpDiv);
 			var secondSlider = $('.ui-dateplustimepicker-second-slider', inst.dpDiv);
@@ -863,10 +863,7 @@
 			minuteSlider.slider('option', 'value', inst.timepicker.time.minutes);
 			secondSlider.slider('option', 'value', inst.timepicker.time.seconds);
 
-			if ((timeSlidersTarget == "hour" && timeSlidersStartValue != inst.timepicker.time.hours)
-			 || (timeSlidersTarget == "minute" && timeSlidersStartValue != inst.timepicker.time.minutes)
-			 || (timeSlidersTarget == "second" && timeSlidersStartValue != inst.timepicker.time.seconds))
-			{
+			if (timeSlidersStartValue != eval("inst.timepicker.time." + timeSlidersTarget)) {
 				this._notifyTimeChangeStop(inst, true);
 				this._notifyDateTimeChangeStop(inst, true);
 			}
