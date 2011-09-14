@@ -1,7 +1,7 @@
 jQuery DateplusTimePicker
-Version 0.2
+Version 0.5
 By Fernando San Julián
-Copyright 2010 Fernando San Julián
+Copyright 2010-2011 Fernando San Julián
 Dual Licensed under the MIT and GPL licenses.
 http://www.opensource.org/licenses/mit-license.php
 http://www.gnu.org/licenses/gpl.html
@@ -24,8 +24,9 @@ In demo folder you can find an html file with several demos and a complete docum
 
 == Changelog ==
 
-version x.x
-Changed, minor change on events code.
+version 0.5
+Changed minor change on events code.
+Fixed not working correctly with newer jQuery 1.6.2+
 
 version 0.4
 Updated documentation.

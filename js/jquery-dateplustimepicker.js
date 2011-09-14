@@ -92,10 +92,8 @@
 	Time.prototype.equals = function(time) {
 		return (this.hours==time.hours && this.minutes==time.minutes && this.seconds==time.seconds) ? true : false;
 	};
-
-	/* Check if a format is valid time format
-
-	   The format can be combinations of the following:
+	
+	/* The format can be combinations of the following:
 	
 		h  - hour (no leading zero)
 		hh - hour (two digit)
@@ -108,34 +106,46 @@
 		T  - A for AM, P for PM
 		TT - AM for AM, PM for PM
 
-		Allowed separator characters ':' or '.' Optional t|tt|T|TT separator ' '
+		Allowed separator characters ':' or '.'
+		Optional t|tt|T|TT separator ' '
 	*/
+	Time._timeFormatRegExp = /(^((TT|tt|T|t)(\s)?)?h{1,2}((:|\.)m{1,2}((:|\.)s{1,2})?)?$)|(^h{1,2}((:|\.)m{1,2}((:|\.)s{1,2})?)?((\s)?(TT|tt|T|t))?$)|(^m{1,2}((:|\.)s{1,2})?$)|(^s{1,2}$)/g;
+
+	/* Check if a format is valid time format */
 	Time._isValidFormat = function(format) {
-		var match = (format.match(/(^((TT|tt|T|t)(\s)?)?h{1,2}((:|\.)m{1,2}((:|\.)s{1,2})?)?$)|(^h{1,2}((:|\.)m{1,2}((:|\.)s{1,2})?)?((\s)?(TT|tt|T|t))?$)|(^m{1,2}((:|\.)s{1,2})?$)|(^s{1,2}$)/g) !== null);
+		var match = (format.match(Time._timeFormatRegExp) !== null);
+		// be sure only one separator is used but not both at same time
 		var matchSep1 = (format.match(/:/) === null);
 		var matchSep2 = (format.match(/\./) === null);
 		var matchSep = (matchSep1 && matchSep2)
 			|| (matchSep1!=matchSep2);
 		return (match&&matchSep);
 	};
-
-	/* Checks if a string is a valid time in the specified format */
-	Time._isValidTime = function(time, format) {
+	
+	Time._formatToDigitFormat = function(format) {
 
 		var is12HourFormat = Time._is12HourFormat(format);
 
 		// format to num regexp
-		var numTimeFormat = format
-    		.replace(/hh/g, is12HourFormat ? '((0[0-9])|(1[0-2]))' : '(([0-1][0-9])|(2[0-4]))')
-    		.replace(/h/g, is12HourFormat ? '(([0-9])|(1[0-2]))' : '(([0-9])|(1[0-9])|(2[0-4]))')
+		var digitTimeFormat = format
+    		.replace(/hh/g, is12HourFormat ? '((0[0-9])|(1[0-2]))' : '(([0-1][0-9])|(2[0-3]))')
+    		.replace(/h/g, is12HourFormat ? '(([0-9])|(1[0-2]))' : '(([0-9])|(1[0-9])|(2[0-3]))')
     		.replace(/mm/g, '([0-5][0-9])')
-    		.replace(/m/g, '(([1-9])|([1-5][0-9]))')
+    		.replace(/m/g, '(([0-9])|([1-5][0-9]))')
     		.replace(/ss/g, '([0-5][0-9])')
-    		.replace(/s/g, '(([1-9])|([1-5][0-9]))')
+    		.replace(/s/g, '(([0-9])|([1-5][0-9]))')
     		.replace(/TT/g, '(AM|PM)')
     		.replace(/tt/g, '(am|pm)')
     		.replace(/T/g, '(A|P)')
     		.replace(/t/g, '(a|p)');
+    		
+    	return digitTimeFormat;
+	}
+
+	/* Checks if a string is a valid time in the specified format */
+	Time._isValidTime = function(time, format) {
+
+		var numTimeFormat = Time._formatToDigitFormat(format);
 
 		var numTimeFormat = '^' + numTimeFormat + '$';
 
@@ -544,7 +554,7 @@
 					$.dateplustimepicker._autoSize(inst);
 				}
 				$.dateplustimepicker._setDateTimeDateTimePicker(target, date);
-				$.dateplustimepicker._setDateTimeFromField(inst);
+				/*$.dateplustimepicker._setDateTimeFromField(inst);*/
 				$.datepicker._updateDatepicker(inst);
 				
 			}
@@ -1067,7 +1077,7 @@
 
             if (!inst.inline && $input) {
                 $input.val(inputVal);
-                $input.trigger("change");
+                /*$input.trigger("change");*/
             }
 
 			$.dateplustimepicker._updateAlternate(inst);
@@ -1111,17 +1121,28 @@
 			if(date===null) { return; }
 
             var inst = $.datepicker._getInst(target);
-
+            var format = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
+            var digitTimeFormat;
+            var digitTimeFormatRegExp;
+            var timePosition;
+            var dateString;
+            var timeString;
+            
             if (inst) {
 
 				if (typeof date == 'object' && date!==null) {
 					$.datepicker._setDate(inst, new Date(date.getTime()), noChange);
+	                $.dateplustimepicker._setTimeDateTime(inst, date);
 				}
 				else {
-					$.datepicker._setDate(inst, date, noChange);
+					digitTimeFormat = Time._formatToDigitFormat(format);
+					digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
+            		timePosition = date.search(digitTimeFormatRegExp);
+            		dateString = (timePosition != -1) ? date.substring(0, timePosition-1) : date;
+            		timeString = date.substring(timePosition);
+					$.datepicker._setDate(inst, dateString, noChange);
+	                $.dateplustimepicker._setTimeFromString(inst, timeString);
 				}
-
-                $.dateplustimepicker._setTimeDateTime(inst, date);
 
 	            // update the input field
 	            $.dateplustimepicker.updateDateTime(inst);
@@ -1153,12 +1174,11 @@
 		_setTimeFromDateTimeString: function(inst, datetimeString, noDefault) {
 			
 			var timeFormat = $.dateplustimepicker._get(inst.timepicker, 'timeFormat');
+			var	digitTimeFormat = Time._formatToDigitFormat(timeFormat);
+			var	digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
+            var timePosition = datetimeString.search(digitTimeFormatRegExp);
+			var timeString = datetimeString.substring(timePosition);
 
-			// date and time has an space in between
-			var tokens = datetimeString.split(' ');
-			// remove first token (date) and join the rest of tokens (time - 1 or 2 tokens)
-			var timeString = tokens.splice(1).join(' ');
-			
 			$.dateplustimepicker._setTimeFromString(inst, timeString, noDefault);
 
 		},
@@ -1470,6 +1490,39 @@
 
 			$.dateplustimepicker._notifyDateTimeChange(inst, true);
 			$.dateplustimepicker._notifyDateTimeChangeStop(inst, true);
+	    },
+
+	    _datepickerSetDateFromField: $.datepicker._setDateFromField,
+		/* Parse existing date and initialise date picker. */
+ 		_setDateFromField: function(inst, noDefault) {
+			if (inst.input.val() == inst.lastVal) {
+				return;
+			}
+			var dateFormat = $.datepicker._get(inst, 'dateFormat');
+
+            var timeFormat = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
+            var digitTimeFormat = Time._formatToDigitFormat(timeFormat);
+            var digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
+            var timePosition = inst.input.val().search(digitTimeFormatRegExp);
+            var dateString =  (timePosition != -1) ? inst.input.val().substring(0, timePosition-1) : inst.input.val();
+
+			var dates = inst.lastVal = inst.input ? dateString : null;
+			var date, defaultDate;
+			date = defaultDate = $.datepicker._getDefaultDate(inst);
+			var settings = $.datepicker._getFormatConfig(inst);
+			try {
+				date = $.datepicker.parseDate(dateFormat, dates, settings) || defaultDate;
+			} catch (event) {
+				$.datepicker.log(event);
+				dates = (noDefault ? '' : dates);
+			}
+			inst.selectedDay = date.getDate();
+			inst.drawMonth = inst.selectedMonth = date.getMonth();
+			inst.drawYear = inst.selectedYear = date.getFullYear();
+			inst.currentDay = (dates ? date.getDate() : 0);
+			inst.currentMonth = (dates ? date.getMonth() : 0);
+			inst.currentYear = (dates ? date.getFullYear() : 0);
+			this._adjustInstDate(inst);
 	    }
 
     });
@@ -1492,7 +1545,7 @@
             if (options == 'dialog')
             	return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
 
-            return this.datepicker(options);
+            return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
         }
 
 
@@ -1537,5 +1590,6 @@
 	$.datepicker._selectDate = $.dateplustimepicker._selectDate;
 	$.datepicker._setDate = $.dateplustimepicker._setDate;
 	$.datepicker._updateAlternate = $.dateplustimepicker._updateAlternate;
+	$.datepicker._setDateFromField = $.dateplustimepicker._setDateFromField;
 
 })(jQuery);
