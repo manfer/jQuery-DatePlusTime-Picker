@@ -1,7 +1,7 @@
 /*
 * jQuery dateplustimepicker
 * By: Fernando San Julián
-* Version 0.1
+* Version 0.6
 * Last Modified: 
 * 
 * Copyright 2010 Fernando San Julián
@@ -936,6 +936,8 @@
 		   @param  value  float - hour slider current value */
 		_onHourChange: function(inst, value) {
 			
+			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
+
 			var previous_value = inst.timepicker.time.hours;
  
 			inst.timepicker.time.hours = value;
@@ -962,6 +964,8 @@
 		   @param  value  float - minute slider current value */
 		_onMinuteChange: function(inst, value) {
 			
+			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
+
 			var previous_value = inst.timepicker.time.minutes;
  
 			inst.timepicker.time.minutes = value;
@@ -986,6 +990,8 @@
 		   @param  value  float - second slider current value */
 		_onSecondChange: function(inst, value) {
 			
+			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
+
 			var previous_value = inst.timepicker.time.seconds;
  
 			inst.timepicker.time.seconds = value;
@@ -1483,18 +1489,24 @@
 	            $.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
 	            inst.inline = inline;
 				$.dateplustimepicker.updateDateTime(inst);
+				$.dateplustimepicker._notifyDateTimeChange(inst, true);
+				$.dateplustimepicker._notifyDateTimeChangeStop(inst, true);
 	        }
 	        else {
 	            $.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
 	        }
 
-			$.dateplustimepicker._notifyDateTimeChange(inst, true);
-			$.dateplustimepicker._notifyDateTimeChangeStop(inst, true);
 	    },
 
 	    _datepickerSetDateFromField: $.datepicker._setDateFromField,
 		/* Parse existing date and initialise date picker. */
  		_setDateFromField: function(inst, noDefault) {
+
+			if (!inst.timepicker) {
+				$.dateplustimepicker._datepickerSetDateFromField.apply($.datepicker, [inst, noDefault]);
+				return;
+			}
+
 			if (inst.input.val() == inst.lastVal) {
 				return;
 			}
