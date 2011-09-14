@@ -5,7 +5,7 @@ jQuery(function($){
         minuteText: 'Minuten',
         secondText: 'Sekunden',
         timeFormat: 'hh:mm tt',
-        timeOnlyTitle: 'Wählen sie zeit',
+        timeOnlyTitle: 'Uhrzeit wählen',
         timeText: 'Zeit'
 	};
 	$.dateplustimepicker.setDefaults($.dateplustimepicker.regional['de']);
