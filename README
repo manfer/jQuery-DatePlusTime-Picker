@@ -1,5 +1,5 @@
 jQuery DateplusTimePicker
-Version 0.6
+Version 0.7
 By Fernando San Julián
 Copyright 2010-2011 Fernando San Julián
 Dual Licensed under the MIT and GPL licenses.
@@ -23,6 +23,9 @@ jQuery UI Slider
 In demo folder you can find an html file with several demos and a complete documention.
 
 == Changelog ==
+
+version 0.7
+Fixed hour changes sometimes when sliding minutes
 
 version 0.6
 Fixed german translation by gogolok

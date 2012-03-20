@@ -1,16 +1,15 @@
-/*
-* jQuery dateplustimepicker
-* By: Fernando San Julián
-* Version 0.6
-* Last Modified: 
-* 
-* Copyright 2010 Fernando San Julián
-* Dual licensed under the MIT and GPL licenses.
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.gnu.org/licenses/gpl.html
-* 
-*
-*/
+/**
+ * jQuery dateplustimepicker
+ * By: Fernando San Julián
+ * Version 0.7
+ * Last Modified: 20/03/2012
+ * 
+ * Copyright 2010 Fernando San Julián
+ * Dual licensed under the MIT and GPL licenses.
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ * 
+ */
 
 (function($, undefined) {
 
@@ -44,7 +43,7 @@
 	Time.prototype.minutes = 0;
 	Time.prototype.seconds = 0;
 
-    /* getters and setters */
+	/* getters and setters */
 	Time.prototype.getHours = function() {
 		return this.hours;
 	};
@@ -128,18 +127,18 @@
 
 		// format to num regexp
 		var digitTimeFormat = format
-    		.replace(/hh/g, is12HourFormat ? '((0[0-9])|(1[0-2]))' : '(([0-1][0-9])|(2[0-3]))')
-    		.replace(/h/g, is12HourFormat ? '(([0-9])|(1[0-2]))' : '(([0-9])|(1[0-9])|(2[0-3]))')
-    		.replace(/mm/g, '([0-5][0-9])')
-    		.replace(/m/g, '(([0-9])|([1-5][0-9]))')
-    		.replace(/ss/g, '([0-5][0-9])')
-    		.replace(/s/g, '(([0-9])|([1-5][0-9]))')
-    		.replace(/TT/g, '(AM|PM)')
-    		.replace(/tt/g, '(am|pm)')
-    		.replace(/T/g, '(A|P)')
-    		.replace(/t/g, '(a|p)');
-    		
-    	return digitTimeFormat;
+			.replace(/hh/g, is12HourFormat ? '((0[0-9])|(1[0-2]))' : '(([0-1][0-9])|(2[0-3]))')
+			.replace(/h/g, is12HourFormat ? '(([0-9])|(1[0-2]))' : '(([0-9])|(1[0-9])|(2[0-3]))')
+			.replace(/mm/g, '([0-5][0-9])')
+			.replace(/m/g, '(([0-9])|([1-5][0-9]))')
+			.replace(/ss/g, '([0-5][0-9])')
+			.replace(/s/g, '(([0-9])|([1-5][0-9]))')
+			.replace(/TT/g, '(AM|PM)')
+			.replace(/tt/g, '(am|pm)')
+			.replace(/T/g, '(A|P)')
+			.replace(/t/g, '(a|p)');
+
+		return digitTimeFormat;
 	}
 
 	/* Checks if a string is a valid time in the specified format */
@@ -157,10 +156,12 @@
 		return format.match(/t{1,2}/ig) !== null;
 	}
 
-	/* Format a time object into a string value.
-	   If format is undefined a default 'hh:mm tt' format will be used.
-	   @param  format    string - the desired format of the time
-	   @return  string - the date in the specified format */
+	/**
+	 * Format a time object into a string value.
+	 * If format is undefined a default 'hh:mm tt' format will be used.
+	 * @param	format	string - the desired format of the time
+	 * @return			string - the date in the specified format
+	 */
 	Time.prototype.formatTime = function(format) {
 		var timeFormat = '';
 		if (format===undefined) {
@@ -179,16 +180,16 @@
 		var hours = Time._is12HourFormat(timeFormat) ? (this.hours>12 ? this.hours%12 : (this.hours==0 ? 12 : this.hours)) : this.hours;
 
 		formattedTime = timeFormat.toString()
-        	.replace(/hh/g, ((hours < 10) ? '0' : '') + hours)
-        	.replace(/h/g, hours)
-        	.replace(/mm/g, ((this.minutes < 10) ? '0' : '') + this.minutes)
-        	.replace(/m/g, this.minutes)
-        	.replace(/ss/g, ((this.seconds < 10) ? '0' : '') + this.seconds)
-        	.replace(/s/g, this.seconds)
-        	.replace(/TT/g, ampm.toUpperCase())
-        	.replace(/tt/g, ampm.toLowerCase())
-        	.replace(/T/g, ampm.charAt(0).toUpperCase())
-        	.replace(/t/g, ampm.charAt(0).toLowerCase());
+			.replace(/hh/g, ((hours < 10) ? '0' : '') + hours)
+			.replace(/h/g, hours)
+			.replace(/mm/g, ((this.minutes < 10) ? '0' : '') + this.minutes)
+			.replace(/m/g, this.minutes)
+			.replace(/ss/g, ((this.seconds < 10) ? '0' : '') + this.seconds)
+			.replace(/s/g, this.seconds)
+			.replace(/TT/g, ampm.toUpperCase())
+			.replace(/tt/g, ampm.toLowerCase())
+			.replace(/T/g, ampm.charAt(0).toUpperCase())
+			.replace(/t/g, ampm.charAt(0).toLowerCase());
 
 		return formattedTime;
 	};
@@ -213,9 +214,9 @@
 
 	/* Set time from a time object */
 	Time.prototype.setFromTime = function(time) {
-		var hours = (time.hours===undefined || (typeof time.hours != 'number')) ? 0 :  Math.round(time.hours);
-		var minutes = (time.minutes===undefined || (typeof time.minutes != 'number')) ? 0 :  Math.round(time.minutes);
-		var seconds = (time.seconds===undefined || (typeof time.seconds != 'number')) ? 0 :  Math.round(time.seconds);
+		var hours = (time.hours===undefined || (typeof time.hours != 'number')) ? 0 : Math.round(time.hours);
+		var minutes = (time.minutes===undefined || (typeof time.minutes != 'number')) ? 0 : Math.round(time.minutes);
+		var seconds = (time.seconds===undefined || (typeof time.seconds != 'number')) ? 0 : Math.round(time.seconds);
 		this.setFromSeconds(hours*3600 + minutes*60 + seconds);
 	};
 
@@ -304,19 +305,19 @@
 	//**************** END TIME OBJECT ****************//
 
 
-    function Dateplustimepicker() {
-        this.regional = []; // Available regional settings, indexed by language code
-        this.regional[''] = { // Default regional settings
-            currentText: 'Now', // override datepicker currentText when not user defined
-            hourText: 'Hours',
-            minuteText: 'Minutes',
-            secondText: 'Seconds',
-            timeFormat: 'hh:mm tt',
-            timeOnlyTitle: 'Choose Time',
-            timeText: 'Time'
-        };
-        this._defaults = {
-            // Global defaults for all the datetime picker instances
+	function Dateplustimepicker() {
+		this.regional = []; // Available regional settings, indexed by language code
+		this.regional[''] = { // Default regional settings
+			currentText: 'Now', // override datepicker currentText when not user defined
+			hourText: 'Hours',
+			minuteText: 'Minutes',
+			secondText: 'Seconds',
+			timeFormat: 'hh:mm tt',
+			timeOnlyTitle: 'Choose Time',
+			timeText: 'Time'
+		};
+		this._defaults = {
+			// Global defaults for all the datetime picker instances
 			altTimeField: '',
 			altTimeFormat: '',
 			defaultTime: {
@@ -324,7 +325,7 @@
 				minutes: 0,
 				seconds: 0
 			},
-            hourGrid: 0,
+			hourGrid: 0,
 			maxTime: {
 				hours: 23,
 				minutes: 59,
@@ -335,31 +336,33 @@
 				minutes: 0,
 				seconds: 0
 			},
-            minuteGrid: 0,
+			minuteGrid: 0,
 			onDateTimeChange: null, // Define a callback function when the date or time is changed
 			onDateTimeChangeStop: null, // Define a callback function when the date or time is changed (only after slide stops)
 			onTimeChange: null, // Define a callback function when the time is changed
 			onTimeChangeStop: null, // Define a callback function when the time is changed (only after slide stops)
-            secondGrid: 0,
-            showTime: true,
-            step: {
+			secondGrid: 0,
+			showTime: true,
+			step: {
 				hours: 0,
 				minutes: 0,
 				seconds: 1
 			},
-            timeOnly: false
-        };
-        $.extend(this._defaults, this.regional['']);
-    };
+			timeOnly: false
+		};
+		$.extend(this._defaults, this.regional['']);
+	};
 
-    $.extend(Dateplustimepicker.prototype, {
+	$.extend(Dateplustimepicker.prototype, {
 
-		/* Class name added to elements to indicate already configured with a time picker. */
+		// Class name added to elements to indicate already configured with a time picker.
 		markerClassName: 'hasDateplustimepicker',
 
-		/* Attach the time picker to a date picker.
-		   @param  target    element - the target input field or division or span
-		   @param  settings  object - the new settings to use for this datetime picker instance (anonymous) */
+		/**
+		 * Attach the time picker to a date picker.
+		 * @param	target		element - the target input field or division or span
+		 * @param	settings	object - the new settings to use for this datetime picker instance (anonymous)
+		 */
 		_attachDateplustimepicker: function(target, settings) {
 			// check for settings on the control itself - in namespace 'time:'
 			var inlineSettings = null;
@@ -388,9 +391,11 @@
 			}
 		},
 
-		/* Create a new instance object.
-		   @return the time picker instance */
-        _newInst: function() {
+		/**
+		 * Create a new instance object.
+		 * @return	the time picker instance
+		 */
+		_newInst: function() {
 	
 			var timepicker = {
 				time: new Time(),
@@ -401,9 +406,11 @@
 			return timepicker;
 		},
 		
-		/* Attach the time picker to a date picker.
-		   @param  target    element - the target input field or division or span
-		   @param  inst      object - date picker instance */
+		/**
+		 * Attach the time picker to a date picker.
+		 * @param	target	element - the target input field or division or span
+		 * @param	inst	object - date picker instance
+		 */
 		_connectDateplustimepicker: function(target, inst) {
 
 			var $input = $(target);
@@ -423,9 +430,11 @@
 
 		},
 
-		/* Make attachments based on settings.
-		   @param  input    element - the target input field or division or span
-		   @param  inst     object - date picker instance */
+		/**
+		 * Make attachments based on settings.
+		 * @param	input	element - the target input field or division or span
+		 * @param	inst	object - date picker instance
+		 */
 		_attachments: function(input, inst) {
 
 			var $input = input;
@@ -453,7 +462,7 @@
 			}
 			
 			// trigger timepicker when focus on altTimeField if exists
-            if ($altTimeField.length>0) {
+			if ($altTimeField.length>0) {
 				$.data($altTimeField[0], 'datepicker', inst); // add reference to inst
 				$altTimeField.addClass($.datepicker.markerClassName); // mark as part of datepicker
 				// altTimeField focus handler - show datepicker and get focus
@@ -470,12 +479,14 @@
 				$altTimeField.blur(function(){
 					$altTimeField.unbind('focus').focus(_onFocus); // restore focus handler
 				});
-            }
+			}
 
 		},
 
-		/* Apply the maximum length for the datetime format.
-		   @param  inst    object - date picker instance */
+		/**
+		 * Apply the maximum length for the datetime format.
+		 * @param	inst	object - date picker instance
+		 */
 		_autoSize: function(inst) {
 			if ($.datepicker._get(inst, 'autoSize') && !inst.inline) {
 				var time = new Time(24,59,59);
@@ -493,9 +504,11 @@
 			}
 		},
 
-		/* Attach time picker to an inline date picker.
-		   @param  target    element - the target input field or division or span
-		   @param  inst      object - date picker instance */
+		/**
+		 * Attach time picker to an inline date picker.
+		 * @param	target	element - the target input field or division or span
+		 * @param	inst	object - date picker instance
+		 */
 		_inlineDateplustimepicker: function(target, inst) {
 			var divSpan = $(target);
 			if (divSpan.hasClass(this.markerClassName))
@@ -513,14 +526,16 @@
 				timepicker.settings[name] : this._defaults[name];
 		},
 
-		/* Update or retrieve the settings for a time picker attached to an input field or division.
-		   @param  target  element - the target input field or division or span
-		   @param  name    object - the new settings to update or
-		                   string - the name of the setting to change or retrieve,
-		                   when retrieving also 'all' for all instance settings or
-		                   'defaults' for all global defaults
-		   @param  value   any - the new value for the setting
-		                   (omit if above is an object or to retrieve a value) */
+		/**
+		 * Update or retrieve the settings for a time picker attached to an input field or division.
+		 * @param	target	element - the target input field or division or span
+		 * @param	name	object - the new settings to update or
+		 *					string - the name of the setting to change or retrieve,
+		 *						when retrieving also 'all' for all instance settings or
+		 *						'defaults' for all global defaults
+		 * @param	value	any - the new value for the setting
+		 *						(omit if above is an object or to retrieve a value)
+		 */
 		_optionDateTimePicker: function(target, name, value) {
 			var inst = $.datepicker._getInst(target);
 			if (arguments.length == 2 && typeof name == 'string') {
@@ -560,18 +575,19 @@
 			}
 		},
 
-        /* inject html for time picker into ui date picker
-		   @param  inst   object - datepicker instance */
-        injectTimePicker: function(inst)
-        {
+		/**
+		 * inject html for time picker into ui date picker
+		 * @param	inst	object - datepicker instance
+		 */
+		injectTimePicker: function(inst) {
 
-            var $dp = inst.dpDiv;
+			var $dp = inst.dpDiv;
 
-            // Prevent displaying twice
-            if ($(".ui-dateplustimepicker-div", $dp).length === 0) {
+			// Prevent displaying twice
+			if ($(".ui-dateplustimepicker-div", $dp).length === 0) {
 
-                var html = $.dateplustimepicker._generateHtml(inst);
-                $tp = $(html);
+				var html = $.dateplustimepicker._generateHtml(inst);
+				$tp = $(html);
 
 				// inject timepicker
 				var showButtonPanel = $.datepicker._get(inst, 'showButtonPanel');
@@ -585,20 +601,21 @@
 				$.dateplustimepicker._addSliders(inst);
 				$.dateplustimepicker._addGrids(inst);
 
-                // if only time
+				// if only time
 				var timeOnly = $.dateplustimepicker._get(inst.timepicker, "timeOnly");
-                if (timeOnly===true) {
+				if (timeOnly===true) {
 					var timeOnlyTitle = $.dateplustimepicker._get(inst.timepicker, "timeOnlyTitle");
-                    $tp.prepend(
-                    '<div class="ui-widget-header ui-helper-clearfix ui-corner-all">' +
-                    '<div class="ui-datepicker-title">' + timeOnlyTitle + '</div>' +
-                    '</div>');
-                    $dp.find('.ui-datepicker-header, .ui-datepicker-calendar').hide();
-                }
+					$tp.prepend(
+						'<div class="ui-widget-header ui-helper-clearfix ui-corner-all">' +
+						'<div class="ui-datepicker-title">' + timeOnlyTitle + '</div>' +
+						'</div>'
+					);
+					$dp.find('.ui-datepicker-header, .ui-datepicker-calendar').hide();
+				}
 
-            }
+			}
 
-        },
+		},
 
 		/* Generate the HTML for the current state of the time picker. */
 		_generateHtml: function(inst) {
@@ -623,43 +640,43 @@
 			var secondGrid = $.dateplustimepicker._get(inst.timepicker, "secondGrid");
 			
 			// begin timepicker layer
-            var html = '<div class="ui-dateplustimepicker-div">';
+			var html = '<div class="ui-dateplustimepicker-div">';
 
 			// time display
 			html += '<div class="ui-dateplustimepicker-time"' + (showTime ? '': noDisplay) + '>';
-            html += '<div class="ui-dateplustimepicker-time-label ui-dateplustimepicker-label">' + timeText + '</div>';
-            html += '<div class="ui-dateplustimepicker-time-value ui-dateplustimepicker-value">' + time + '</div>';
+			html += '<div class="ui-dateplustimepicker-time-label ui-dateplustimepicker-label">' + timeText + '</div>';
+			html += '<div class="ui-dateplustimepicker-time-value ui-dateplustimepicker-value">' + time + '</div>';
 			html += '</div>';
 
 			// hour slider and grid
 			html += '<div class="ui-dateplustimepicker-hour"' + (showHour ? '': noDisplay) + '>';
-            html += '<div class="ui-dateplustimepicker-hour-label ui-dateplustimepicker-label">' + hourText + '</div>';
-            html += '<div class="ui-dateplustimepicker-hour-value ui-dateplustimepicker-value">';
-            html += '<div class="ui-dateplustimepicker-hour-slider"></div>';
+			html += '<div class="ui-dateplustimepicker-hour-label ui-dateplustimepicker-label">' + hourText + '</div>';
+			html += '<div class="ui-dateplustimepicker-hour-value ui-dateplustimepicker-value">';
+			html += '<div class="ui-dateplustimepicker-hour-slider"></div>';
 			html += '<div class = "ui-dateplustimepicker-hour-grid ui-dateplustimepicker-grid"' + (hourGrid>0 ? '' : noDisplay) + '></div>';
-            html += '</div>';
+			html += '</div>';
 			html += '</div>'
 
 			// minute slider and grid
 			html += '<div class="ui-dateplustimepicker-minute"' + (showMinute ? '': noDisplay) + '>';
-            html += '<div class="ui-dateplustimepicker-minute-label ui-dateplustimepicker-label">' + minuteText + '</div>';
-            html += '<div class="ui-dateplustimepicker-minute-value ui-dateplustimepicker-value">';
-            html += '<div class="ui-dateplustimepicker-minute-slider"></div>';
+			html += '<div class="ui-dateplustimepicker-minute-label ui-dateplustimepicker-label">' + minuteText + '</div>';
+			html += '<div class="ui-dateplustimepicker-minute-value ui-dateplustimepicker-value">';
+			html += '<div class="ui-dateplustimepicker-minute-slider"></div>';
 			html += '<div class = "ui-dateplustimepicker-minute-grid ui-dateplustimepicker-grid"' + (minuteGrid>0 ? '' : noDisplay) + '></div>';
-            html += '</div>';
+			html += '</div>';
 			html += '</div>'
 
 			// second slider and grid
 			html += '<div class="ui-dateplustimepicker-second"' + (showSecond ? '': noDisplay) + '>';
-            html += '<div class="ui-dateplustimepicker-second-label ui-dateplustimepicker-label">' + secondText + '</div>';
-            html += '<div class="ui-dateplustimepicker-second-value ui-dateplustimepicker-value">';
-            html += '<div class="ui-dateplustimepicker-second-slider"></div>';
+			html += '<div class="ui-dateplustimepicker-second-label ui-dateplustimepicker-label">' + secondText + '</div>';
+			html += '<div class="ui-dateplustimepicker-second-value ui-dateplustimepicker-value">';
+			html += '<div class="ui-dateplustimepicker-second-slider"></div>';
 			html += '<div class = "ui-dateplustimepicker-second-grid ui-dateplustimepicker-grid"' + (secondGrid>0 ? '' : noDisplay) + '></div>';
-            html += '</div>';
+			html += '</div>';
 			html += '</div>'
 
 			// end timepicker layer
-            html += '</div>';
+			html += '</div>';
 
 			return html;
 
@@ -677,71 +694,65 @@
 			
 			// hour slider
 			if (showHour) {
-	            $('.ui-dateplustimepicker-hour-slider', $dp).slider({
-	                orientation: "horizontal",
-	                value: inst.timepicker.time.hours,
-	                min: 0,
-	                max: 23,
-	                step: 1,
-					start: function(event, ui)
-					{
+				$('.ui-dateplustimepicker-hour-slider', $dp).slider({
+					orientation: "horizontal",
+					value: inst.timepicker.time.hours,
+					min: 0,
+					max: 23,
+					step: 1,
+					start: function(event, ui) {
 						timeSlidersTarget = "hour";
 						timeSlidersStartValue = ui.value;
 					},
-	                slide: function(event, ui)
-	                {
-	                    $.dateplustimepicker._onHourChange(inst, ui.value);
-	                },
+					slide: function(event, ui) {
+						$.dateplustimepicker._onHourChange(inst, ui.value);
+					},
 					stop: function(event, ui) {
 						$.dateplustimepicker._updateSliders(inst);
 					}
-	            });
+				});
 			}
 
 			// minute slider
 			if (showMinute) {
-	            $('.ui-dateplustimepicker-minute-slider', $dp).slider({
-	                orientation: "horizontal",
-	                value: inst.timepicker.time.minutes,
-	                min: 0,
-	                max: 59,
-	                step: 1,
-					start: function(event, ui)
-					{
+				$('.ui-dateplustimepicker-minute-slider', $dp).slider({
+					orientation: "horizontal",
+					value: inst.timepicker.time.minutes,
+					min: 0,
+					max: 59,
+					step: 1,
+					start: function(event, ui) {
 						timeSlidersTarget = "minute";
 						timeSlidersStartValue = ui.value;
 					},
-	                slide: function(event, ui)
-	                {
-	                  	$.dateplustimepicker._onMinuteChange(inst, ui.value);
-	                },
+					slide: function(event, ui) {
+						$.dateplustimepicker._onMinuteChange(inst, ui.value);
+					},
 					stop: function(event, ui) {
 						$.dateplustimepicker._updateSliders(inst);
 					}
-	            });
+				});
 			}
 
 			// second slider
 			if (showSecond) {
-	            $('.ui-dateplustimepicker-second-slider', $dp).slider({
-	                orientation: "horizontal",
-	                value: inst.timepicker.time.seconds,
-	                min: 0,
-	                max: 59,
-	                step: 1,
-					start: function(event, ui)
-					{
+				$('.ui-dateplustimepicker-second-slider', $dp).slider({
+					orientation: "horizontal",
+					value: inst.timepicker.time.seconds,
+					min: 0,
+					max: 59,
+					step: 1,
+					start: function(event, ui) {
 						timeSlidersTarget = "second";
 						timeSlidersStartValue = ui.value;
 					},
-	                slide: function(event, ui)
-	                {
-	                    $.dateplustimepicker._onSecondChange(inst, ui.value);
-	                },
+					slide: function(event, ui) {
+						$.dateplustimepicker._onSecondChange(inst, ui.value);
+					},
 					stop: function(event, ui) {
 						$.dateplustimepicker._updateSliders(inst);
 					}
-	            });
+				});
 			}
 
 		},
@@ -776,27 +787,26 @@
 
 				var html = '<table><tr>';
 
-	            for (var h = 0; h < 24; h += hourGrid)
-	            {
-	                // hourGridSize++;
+				for (var h = 0; h < 24; h += hourGrid) {
+					// hourGridSize++;
 					time.hours = h;
 					var hour = ampm ? time.formatTime('hht') : time.formatTime('hh');
-	                html += '<td width="' + tdWidth + '%"><span' + ((h<hourMin || h>hourMax) ? ' style="display:none;">' : '>') + hour + '</span></td>';
-	            }
+					html += '<td width="' + tdWidth + '%"><span' + ((h<hourMin || h>hourMax) ? ' style="display:none;">' : '>') + hour + '</span></td>';
+				}
 
-	            html += '</tr></table>';
+				html += '</tr></table>';
 	
 				$('.ui-dateplustimepicker-hour .ui-dateplustimepicker-hour-grid', $dp).append(html);
 
-                $(".ui-dateplustimepicker-hour span", $dp).each(function(index) {
-                   	$(this).click(function() {
-                        var h = $(this).html();
-						var time = ampm ? new Time(h, 'hht') : new Time(h, 'hh');  
+				$(".ui-dateplustimepicker-hour span", $dp).each(function(index) {
+					$(this).click(function() {
+						var h = $(this).html();
+						var time = ampm ? new Time(h, 'hht') : new Time(h, 'hh');
 						var value = time.hours;
-                        $.dateplustimepicker._onHourChange(inst, value);
+						$.dateplustimepicker._onHourChange(inst, value);
 						$.dateplustimepicker._updateSliders(inst);
-                    });
-                });
+					});
+				});
 
 			}
 
@@ -807,22 +817,21 @@
 
 				var html = '<table><tr>';
 
-	            for (var m = 0; m < 60; m += minuteGrid)
-	            {
-	                html += '<td width="' + tdWidth + '%"><span>' + ((m < 10) ? '0': '') + m + '</span></td>';
-	            }
+				for (var m = 0; m < 60; m += minuteGrid) {
+					html += '<td width="' + tdWidth + '%"><span>' + ((m < 10) ? '0': '') + m + '</span></td>';
+				}
 
-	            html += '</tr></table>';
+				html += '</tr></table>';
 
 				$('.ui-dateplustimepicker-minute .ui-dateplustimepicker-minute-grid', $dp).append(html);
 
-                $(".ui-dateplustimepicker-minute span", $dp).each(function(index) {
-                    $(this).click(function() {
+				$(".ui-dateplustimepicker-minute span", $dp).each(function(index) {
+					$(this).click(function() {
 						var value = parseInt($(this).html(), 10);
-                        $.dateplustimepicker._onMinuteChange(inst, value);
+						$.dateplustimepicker._onMinuteChange(inst, value);
  						$.dateplustimepicker._updateSliders(inst, 'minute');
-                   });
-                });
+					});
+				});
 			}
 
 
@@ -833,29 +842,30 @@
 
 				var html = '<table><tr>';
 
-	            for (var s = 0; s < 60; s += secondGrid)
-	            {
-	                html += '<td width="' + tdWidth + '%"><span>' + ((s < 10) ? '0': '') + s + '</span></td>';
-	            }
+				for (var s = 0; s < 60; s += secondGrid) {
+					html += '<td width="' + tdWidth + '%"><span>' + ((s < 10) ? '0': '') + s + '</span></td>';
+				}
 
-	            html += '</tr></table>';
+				html += '</tr></table>';
 
 				$('.ui-dateplustimepicker-second .ui-dateplustimepicker-second-grid', $dp).append(html);
 
-                $(".ui-dateplustimepicker-second span", $dp).each(function(index) {
-                    $(this).click(function() {
+				$(".ui-dateplustimepicker-second span", $dp).each(function(index) {
+					$(this).click(function() {
 						var value = parseInt($(this).html(), 10);
-                        $.dateplustimepicker._onSecondChange(inst, value);
+						$.dateplustimepicker._onSecondChange(inst, value);
  						$.dateplustimepicker._updateSliders(inst, 'second');
-                   });
-                });
+					});
+				});
 
 			}
 
 		},
 
-        /* Update time display panel
-		   @param  inst   Object - datepicker instance */
+		/**
+		 * Update time display panel
+		 * @param	inst	Object - datepicker instance
+		 */
 		_updateTimeDisplay: function(inst) {
 			var format = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
 			var time = inst.timepicker.time.formatTime(format);
@@ -863,8 +873,10 @@
 			timeDisplay.text(time);
 		},
 
-        /* Update sliders with time value
-		   @param  inst   Object - datepicker instance */
+		/**
+ 		 * Update sliders with time value
+		 * @param	inst	Object - datepicker instance
+		 */
 		_updateSliders: function(inst) {
 			var hourSlider = $('.ui-dateplustimepicker-hour-slider', inst.dpDiv);
 			var minuteSlider = $('.ui-dateplustimepicker-minute-slider', inst.dpDiv);
@@ -880,8 +892,10 @@
 
 		},
 
-        /* Constraint the time taking into account min, max and step
-		   @param  inst   Object - datepicker instance */
+		/**
+		 * Constraint the time taking into account min, max and step
+		 * @param	inst	Object - datepicker instance
+		 */
 		_constraintTime: function(inst, slider) {
 			
 			var format = $.dateplustimepicker._get(inst.timepicker, 'timeFormat');
@@ -914,7 +928,7 @@
 			steps = steps<0 ? 0 : steps; // min time restriction
 			timeInSeconds = minTimeInSeconds + steps*stepInSeconds; // step restriction
 			timeInSeconds = timeInSeconds>maxTimeInSeconds ? maxTimeInSeconds : timeInSeconds; // max time restriction
-			
+
 			var time = new Time(timeInSeconds);
 
 			// correction
@@ -931,15 +945,18 @@
 
 		},
 
-        /* Update time when hour slider slides
-		   @param  inst   Object - datepicker instance
-		   @param  value  float - hour slider current value */
+		/**
+		 * Update time when hour slider slides
+		 * @param	inst	Object - datepicker instance
+		 * @param	value	float - hour slider current value
+		 */
 		_onHourChange: function(inst, value) {
-			
+
 			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
 
 			var previous_value = inst.timepicker.time.hours;
- 
+
+			if (value < 0) { value = 0; }
 			inst.timepicker.time.hours = value;
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst);
 			
@@ -959,15 +976,18 @@
 
 		},
 		
-        /* Update time when minute slider slides
-		   @param  inst   Object - datepicker instance
-		   @param  value  float - minute slider current value */
+		/**
+		 * Update time when minute slider slides
+		 * @param	inst		Object - datepicker instance
+		 * @param	value	float - minute slider current value
+		 */
 		_onMinuteChange: function(inst, value) {
-			
+
 			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
 
 			var previous_value = inst.timepicker.time.minutes;
  
+			if (value < 0) { value = 0; }
 			inst.timepicker.time.minutes = value;
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst, 'minute');
 
@@ -985,15 +1005,18 @@
 
 		},
 
-        /* Update time when second slider slides
-		   @param  inst   Object - datepicker instance
-		   @param  value  float - second slider current value */
+		/**
+		 * Update time when second slider slides
+		 * @param	inst	Object - datepicker instance
+		 * @param	value	float - second slider current value
+		 */
 		_onSecondChange: function(inst, value) {
 			
 			if ($.datepicker._isDisabledDatepicker(inst.input[0])) return;
 
 			var previous_value = inst.timepicker.time.seconds;
- 
+
+			if (value < 0) { value = 0; }
 			inst.timepicker.time.seconds = value;
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst, 'second');
 
@@ -1042,8 +1065,10 @@
 					[date, inst, fromPicker]);
 		},
 
-		/* Update inputs with current date and time.
-		   @param  inst   object - date picker instance */
+		/**
+		 * Update inputs with current date and time.
+		 * @param	inst	object - date picker instance
+		 */
 		updateDateTime: function(inst) {
 			
 			var date = $.datepicker._formatDate(inst);
@@ -1059,113 +1084,115 @@
 			
 			var inputVal = date;
 			
-            if (timeOnly===true) {
+			if (timeOnly===true) {
 				inputVal = time;
 				inst.timepicker.lastVal = inputVal;
-                if ($altTimeField.length>0)
-                {
-                    $altTimeField.val(time);
+				if ($altTimeField.length>0) {
+					$altTimeField.val(time);
 					inst.timepicker.lastAltFieldVal = time;
 				}
-            }
-            else if (timeOnly!==true) { // || timeAvailable)) {
+			}
+			else if (timeOnly!==true) { // || timeAvailable)) {
 
-                if ($altTimeField.length>0)
-                {
-                    $altTimeField.val(time);
+				if ($altTimeField.length>0) {
+					$altTimeField.val(time);
 					inst.timepicker.lastAltFieldVal = time;
-                }
-                else {
-                    inputVal += ' ' + time;
+				}
+				else {
+					inputVal += ' ' + time;
 					inst.timepicker.lastVal = inputVal;
-                }
-            }
+				}
+			}
 
-            if (!inst.inline && $input) {
-                $input.val(inputVal);
-                /*$input.trigger("change");*/
-            }
+			if (!inst.inline && $input) {
+				$input.val(inputVal);
+				/*$input.trigger("change");*/
+			}
 
 			$.dateplustimepicker._updateAlternate(inst);
 
 		},
 
-		/* Override the default settings for all instances of the time picker.
-		   @param  settings  object - the new settings to use as defaults (anonymous object)
-		   @return the manager object */
-        setDefaults: function(settings) {
-            extendRemove(this._defaults, settings || {});
-            return this;
-        },
+		/**
+		 * Override the default settings for all instances of the time picker.
+		 * @param	settings	object - the new settings to use as defaults (anonymous object)
+		 * @return the manager object
+		 */
+		setDefaults: function(settings) {
+			extendRemove(this._defaults, settings || {});
+			return this;
+		},
 
-        /* Get the date for the first entry in a jQuery selection.
-			   @param  target     element - the target input field or division or span
-			   @param  noDefault  boolean - true if no default date is to be used
-			   @return Date - the current date and time */
-        _getDateTimeDateTimePicker: function(target, noDefault) {
-            var inst = $.datepicker._getInst(target);
-            if (inst && !inst.inline)
-            	$.dateplustimepicker._setDateTimeFromField(inst, noDefault);
-            return (inst ? $.dateplustimepicker._getDateTime(inst) : null);
-        },
+		/**
+		 * Get the date for the first entry in a jQuery selection.
+		 * @param	target		element - the target input field or division or span
+		 * @param	noDefault	boolean - true if no default date is to be used
+		 * @return Date - the current date and time
+		 */
+		_getDateTimeDateTimePicker: function(target, noDefault) {
+			var inst = $.datepicker._getInst(target);
+			if (inst && !inst.inline) {
+				$.dateplustimepicker._setDateTimeFromField(inst, noDefault);
+			}
+			return (inst ? $.dateplustimepicker._getDateTime(inst) : null);
+		},
 
-        /* Retrieve the datetime directly. */
-        _getDateTime: function(inst) {
-
+		/* Retrieve the datetime directly. */
+		_getDateTime: function(inst) {
 			var date = (!inst.currentYear || (inst.input && inst.input.val() == '') ? null :
-				new Date(inst.currentYear, inst.currentMonth, inst.currentDay,
-                inst.timepicker.time.hours, inst.timepicker.time.minutes, inst.timepicker.time.seconds));
+				new Date(inst.currentYear, inst.currentMonth, inst.currentDay, inst.timepicker.time.hours, inst.timepicker.time.minutes, inst.timepicker.time.seconds));
 			return date;
+		},
 
-        },
-
-        /* Set the dates for a jQuery selection.
-			   @param  target   element - the target input field or division or span
-			   @param  date     Date - the new date */
-        _setDateTimeDateTimePicker: function(target, date, noChange) {
+		/**
+		 * Set the dates for a jQuery selection.
+		 * @param	target	element - the target input field or division or span
+		 * @param	date	Date - the new date
+		 */
+		_setDateTimeDateTimePicker: function(target, date, noChange) {
 	
 			if(date===null) { return; }
 
-            var inst = $.datepicker._getInst(target);
-            var format = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
-            var digitTimeFormat;
-            var digitTimeFormatRegExp;
-            var timePosition;
-            var dateString;
-            var timeString;
-            
-            if (inst) {
+			var inst = $.datepicker._getInst(target);
+			var format = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
+			var digitTimeFormat;
+			var digitTimeFormatRegExp;
+			var timePosition;
+			var dateString;
+			var timeString;
+
+			if (inst) {
 
 				if (typeof date == 'object' && date!==null) {
 					$.datepicker._setDate(inst, new Date(date.getTime()), noChange);
-	                $.dateplustimepicker._setTimeDateTime(inst, date);
+					$.dateplustimepicker._setTimeDateTime(inst, date);
 				}
 				else {
 					digitTimeFormat = Time._formatToDigitFormat(format);
 					digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
-            		timePosition = date.search(digitTimeFormatRegExp);
-            		dateString = (timePosition != -1) ? date.substring(0, timePosition-1) : date;
-            		timeString = date.substring(timePosition);
+					timePosition = date.search(digitTimeFormatRegExp);
+					dateString = (timePosition != -1) ? date.substring(0, timePosition-1) : date;
+					timeString = date.substring(timePosition);
 					$.datepicker._setDate(inst, dateString, noChange);
-	                $.dateplustimepicker._setTimeFromString(inst, timeString);
+					$.dateplustimepicker._setTimeFromString(inst, timeString);
 				}
 
-	            // update the input field
-	            $.dateplustimepicker.updateDateTime(inst);
+				// update the input field
+				$.dateplustimepicker.updateDateTime(inst);
 
-	            $.datepicker._updateDatepicker(inst);
-            }
-        },
+				$.datepicker._updateDatepicker(inst);
+			}
+		},
 
-        /* Set the time directly from a date or datetime string. */
-        _setTimeDateTime: function(inst, date, noChange) {
+		/* Set the time directly from a date or datetime string. */
+		_setTimeDateTime: function(inst, date, noChange) {
 
-            // set time from Date object
-            if (typeof date == 'object' && date!==null) {
-                $.dateplustimepicker._setTimeFromDate(inst, date);
-            } else if (typeof date == 'string') {
-                $.dateplustimepicker._setTimeFromDateTimeString(inst, date);
-            }
+			// set time from Date object
+			if (typeof date == 'object' && date!==null) {
+				$.dateplustimepicker._setTimeFromDate(inst, date);
+			} else if (typeof date == 'string') {
+				$.dateplustimepicker._setTimeFromDateTimeString(inst, date);
+			}
 
 			// apply min and max constraints
 			inst.timepicker.time = $.dateplustimepicker._constraintTime(inst);
@@ -1174,22 +1201,22 @@
 			this._notifyTimeChangeStop(inst, false);
 			this._notifyDateTimeChange(inst, false);
 			this._notifyDateTimeChangeStop(inst, false);
-        },
+		},
 
-        /* Set the time directly from a datetime string. */
+		/* Set the time directly from a datetime string. */
 		_setTimeFromDateTimeString: function(inst, datetimeString, noDefault) {
 			
 			var timeFormat = $.dateplustimepicker._get(inst.timepicker, 'timeFormat');
 			var	digitTimeFormat = Time._formatToDigitFormat(timeFormat);
 			var	digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
-            var timePosition = datetimeString.search(digitTimeFormatRegExp);
+			var timePosition = datetimeString.search(digitTimeFormatRegExp);
 			var timeString = datetimeString.substring(timePosition);
 
 			$.dateplustimepicker._setTimeFromString(inst, timeString, noDefault);
 
 		},
 
-        /* Set the time directly from a time string. */
+		/* Set the time directly from a time string. */
 		_setTimeFromString: function(inst, timeString, noDefault) {
 			
 			var timeFormat = $.dateplustimepicker._get(inst.timepicker, 'timeFormat');
@@ -1206,38 +1233,41 @@
 
 		},
 
-        /* Set the time directly from a date object. */
+		/* Set the time directly from a date object. */
 		_setTimeFromDate: function(inst, date) {
 
-	        if (inst.timepicker) {
-	            inst.timepicker.time.hours = date.getHours();
-	            inst.timepicker.time.minutes = date.getMinutes();
-	            inst.timepicker.time.seconds = date.getSeconds();
+			if (inst.timepicker) {
+				inst.timepicker.time.hours = date.getHours();
+				inst.timepicker.time.minutes = date.getMinutes();
+				inst.timepicker.time.seconds = date.getSeconds();
 			}
 
 		},
-		
-        /* Set the time directly from a time object. */
+
+		/* Set the time directly from a time object. */
 		_setTimeFromObject: function(inst, time) {
-			
-	        if (inst.timepicker) {
-	            inst.timepicker.time.hours = time.hours;
-	            inst.timepicker.time.minutes = time.minutes;
-	            inst.timepicker.time.seconds = time.seconds;
+
+			if (inst.timepicker) {
+				inst.timepicker.time.hours = time.hours;
+				inst.timepicker.time.minutes = time.minutes;
+				inst.timepicker.time.seconds = time.seconds;
 			}
 
 		},
 
-        /* Get the time for the first entry in a jQuery selection.
-			   @param  target     element - the target input field or division or span
-			   @param  noDefault  boolean - true if no default date is to be used
-			   @return Time - the current time */
-        _getTimeDateTimePicker: function(target, noDefault) {
-            var inst = $.datepicker._getInst(target);
-            if (inst && !inst.inline)
-            	$.dateplustimepicker._setDateTimeFromField(inst, noDefault);
-            return (inst ? $.dateplustimepicker._getTime(inst) : null);
-        },
+		/**
+		 * Get the time for the first entry in a jQuery selection.
+		 * @param	target		element - the target input field or division or span
+		 * @param	noDefault	boolean - true if no default date is to be used
+		 * @return Time - the current time
+		 */
+		_getTimeDateTimePicker: function(target, noDefault) {
+			var inst = $.datepicker._getInst(target);
+			if (inst && !inst.inline) {
+				$.dateplustimepicker._setDateTimeFromField(inst, noDefault);
+			}
+			return (inst ? $.dateplustimepicker._getTime(inst) : null);
+		},
 
 		/* Retrieve the time directly. */
 		_getTime: function(inst) {
@@ -1245,26 +1275,28 @@
 				inst.timepicker.time);
 			return time;
 		},
-	
-        /* Set the time for a jQuery selection.
-			   @param  target   element - the target input field or division or span
-			   @param  date     Date - the new date */
-        _setTimeDateTimePicker: function(target, time, noChange) {
+
+		/**
+		 * Set the time for a jQuery selection.
+		 * @param	target	element - the target input field or division or span
+		 * @param	date	Date - the new date
+		 */
+		_setTimeDateTimePicker: function(target, time, noChange) {
 
 			if (time===null) { return; }
 
-            var inst = $.datepicker._getInst(target);
+			var inst = $.datepicker._getInst(target);
 
-            if (inst) {
+			if (inst) {
 
-               $.dateplustimepicker._setTime(inst, time);
+				$.dateplustimepicker._setTime(inst, time);
 
-	            // update the input field
-	            $.dateplustimepicker.updateDateTime(inst);
+				// update the input field
+				$.dateplustimepicker.updateDateTime(inst);
 
-	            $.datepicker._updateDatepicker(inst);
-            }
-        },
+				$.datepicker._updateDatepicker(inst);
+			}
+		},
 
 		/* Set the time directly. */
 		_setTime: function(inst, time) {
@@ -1318,10 +1350,10 @@
 			var chars = '0123456789';
 
 			var otherChars = format.replace(/[hms]/g, '')
-    			.replace(/TT/g, 'APM')
-    			.replace(/tt/g, 'apm')
-    			.replace(/T/g, 'AP')
-    			.replace(/t/g, 'ap');
+				.replace(/TT/g, 'APM')
+				.replace(/tt/g, 'apm')
+				.replace(/T/g, 'AP')
+				.replace(/t/g, 'ap');
 
 			chars += otherChars;
 			
@@ -1332,39 +1364,39 @@
 		/* Filter entered characters - based on date and time formats. */
 		_doKeyPress: function(event) {
 
-	        var inst = $.datepicker._getInst(event.target);
+			var inst = $.datepicker._getInst(event.target);
 			var constrainInput = $.datepicker._get(inst, 'constrainInput');
 
-            if (constrainInput) {
+			if (constrainInput) {
 				var dateFormat = $.datepicker._get(inst, 'dateFormat');
 				var timeFormat = $.dateplustimepicker._get(inst, 'timeFormat')
-                var dateChars = $.datepicker._possibleChars(dateFormat);
+				var dateChars = $.datepicker._possibleChars(dateFormat);
 				var timeChars = $.dateplustimepicker._possibleChars(timeFormat);
 				var chars = dateChars + timeChars;
 				 
-                var chr = String.fromCharCode(event.charCode === undefined ? event.keyCode: event.charCode);
+				var chr = String.fromCharCode(event.charCode === undefined ? event.keyCode: event.charCode);
 
-                return event.ctrlKey || (chr < ' ' || !chars || chars.indexOf(chr) > -1);
-            }
+				return event.ctrlKey || (chr < ' ' || !chars || chars.indexOf(chr) > -1);
+			}
 
-	    },
+		},
 
 		/* Filter entered characters - based on time format. */
 		_doKeyPressTime: function(event) {
 			
-	        var inst = $.data(event.target, 'datepicker') || $.datepicker._getInst(event.target);
+			var inst = $.data(event.target, 'datepicker') || $.datepicker._getInst(event.target);
 			var constrainInput = $.datepicker._get(inst, 'constrainInput');
 
-            if (constrainInput) {
+			if (constrainInput) {
 				var timeFormat = $.dateplustimepicker._get(inst, 'timeFormat');
-                var chars = $.dateplustimepicker._possibleChars(timeFormat);
+				var chars = $.dateplustimepicker._possibleChars(timeFormat);
 
-                var chr = String.fromCharCode(event.charCode === undefined ? event.keyCode: event.charCode);
+				var chr = String.fromCharCode(event.charCode === undefined ? event.keyCode: event.charCode);
 
-                return event.ctrlKey || (chr < ' ' || !chars || chars.indexOf(chr) > -1);
-            }
+				return event.ctrlKey || (chr < ' ' || !chars || chars.indexOf(chr) > -1);
+			}
 
-	    },
+		},
 
 		/* Synchronise manual entry and field/alternate field. */
 		_doKeyUpTime: function(event) {
@@ -1377,8 +1409,8 @@
 			if (val != lastVal) {
 				$.dateplustimepicker._setTimeFromString(inst, val, true); // try to set time
 				inst.timepicker.time = $.dateplustimepicker._constraintTime(inst); // apply min and max constraints
-	            $.datepicker._updateAlternate(inst); // update the alternate input field
-	            $.datepicker._updateDatepicker(inst); // update picker
+				$.datepicker._updateAlternate(inst); // update the alternate input field
+				$.datepicker._updateDatepicker(inst); // update picker
 				if (!lastTime.equals(inst.timepicker.time)) {
 					var format = $.dateplustimepicker._get(inst.timepicker, 'timeFormat');
 					$(event.target).val(inst.timepicker.time.formatTime(format));
@@ -1402,8 +1434,8 @@
 			if (val != lastVal) {
 				$.dateplustimepicker._setTimeFromDateTimeString(inst, val, true); // try to set time
 				inst.timepicker.time = $.dateplustimepicker._constraintTime(inst); // apply min and max constraints
-	            $.datepicker._updateAlternate(inst); // update the alternate input field
-	            $.datepicker._updateDatepicker(inst); // update picker
+				$.datepicker._updateAlternate(inst); // update the alternate input field
+				$.datepicker._updateDatepicker(inst); // update picker
 			}
 			if (val == "") {
 				$.dateplustimepicker._setDateTimeFromField(inst);
@@ -1422,8 +1454,10 @@
 		},
 
 		_datepickerUpdateAlternate: $.datepicker._updateAlternate,
-		/* Update any alternate field to synchronise with the main field.
-		   @param  inst   Object - datepicker instance */
+		/**
+		 * Update any alternate field to synchronise with the main field.
+		 * @param	inst	Object - datepicker instance
+		 */
 		_updateAlternate: function(inst) {
 			
 			if (!inst.timepicker) {
@@ -1452,17 +1486,17 @@
 		/* Action for current link. */
 		_gotoToday: function(id) {
 
-	        var target = $(id);
-	        var inst = $.datepicker._getInst(target[0]);
+			var target = $(id);
+			var inst = $.datepicker._getInst(target[0]);
 
-	        if (inst.timepicker) {
+			if (inst.timepicker) {
 				$.dateplustimepicker._setDateTimeDateTimePicker(target[0], new Date());
 			}
 			else {
 				$.dateplustimepicker._datepickerGotoToday.apply($.datepicker, [id]);
 			}
 
-	    },
+		},
 
 		_datepickerSetDate: $.datepicker._setDate,
 		/* Set the date directly. */
@@ -1476,29 +1510,29 @@
 			}
 		},
 
-	    _datepickerSelectDate: $.datepicker._selectDate,
+		_datepickerSelectDate: $.datepicker._selectDate,
 		/* Update the input field with the selected date and current time. */
  		_selectDate: function(id, dateStr) {
 
-	        var target = $(id);
-	        var inst = $.datepicker._getInst(target[0]);
+			var target = $(id);
+			var inst = $.datepicker._getInst(target[0]);
 
-	        if (inst.timepicker) {
+			if (inst.timepicker) {
 				var inline = inst.inline;
-	            inst.inline = true;
-	            $.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
-	            inst.inline = inline;
+				inst.inline = true;
+				$.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
+				inst.inline = inline;
 				$.dateplustimepicker.updateDateTime(inst);
 				$.dateplustimepicker._notifyDateTimeChange(inst, true);
 				$.dateplustimepicker._notifyDateTimeChangeStop(inst, true);
-	        }
-	        else {
-	            $.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
-	        }
+			}
+			else {
+				$.dateplustimepicker._datepickerSelectDate.apply($.datepicker, [id, dateStr]);
+			}
 
-	    },
+		},
 
-	    _datepickerSetDateFromField: $.datepicker._setDateFromField,
+		_datepickerSetDateFromField: $.datepicker._setDateFromField,
 		/* Parse existing date and initialise date picker. */
  		_setDateFromField: function(inst, noDefault) {
 
@@ -1512,11 +1546,11 @@
 			}
 			var dateFormat = $.datepicker._get(inst, 'dateFormat');
 
-            var timeFormat = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
-            var digitTimeFormat = Time._formatToDigitFormat(timeFormat);
-            var digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
-            var timePosition = inst.input.val().search(digitTimeFormatRegExp);
-            var dateString =  (timePosition != -1) ? inst.input.val().substring(0, timePosition-1) : inst.input.val();
+			var timeFormat = $.dateplustimepicker._get(inst.timepicker, "timeFormat");
+			var digitTimeFormat = Time._formatToDigitFormat(timeFormat);
+			var digitTimeFormatRegExp = new RegExp(digitTimeFormat + '$', 'g');
+			var timePosition = inst.input.val().search(digitTimeFormatRegExp);
+			var dateString = (timePosition != -1) ? inst.input.val().substring(0, timePosition-1) : inst.input.val();
 
 			var dates = inst.lastVal = inst.input ? dateString : null;
 			var date, defaultDate;
@@ -1535,31 +1569,33 @@
 			inst.currentMonth = (dates ? date.getMonth() : 0);
 			inst.currentYear = (dates ? date.getFullYear() : 0);
 			this._adjustInstDate(inst);
-	    }
+		}
 
-    });
+	});
 
-    /* extend timepicker to datepicker */
-    jQuery.fn.dateplustimepicker = function(options) {
+	/* extend timepicker to datepicker */
+	jQuery.fn.dateplustimepicker = function(options) {
 
 		var otherArgs = Array.prototype.slice.call(arguments, 1);
-        if (typeof(options) == 'string') {
+		if (typeof(options) == 'string') {
 
 			if (options == 'getDateTime' || options == 'getTime' || 
-				(options == 'option' && arguments.length == 2 && typeof arguments[1] == 'string'))
+				(options == 'option' && arguments.length == 2 && typeof arguments[1] == 'string')) {
 				return $.dateplustimepicker['_' + options + 'DateTimePicker'].apply($.dateplustimepicker, [this[0]].concat(otherArgs));
+			}
 
-            if (options == 'setDateTime' || options == 'setTime' || options == 'option')
+			if (options == 'setDateTime' || options == 'setTime' || options == 'option') {
  				return this.each(function() {
 					$.dateplustimepicker['_' + options + 'DateTimePicker'].apply($.dateplustimepicker, [this].concat(otherArgs));
 				});
+			}
 
-            if (options == 'dialog')
-            	return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
+			if (options == 'dialog') {
+				return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
+			}
 
-            return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
-        }
-
+			return this.datepicker(options, arguments[1], arguments[2], arguments[3], arguments[4]);
+		}
 
 		var settings = $.extend({}, {
 				currentText: $.dateplustimepicker._defaults.currentText
@@ -1573,28 +1609,30 @@
 		});
 		return this;
 
-    };
+	};
 
-    /* shorthand just to use timepicker.. */
-    jQuery.fn.timepicker = function(opts) {
-        if (typeof opts == 'object')
-        opts = $.extend(opts, {
-            timeOnly: true
-        });
+	/* shorthand just to use timepicker.. */
+	jQuery.fn.timepicker = function(opts) {
+		if (typeof opts == 'object')
+		opts = $.extend(opts, {
+			timeOnly: true
+		});
 
-        return $(this).dateplustimepicker(opts, arguments[1], arguments[2], arguments[3], arguments[4]);
-    };
+		return $(this).dateplustimepicker(opts, arguments[1], arguments[2], arguments[3], arguments[4]);
+	};
 
 	/* jQuery extend now ignores nulls! */
-    function extendRemove(target, props) {
-        $.extend(target, props);
-        for (var name in props)
-        	if (props[name] == null || props[name] == undefined)
-        		target[name] = props[name];
-        return target;
-    };
+	function extendRemove(target, props) {
+		$.extend(target, props);
+		for (var name in props) {
+			if (props[name] == null || props[name] == undefined) {
+				target[name] = props[name];
+			}
+		}
+		return target;
+	};
 
-    $.dateplustimepicker = new Dateplustimepicker(); // singleton instance
+	$.dateplustimepicker = new Dateplustimepicker(); // singleton instance
 
 	// date picker hacks
 	$.datepicker._updateDatepicker = $.dateplustimepicker._updateDateTimePicker;
