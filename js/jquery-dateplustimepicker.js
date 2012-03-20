@@ -196,9 +196,9 @@
 
 	/* Set time from hours, minutes and seconds */
 	Time.prototype.set = function(hours, minutes, seconds) {
-		var hours = (hours===undefined || (typeof hours != 'number')) ? 0 : Math.round(hours);
-		var minutes = (minutes===undefined || (typeof minutes != 'number')) ? 0 : Math.round(minutes);
-		var seconds = (seconds===undefined || (typeof minutes != 'number')) ? 0 : Math.round(seconds);
+		var hours = (hours===undefined || (typeof hours != 'number')) ? 0 : Math.round(hours);
+		var minutes = (minutes===undefined || (typeof minutes != 'number')) ? 0 : Math.round(minutes);
+		var seconds = (seconds===undefined || (typeof minutes != 'number')) ? 0 : Math.round(seconds);
 		this.setFromSeconds(hours*3600 + minutes*60 + seconds);
 	};
 
@@ -214,9 +214,9 @@
 
 	/* Set time from a time object */
 	Time.prototype.setFromTime = function(time) {
-		var hours = (time.hours===undefined || (typeof time.hours != 'number')) ? 0 : Math.round(time.hours);
-		var minutes = (time.minutes===undefined || (typeof time.minutes != 'number')) ? 0 : Math.round(time.minutes);
-		var seconds = (time.seconds===undefined || (typeof time.seconds != 'number')) ? 0 : Math.round(time.seconds);
+		var hours = (time.hours===undefined || (typeof time.hours != 'number')) ? 0 : Math.round(time.hours);
+		var minutes = (time.minutes===undefined || (typeof time.minutes != 'number')) ? 0 : Math.round(time.minutes);
+		var seconds = (time.seconds===undefined || (typeof time.seconds != 'number')) ? 0 : Math.round(time.seconds);
 		this.setFromSeconds(hours*3600 + minutes*60 + seconds);
 	};
 
